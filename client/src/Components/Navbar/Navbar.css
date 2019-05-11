@@ -1,0 +1,25 @@
+.navGrid{
+    position: fixed;
+    z-index: 50;
+}
+
+.loginBtn{
+    /* position: absolute; */
+    color: white;
+    font-size: 14px;
+    /* text-align: right!important; */
+    /* margin-right: 100%!important; */
+
+}
+
+.leftMenu{
+    position: block;
+    margin-right: 50%!important;
+    /* color: black; */
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.navBar {
+    background-color: #41b3a3!important;
+}
