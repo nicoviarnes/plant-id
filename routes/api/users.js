@@ -6,8 +6,9 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../../models/Users");
 
-//Route POST api/users
-//User Sign-up
+//@Route	POST api/users
+//@Desc		User Sign-up
+//@Access	Public
 router.post("/", (req, res) => {
 	const { name, email, password } = req.body;
 
@@ -32,13 +33,22 @@ router.post("/", (req, res) => {
 				if (err) throw err;
 				newUser.password = has;
 				newUser.save().then(user => {
+					//Sign Token
 					jwt.sign(
+						//Payload
+						//First param is json object equal to user id
+						//Using id so that we know who it belongs to, to access correct info
+						//Can be anything
 						{ id: user.id },
+						//get jwtsecret from config folder
 						config.get("jwtSecret"),
+						//Set expire to 1 hour
 						{ expiresIn: 3600 },
+						//Call Back Async
 						(err, token) => {
 							if (err) throw err;
 							res.json({
+								//gives us token and user when we register for private routes
 								token,
 								user: {
 									id: user.id,
