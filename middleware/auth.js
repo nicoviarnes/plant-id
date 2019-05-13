@@ -3,6 +3,8 @@ const jwt = require("jsonwebtoken");
 
 //Middle to get token sent from front-end
 function auth(req, res, next) {
+	//get it from the header
+	//x-auth-token is the header value we are checking for to get the token
 	const token = req.header("x-auth-token");
 
 	//check token
@@ -10,8 +12,10 @@ function auth(req, res, next) {
 
 	try {
 		//Verify Token
+		//pass in token and jwtsecret
 		const decoded = jwt.verify(token, config.get("jwtSecret"));
 		//Add user from payload
+		//Take user from token and put in request.user
 		req.user = decoded;
 		next();
 	} catch (e) {
@@ -21,10 +25,10 @@ function auth(req, res, next) {
 
 module.exports = auth;
 
+//EXAMPLE
+
 //const auth = require("path to middleware auth.js");
 //add auth into path as second parameter
-
-//EXAMPLE
 
 // router.post("/", auth, (req, res)=>{
 // 	const newItem = new Item({
