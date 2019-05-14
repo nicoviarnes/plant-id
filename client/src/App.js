@@ -9,6 +9,7 @@ import SimpleModalWrapped from './Components/LoginModal/LoginModal';
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={HomePage}/>

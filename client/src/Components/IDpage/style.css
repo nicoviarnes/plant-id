@@ -9,3 +9,54 @@
    background-size: cover;
    height:620px;
 }
+
+
+
+.input-back {
+    position: relative;
+    z-index: 1;
+}
+
+.input-back .bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* background: url("../../assets/images/tropical.jpg") center center;
+    opacity: .4; */
+    width: 100%;
+    height: 100%;
+}
+
+
+.id-title{
+    padding-top:5%;
+    
+}
+
+.sub-tag {
+    margin-top:20%;
+}
+
+.pic-box {
+    display:block;
+    height:20px;
+    width:45%;
+    margin-left:25%;
+    padding:3%;
+    border:2px solid black;
+    text-align:center;
+    margin-bottom:4%;
+}
+
+
+
+.sub-butt {
+    height:40px;
+    border:2px solid darkslategrey;
+    border-radius:20px;
+    color:darkgreen;
+    font-weight:bolder;
+}
