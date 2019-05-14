@@ -8,7 +8,8 @@ import "./style.css"
 
 
 const styles = {
-    Paper: {marginRight:50, marginLeft:50, marginTop:50, height:500}
+    Paper: {marginRight:75, marginLeft:75, marginTop:50, height:500},
+    
 }
 
 function IDpage (){
@@ -16,9 +17,9 @@ function IDpage (){
     return(
         <>
             <Grid container>
-                <Grid item sm={12}>
+                {/* <Grid item sm={12}>
                     <Navbar/>
-                </Grid>
+                </Grid> */}
                 <Grid item sm={12}>    
                     <div>
                         <h1>Test</h1>
@@ -29,8 +30,14 @@ function IDpage (){
                 </Grid>     
                 <Grid item sm={8}>    
                     <Paper style={styles.Paper}>
-                        This is the paper
-
+                        <div className="input-back">
+                        <div className="bg"></div>
+                            <h1 className="id-title">My Plant Identifier</h1>
+                            <h4 className="sub-tag">Upload a picture of a plant you wish to identify!</h4>                                          
+                            
+                            <input type="file" className="pic-box" name="pic" accept="image/*"/>                  
+                            <button className="sub-butt" type="submit">Find my Plant!</button>                                      
+                        </div>
                     </Paper> 
                 </Grid>
                               

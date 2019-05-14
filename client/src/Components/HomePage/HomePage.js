@@ -6,7 +6,7 @@ import './homePage.css';
 function HomePage() {
     return (
       <div className="App">
-      <Navbar/>
+      {/* <Navbar/> */}
         <div>
             <img className="splashImg" src={SplashBG} alt="splashImg"/>
             <h1 className="titleName">Name</h1>
