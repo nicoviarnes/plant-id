@@ -1,0 +1,80 @@
+.react-calendar{
+    margin-top: 10%;
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 5%;
+    /* height: 700px; */
+    font-size: 20px;
+    color: #e27d60;
+    color: #85DCB0;
+    color: #E8A87C;
+    color: #c38D9E;
+    color: #41B3A3;
+}
+
+.react-calendar__navigation{
+    background-color: gray;
+    /* font-size: 30px; */
+    height: 50px;
+}
+
+.react-calendar__navigation__label{
+    font-size: 25px;
+    text-shadow: 1px 1px black;
+    font-weight: bold;
+    pointer-events: none;  
+    color:#41B3A3;
+}
+
+.react-calendar__tile{
+    border: 1px solid gray!important;
+    /* text-align: center; */
+    pointer-events: none;  
+    padding-bottom: 5%;
+    /* text-align: justify; */
+    /* word-break: break-all;
+    white-space: pre; */
+    display: block;
+}
+
+.react-calendar__tile--active{
+    background-color: #85DCB0;
+}
+
+.imageDiv{
+    /* margin-top: 50%; */
+}
+
+.waterIcon{
+    background-color: #41B3A3;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 20px;
+    /* width: 20px;
+    max-height: 5vh;
+    max-width: 5vh; */
+}
+
+.seedIcon{
+    border: 2px solid black;
+    border-radius: 50%;
+    max-height: 100%;
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 23px;
+    /* width: 20px; */
+    background-color: greenyellow;
+}
+
+abbr{
+    /* line-height: 50px; */
+    /* vertical-align: middle; */
+    border-bottom: 1px solid black;
+    font-size: 16px;
+}
+
+abbr[title] {
+    border-bottom: none;
+}

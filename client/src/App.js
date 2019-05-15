@@ -5,8 +5,7 @@ import HomePage from "./Components/HomePage/HomePage";
 import IDpage from "./Components/IDpage/index";
 import ManageTab from "./Components/ManageTab/index";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import SimpleModalWrapped from "./Components/LoginModal/LoginModal";
-
+import Calendar from "./Components/Calendar/Calendar";
 import Login from "./Components/Login";
 import Form from "./Components/Form";
 import Protected from "./Components/Protected";
@@ -58,7 +57,7 @@ function App() {
 					{/* <Route path="/login" component={SimpleModalWrapped} /> */}
 					<Route path="/ID" component={IDpage} />
 					<Route path="/Manage" component={ManageTab} />
-
+					<Route path="/calendar" component={Calendar} />
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={Form} />
 					{/* Protected Routes */}
