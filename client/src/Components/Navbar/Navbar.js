@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -12,145 +12,140 @@ import Grid from "@material-ui/core/Grid";
 import Form from "../Form/index";
 import Login from "../Login/index";
 
+import Modal from "react-modal";
 
-
-
-import Modal from 'react-modal';
-
-import { ModalProvider, ModalConsumer } from '../LoginModal/ModalContext';
-import ModalRoot from '../LoginModal/ModalRoot';
+import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
+import ModalRoot from "../LoginModal/ModalRoot";
 
 // Register Modal
 const Modal1 = ({ onRequestClose, ...otherProps }) => (
-  <div className="modalWrapper">
-  <Modal isOpen onRequestClose={onRequestClose} {...otherProps} ariaHideApp={false}>
-  <div className="modalOne">
-    <Form/>
-    <Button variant="contained" className="modalClose" color="secondary" onClick={onRequestClose}>close</Button>
-  </div>
-  </Modal>
-  </div>
+	<div className="modalWrapper">
+		<Modal
+			isOpen
+			onRequestClose={onRequestClose}
+			{...otherProps}
+			ariaHideApp={false}
+		>
+			<div className="modalOne">
+				<Form />
+				<Button
+					variant="contained"
+					className="modalClose"
+					color="secondary"
+					onClick={onRequestClose}
+				>
+					close
+				</Button>
+			</div>
+		</Modal>
+	</div>
 );
 
 // Login Modal
 const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
-  <div className="modalWrapper">
-  <Modal isOpen onRequestClose={onRequestClose} {...otherProps}>
-  <div className="modalOne">
-    <Login/>
-    <Button variant="contained" className="modalClose" color="secondary" onClick={onRequestClose}>close</Button>
-  </div>
-  </Modal>
-  </div>
+	<div className="modalWrapper">
+		<Modal isOpen onRequestClose={onRequestClose} {...otherProps}>
+			<div className="modalOne">
+				<Login />
+				<Button
+					variant="contained"
+					className="modalClose"
+					color="secondary"
+					onClick={onRequestClose}
+				>
+					close
+				</Button>
+			</div>
+		</Modal>
+	</div>
 );
 
-
 const styles = theme => ({
-  root: {
-    flexGrow: 1
-  },
-  grow: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }
+	root: {
+		flexGrow: 1
+	},
+	grow: {
+		flexGrow: 1
+	},
+	menuButton: {
+		marginLeft: -12,
+		marginRight: 20
+	}
 });
 
-  function ButtonAppBar (props) {
-    const { classes } = props;
-    
-    return (
-      
-      <>
-        <div className={classes.root}>
-      <Grid container className="navGrid">
-        <AppBar className="navBar" position="static">
-          <Toolbar>
-            
-            <Grid className="leftMenu" item xs={12}>
-              <IconButton href="/" className={classes.root}>
-                {/* Home Button */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  >
-                  <path fill="none" d="M0 0h24v24H0V0z" />
-                  <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
-                  <path opacity=".3" d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" />
-                </svg>
-              </IconButton>
-              {/* Identify Button */}
-              <Button color="inherit">Identify</Button>
-              {/* Manage Button */}
-              <Button color="inherit">Manage</Button>
-              {/* Calender Button */}
-              <Button href="/calendar" color="inherit">Calender</Button>
-            </Grid>
+function ButtonAppBar(props) {
+	const { classes } = props;
 
+	return (
+		<>
+			<div className={classes.root}>
+				<Grid container className="navGrid">
+					<AppBar className="navBar" position="static">
+						<Toolbar>
+							<Grid className="leftMenu" item xs={12}>
+								<IconButton href="/" className={classes.root}>
+									{/* Home Button */}
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+									>
+										<path fill="none" d="M0 0h24v24H0V0z" />
+										<path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
+										<path
+											opacity=".3"
+											d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z"
+										/>
+									</svg>
+								</IconButton>
+								{/* Identify Button */}
+								<Button color="inherit">Identify</Button>
+								{/* Manage Button */}
+								<Button color="inherit">Manage</Button>
+								{/* Calender Button */}
+								<Button href="/calendar" color="inherit">
+									Calender
+								</Button>
+							</Grid>
 
-            {/* Navbar Text */}
-            <Grid item>
- 
-              {/* Login Button */}
-              <ModalProvider>
-    <ModalRoot />
-    <ModalConsumer>
-      {({ showModal }) => (
-        <Fragment>
-              <Button
-                classes={{ label: "loginBtn" }}
-                className="loginBtn"
-                color="inherit"
-                onClick={() => showModal(Modal2)}
-                >
-                Login
-              </Button>
+							{/* Navbar Text */}
+							<Grid item>
+								{/* Login Button */}
+								<ModalProvider>
+									<ModalRoot />
+									<ModalConsumer>
+										{({ showModal }) => (
+											<Fragment>
+												<Button
+													classes={{ label: "loginBtn" }}
+													className="loginBtn"
+													color="inherit"
+													onClick={() => showModal(Modal2)}
+												>
+													Login
+												</Button>
 
+												{/* Register Button */}
+												<Button
+													classes={{ label: "registerBtn" }}
+													className="registerBtn"
+													color="inherit"
+													onClick={() => showModal(Modal1)}
+												>
+													Register
+												</Button>
+											</Fragment>
+										)}
+									</ModalConsumer>
+								</ModalProvider>
+							</Grid>
+						</Toolbar>
+					</AppBar>
+				</Grid>
+			</div>
 
-              {/* Register Button */}
-              <Button
-                classes={{ label: "registerBtn" }}
-                className="registerBtn"
-                color="inherit"
-                onClick={() => showModal(Modal1)}
-                >
-                Register
-              </Button>
-
-</Fragment>
-)}
-</ModalConsumer>
-</ModalProvider>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </Grid>
-          </Toolbar>
-        </AppBar>
-      </Grid>
-    </div>
-
-
-
-
-
-
-
-    {/* <ModalProvider>
+			{/* <ModalProvider>
     <ModalRoot />
     <ModalConsumer>
       {({ showModal }) => (
@@ -163,13 +158,12 @@ const styles = theme => ({
       )}
     </ModalConsumer>
   </ModalProvider> */}
-    </>
-  );
-
+		</>
+	);
 }
 
 ButtonAppBar.propTypes = {
-  classes: PropTypes.object.isRequired
+	classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ButtonAppBar);
