@@ -9,11 +9,6 @@ import PlantTileWrap from "../PlantTileWrap/index";
 class ManageTab extends Component {
   state = {};
 
-  // clickedPlant = id => {
-  // 	console.log("you clicked");
-  // 	console.log(id);
-  // };
-
   render() {
     return (
       <>
@@ -31,8 +26,6 @@ class ManageTab extends Component {
                     scientific={plant.scientific}
                     nickname={plant.nickname}
                     daysSince={plant.daysSince}
-                    // clickedPlant={this.clickedPlant}
-                    // onClick={this.clickedPlant}
                   />
                 ))}
               </PlantTileWrap>

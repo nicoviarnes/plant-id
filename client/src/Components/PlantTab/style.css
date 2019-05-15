@@ -40,13 +40,20 @@
     width: 60%;
     
   }
+
+
   
-  img {    
-        background-size: contain;    
+  .thumb {    
+    background-size: contain;    
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
+  }
+
+  .wateringCan {
+    width: 20px;
+    height: 20px;
   }
 
 .tile-content {
