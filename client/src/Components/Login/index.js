@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Logo from "../../assets/images/hands.jpg";
+import Button from "@material-ui/core/Button";
 
 import "./style.css";
+
 
 class Login extends Component {
 	// Setting the component's initial state
@@ -33,6 +36,10 @@ class Login extends Component {
 		console.log("Login");
 		return (
 			<div className="test">
+               <img className="loginLogo" src={Logo} alt="logo"/>
+                    <h3 className="loginText">Login
+                    <hr className="loginHr"></hr>
+                    </h3>
 				<form className="form">
 					<input
 						name="email"
@@ -46,7 +53,9 @@ class Login extends Component {
 						onChange={this.handleInputChange}
 						placeholder="Enter a password"
 					/>
-					<button onClick={this.handleFormSubmit}>Submit</button>
+                    <br/><br/>
+                    <Button className='submitBtn' variant="contained" color="inherit" onClick={this.handleFormSubmit}>Submit</Button>
+
 				</form>
 			</div>
 		);

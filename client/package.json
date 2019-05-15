@@ -8,7 +8,9 @@
     "axios": "^0.18.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.8.6",
+    "react-calendar": "^2.18.1",
     "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1"
   },
