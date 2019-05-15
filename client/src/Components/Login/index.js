@@ -3,10 +3,9 @@ import API from "../../utils/API";
 
 import "./style.css";
 
-class Form extends Component {
+class Login extends Component {
 	// Setting the component's initial state
 	state = {
-		name: "",
 		email: "",
 		password: ""
 	};
@@ -20,28 +19,21 @@ class Form extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
-		API.userRegister({
-			name: this.state.name,
+		API.userLogin({
 			email: this.state.email,
 			password: this.state.password
 		})
-			.then(res => console.log(`You are logged in ${this.state.firstName}`))
+			.then(res => localStorage.setItem("x-auth-token", res.data.token))
+			// this.props.history.push("/protected"
 			.catch(err => console.log(err));
 	};
 
 	render() {
 		// Notice how each input has a `value`, `name`, and `onChange` prop
-		console.log("Register");
+		console.log("Login");
 		return (
 			<div className="test">
 				<form className="form">
-					<input
-						name="name"
-						type="text"
-						onChange={this.handleInputChange}
-						placeholder="Name"
-					/>
-
 					<input
 						name="email"
 						type="text"
@@ -61,4 +53,4 @@ class Form extends Component {
 	}
 }
 
-export default Form;
+export default Login;
