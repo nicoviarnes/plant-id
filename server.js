@@ -15,7 +15,8 @@ const db = config.get("mongoURI");
 //Connect to Mongo
 //Mongo Atlas
 //Gmail: project.plant.id@gmail.com : projectplantid
-//Atlas: project3!
+//Atlas: USER:	project.plant.id@gmail.com
+//PASS: project3!
 // "mongoURI": "mongodb+srv://project_3:123@cluster0-zndk3.mongodb.net/test?retryWrites=true",
 mongoose
 	.connect(process.env.MONGODB_URI || db, {
