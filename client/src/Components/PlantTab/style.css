@@ -1,0 +1,63 @@
+
+
+.main-title {
+  font-size:40px;
+  font-weight:bolder;
+  color:darkgreen;
+  text-decoration: underline;
+  margin-top:20px;
+}
+.card-wrap {
+    background: #fff;
+    height: 100%;
+    border:2px solid black;
+    position: relative;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    text-align: left;
+    margin: .5em;
+
+    
+  }
+
+  .card-wrap:hover{
+    cursor: pointer;
+  }
+
+.card-wrap > .img-container {
+    
+    height:150px;
+    width:150px;
+    object-fit:cover;
+    overflow: hidden;
+    text-align: center;
+    background:#6CADDC;
+    
+  }
+
+
+
+  .card-wrap > .img-container > img {
+    width: 60%;
+    
+  }
+  
+  img {    
+        background-size: contain;    
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+  }
+
+.tile-content {
+    padding:5px;
+}
+
+.nickname {
+  font-size: large;
+  color:darkgreen;
+  font-weight: bolder;
+  text-align:center;
+
+}
+
