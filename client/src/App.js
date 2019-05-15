@@ -9,6 +9,7 @@ import Calendar from "./Components/Calendar/Calendar";
 import Login from "./Components/Login";
 import Form from "./Components/Form";
 import Protected from "./Components/Protected";
+import Logout from "./Components/Logout";
 
 //Decode JWT
 import decode from "jwt-decode";
@@ -21,8 +22,8 @@ const checkAuth = () => {
 
 	try {
 		//Get expiration and id of user from token
-		const { exp, id } = decode(token);
-		if (exp < new Date().getTime() / 1000) {
+		const { exp } = decode(token);
+		if (exp < Date.now() / 1000) {
 			return false;
 		}
 	} catch (err) {
@@ -39,7 +40,7 @@ const AuthRoute = ({ component: Component, ...rest }) => (
 			checkAuth() ? (
 				<Component {...props} />
 			) : (
-				<Redirect to={{ pathname: "/login" }} />
+				<Redirect to={{ pathname: "/" }} />
 			)
 		}
 	/>
@@ -54,7 +55,6 @@ function App() {
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/" component={HomePage} />
-					{/* <Route path="/login" component={SimpleModalWrapped} /> */}
 					<Route path="/ID" component={IDpage} />
 					<Route path="/Manage" component={ManageTab} />
 					<Route path="/calendar" component={Calendar} />
@@ -71,6 +71,7 @@ function App() {
 				</Switch>
 			</BrowserRouter>
 			{/* <SimpleModalWrapped /> */}
+			<Logout />
 		</div>
 	);
 }

@@ -43,7 +43,7 @@ router.post("/", (req, res) => {
 						//get jwtsecret from config folder
 						config.get("jwtSecret"),
 						//Set expire to 1 hour
-						{ expiresIn: 3600 },
+						{ expiresIn: "1h" },
 						//Call Back Async
 						(err, token) => {
 							if (err) throw err;
