@@ -2,10 +2,10 @@
 [
     { 
         "id":1,
-        "scientific": "Beach Spider Lily",
-        "nickname": "Spidey" ,
+        "scientific": "Oxalis Corniculata",
+        "nickname": "Oxalis Corniculata" ,
         "daysSince":"3",
-        "image": "https://www.alpinenurseries.com.au/alpine/wp-content/uploads/2015/02/Hymenocallis-littoralis.jpg"
+        "image": "https://garden.org/pics/2018-07-10/Jai_Ganesha/388a46-300.jpg"
 
     },
 
@@ -19,26 +19,26 @@
     
     {
         "id":3,
-        "scientific": "Beach Spider Lily",
-        "nickname": "Spidey" ,
+        "scientific": "Zamioculcas zamiifolia",
+        "nickname": "ZZ Plant" ,
         "daysSince":"3",
-        "image": "https://www.alpinenurseries.com.au/alpine/wp-content/uploads/2015/02/Hymenocallis-littoralis.jpg"
+        "image": "https://garden.org/pics/2014-04-06/dirtdorphins/988af9-300.jpg"
     },
 
     {
         "id":4,
-        "scientific": "Beach Spider Lily",
-        "nickname": "Spidey" ,
+        "scientific": "Cape Primrose",
+        "nickname": "Cape Primrose" ,
         "daysSince":"3",
-        "image": "https://www.alpinenurseries.com.au/alpine/wp-content/uploads/2015/02/Hymenocallis-littoralis.jpg"
+        "image": "https://garden.org/pics/2018-05-30/DebbieC/048ab7-300.jpg"
     },
 
     {
         "id":5,
-        "scientific": "Beach Spider Lily",
-        "nickname": "Spidey" ,
+        "scientific": "Hosta",
+        "nickname": "War Paint" ,
         "daysSince":"3",
-        "image": "https://www.alpinenurseries.com.au/alpine/wp-content/uploads/2015/02/Hymenocallis-littoralis.jpg"
+        "image": "https://garden.org/pics/2019-05-15/springcolor/684425.jpg"
     },
 
     {
