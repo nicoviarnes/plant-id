@@ -1,4 +1,4 @@
 {
-	"mongoURI": "mongodb+srv://larry:test123@loginprototype-gcska.mongodb.net/test?retryWrites=true",
+	"mongoURI": "mongodb+srv://project_3:123@cluster0-zndk3.mongodb.net/test?retryWrites=true",
 	"jwtSecret": "plant_jwtSecret"
 }
