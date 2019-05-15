@@ -18,6 +18,7 @@ const db = config.get("mongoURI");
 //Atlas: USER:	project.plant.id@gmail.com
 //PASS: project3!
 // "mongoURI": "mongodb+srv://project_3:123@cluster0-zndk3.mongodb.net/test?retryWrites=true",
+//Blake sucks
 mongoose
 	.connect(process.env.MONGODB_URI || db, {
 		useNewUrlParser: true,
