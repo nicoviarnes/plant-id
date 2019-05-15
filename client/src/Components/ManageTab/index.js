@@ -7,41 +7,41 @@ import PlantTab from "../PlantTab/index";
 import PlantTileWrap from "../PlantTileWrap/index";
 
 class ManageTab extends Component {
-	state = {};
+  state = {};
 
-	clickedPlant = id => {
-		console.log("you clicked");
-		console.log(id);
-	};
+  // clickedPlant = id => {
+  // 	console.log("you clicked");
+  // 	console.log(id);
+  // };
 
-	render() {
-		return (
-			<>
-				<Grid container>
-					<Grid item sm={12}>
-						<div className="content-wrap">
-							<div className="bg" />
-							<h1 className="main-title">My Garden</h1>
-							<PlantTileWrap>
-								{TestCollection.map(plant => (
-									<PlantTab
-										key={plant.id}
-										id={plant.id}
-										image={plant.image}
-										scientific={plant.scientific}
-										nickname={plant.nickname}
-										daysSince={plant.daysSince}
-										// clickedPlant={this.clickedPlant}
-										onClick={this.clickedPlant}
-									/>
-								))}
-							</PlantTileWrap>
-						</div>
-					</Grid>
-				</Grid>
-			</>
-		);
-	}
+  render() {
+    return (
+      <>
+        <Grid container>
+          <Grid item sm={12}>
+            <div className="content-wrap">
+              <div className="bg" />
+              <h1 className="main-title">My Garden</h1>
+              <PlantTileWrap>
+                {TestCollection.map(plant => (
+                  <PlantTab
+                    key={plant.id}
+                    id={plant.id}
+                    image={plant.image}
+                    scientific={plant.scientific}
+                    nickname={plant.nickname}
+                    daysSince={plant.daysSince}
+                    // clickedPlant={this.clickedPlant}
+                    // onClick={this.clickedPlant}
+                  />
+                ))}
+              </PlantTileWrap>
+            </div>
+          </Grid>
+        </Grid>
+      </>
+    );
+  }
 }
 
 export default ManageTab;

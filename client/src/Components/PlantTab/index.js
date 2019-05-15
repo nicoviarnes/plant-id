@@ -3,13 +3,17 @@ import "./style.css";
 import wateringCan from "../../assets/images/wateringCan.png";
 
 // const style = {
-//     icon:{width:10, height:20}
+//     icon:{width:10, height:20} blake sucks
 // }
+const clickedPlant = id => {
+    console.log("you clicked");
+    console.log(id);
+};
 
 function PlantTab(props){
     return (
         <>
-            <div className="card-wrap" onClick={() => props.clickedPlant(props.id)}>
+            <div className="card-wrap" onClick={() => clickedPlant(props.id)}>
                 <div className="img-container">
                     <img alt={props.id} src={props.image}/>
                 </div>
