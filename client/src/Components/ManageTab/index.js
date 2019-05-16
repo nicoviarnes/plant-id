@@ -6,8 +6,14 @@ import TestCollection from "../../TestCollection.json";
 import PlantTab from "../PlantTab/index";
 import PlantTileWrap from "../PlantTileWrap/index";
 
+import API from "../../utils/API";
+
 class ManageTab extends Component {
   state = {};
+
+  componentDidMount() {
+    API.getUserGarden();
+  }
 
   render() {
     return (

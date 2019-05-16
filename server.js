@@ -31,6 +31,7 @@ mongoose
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/garden", require("./routes/api/garden"));
+app.use("/api/plant", require("./routes/api/plant"));
 app.use("/api/test", require("./routes/api/test"));
 // app.use(routes);
 

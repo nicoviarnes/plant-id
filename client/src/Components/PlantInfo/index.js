@@ -10,7 +10,7 @@ class PlantInfo extends React.Component {
   componentDidMount() {
     const { plantData } = this.props.location.state;
     this.setState({ info: plantData });
-    API.getUserGarden();
+    API.getUserPlant();
   }
 
   render() {
