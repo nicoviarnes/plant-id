@@ -11,7 +11,12 @@ const clickedPlant = id => {
 function PlantTab(props) {
   return (
     <>
-      <Link to={`/manage/plant/${props.id}`}>
+      <Link to={{
+        pathname: `/manage/plant/${props.id}`,
+        state: {
+          plantData: "plant db object goes here"
+        }
+      }}>
         <div className="card-wrap" onClick={() => clickedPlant(props.id)}>
           <div className="img-container">
             <img className="thumb" alt={props.id} src={props.image} />
