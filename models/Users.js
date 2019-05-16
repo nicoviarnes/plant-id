@@ -19,6 +19,10 @@ const UserSchema = new Schema({
 	date_registered: {
 		type: Date,
 		default: Date.now
+	},
+	available_api_calls: {
+		type: Number,
+		default: 5
 	}
 });
 
