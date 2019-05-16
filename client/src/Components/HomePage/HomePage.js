@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import SplashBG from "../../assets/images/small.jpg";
+// import SplashBG from "../../assets/images/small.jpg";
+import Banner from "../../assets/images/banner-lush.jpg"
 import './homePage.css';
 
 
@@ -35,7 +36,7 @@ function HomePage() {
       <div className="App">
       <Navbar/>
         <div>
-            <img className="splashImg" src={SplashBG} alt="splashImg"/>
+            <img className="splashImg" src={Banner} alt="splashImg"/>
             <h1 className="titleName">Name</h1>
         </div>
         <div className="body">
