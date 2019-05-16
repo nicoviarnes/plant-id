@@ -33,6 +33,8 @@
 
 .id-title{
     padding-top:5%;
+    font-size: 50px;
+    color:rgb(18, 92, 18)
     
 }
 
@@ -64,4 +66,18 @@
 
 .sub-butt:hover {
     cursor:pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .panel-back {
+        height:60%;
+        width:60%;
+        background-attachment: fixed;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+       height:120px;
+    }
+    
 }
