@@ -12,9 +12,8 @@ class PlantInfo extends React.Component {
     const { plantData } = this.props.location.state;
     this.setState({ info: plantData });
     API.getUserPlant(plantID).then(res => {
-      this.setState({
-        info: res.data
-      });
+      console.log(res.data.filter(dat => dat._id === plantID))
+      this.setState({ info: res.data.filter(dat => dat._id === plantID) })
     });
   }
 
@@ -23,16 +22,17 @@ class PlantInfo extends React.Component {
       <>
         <div className="TOP">
           <br />
-          <h1>{this.state.info.name}</h1>
-          {this.state.info.plantInfo &&
-            Object.entries(this.state.info.plantInfo[0]).map((plant, i) => {
+          <h1>{this.state.info && this.state.info[0].name}</h1>
+          {this.state.info[0].plantInfo &&
+            Object.entries(this.state.info[0].plantInfo[0]).map((plant, i) => {
               return (
                 <li key={i}>
                   {plant[1].header} {plant[1].info}
                 </li>
               );
-            })}
-            <img src={this.state.info.url} alt="user uploaded" />
+            })
+          }
+            <img src={this.state.info[0].url} alt="user uploaded" />
         </div>
       </>
     );
