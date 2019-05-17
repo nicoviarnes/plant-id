@@ -100,9 +100,11 @@ function ButtonAppBar(props) {
 									</svg>
 								</IconButton>
 								{/* Identify Button */}
+
 								<Button href="/id" color="inherit">Identify</Button>
 								{/* Manage Button */}
 								<Button href="/manage" color="inherit">Manage</Button>
+
 								{/* Calender Button */}
 								<Button href="/calendar" color="inherit">
 									Calendar
