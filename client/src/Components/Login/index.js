@@ -26,7 +26,10 @@ class Login extends Component {
 			email: this.state.email,
 			password: this.state.password
 		})
-			.then(res => localStorage.setItem("x-auth-token", res.data.token))
+			.then(res => {
+				localStorage.setItem("x-auth-token", res.data.token)
+				localStorage.setItem("user-id", res.data.user.id)
+			})
 			// this.props.history.push("/protected"
 			.catch(err => console.log(err));
 	};

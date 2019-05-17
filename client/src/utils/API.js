@@ -10,6 +10,10 @@ export default {
 		return axios.post("/api/auth", data);
 	},
 
+	addUserPlant: function(data) {
+		return axios.post("/api/addplant", data);
+	},
+
 	getUserGarden: function(data) {
 		return axios.get("/api/garden", data);
 	},
