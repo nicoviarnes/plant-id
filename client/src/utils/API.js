@@ -8,5 +8,14 @@ export default {
 
 	userLogin: function(data) {
 		return axios.post("/api/auth", data);
+	},
+
+	getUserGarden: function(data) {
+		return axios.get("/api/garden", data);
+	},
+
+	getUserPlant: function(data) {
+		return axios.get("/api/plant", data);
 	}
+
 };
