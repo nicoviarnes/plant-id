@@ -8,7 +8,7 @@ const Plant = require("../../models/Plants");
 //@Access	Public
 router.get("/", (req, res) => {
   //const { name, email, password } = req.body;
-  Plant.findOne(req.body).then(plant => res.json(plant));
+  Plant.find(req.body).then(plant => res.json(plant));
 });
 
 module.exports = router;
