@@ -56,9 +56,9 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					{/* <Route path="/login" component={SimpleModalWrapped} /> */}
-					<Route path="/ID" component={IDpage} />
-					<Route exact path="/manage" component={ManageTab} />
-					<Route exact path="/manage/plant/:plant" component={PlantInfo} />
+					<AuthRoute path="/ID" component={IDpage} />
+					<AuthRoute exact path="/manage" component={ManageTab} />
+					<AuthRoute exact path="/manage/plant/:plant" component={PlantInfo} />
 					<Route path="/calendar" component={Calendar} />
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={Form} />

@@ -2,17 +2,27 @@ import React, { Component } from "react";
 import "./style.css";
 import Grid from "@material-ui/core/Grid";
 
-import TestCollection from "../../TestCollection.json";
 import PlantTab from "../PlantTab/index";
 import PlantTileWrap from "../PlantTileWrap/index";
+import decode from "jwt-decode";
 
 import API from "../../utils/API";
 
 class ManageTab extends Component {
-  state = {};
+  state = {
+    garden: null
+  };
 
-  componentDidMount() {
-    API.getUserGarden();
+  componentWillMount() {
+   // const UID = localStorage.getItem("user-id");
+    const { id } = decode(localStorage.getItem("x-auth-token"));
+   // console.log(UID);
+    API.getUserGarden(id).then(res => {
+      //console.log(res.data.filter(dat => dat.owner === UID))
+      this.setState({garden: res.data.filter(dat => dat.owner === id)})
+      //console.log("hello?")
+    });
+
   }
 
   render() {
@@ -24,14 +34,15 @@ class ManageTab extends Component {
               <div className="bg" />
               <h1 className="main-title">My Garden</h1>
               <PlantTileWrap>
-                {TestCollection.map(plant => (
+                {this.state.garden && this.state.garden.map(plant => (
                   <PlantTab
-                    key={plant.id}
-                    id={plant.id}
-                    image={plant.image}
-                    scientific={plant.scientific}
-                    nickname={plant.nickname}
+                    key={plant._id}
+                    id={plant._id}
+                    image={plant.url}
+                    scientific={plant.name}
+                    nickname={plant.name}
                     daysSince={plant.daysSince}
+                    plantInfo={plant.plantInfo}
                   />
                 ))}
               </PlantTileWrap>

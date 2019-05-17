@@ -1,17 +1,9 @@
-
-.splashImg2{
-    margin-top: 2%;
-   /* height: 280px; */
-   width: 100%;
-   height: 80%;
-   background-attachment: fixed;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   /* z-index: ; */
+.TOP {
+    width: 100%;
+	/* height: 650px; */
+	position: relative;
+	padding-top: 100px;
 }
-
-
 
 .bodyId{
     background-color: white;

@@ -7,20 +7,32 @@ class PlantInfo extends React.Component {
     info: null
   };
 
-  componentDidMount() {
+  componentWillMount() {
+    const plantID = this.props.match.params.plant;
     const { plantData } = this.props.location.state;
     this.setState({ info: plantData });
-    API.getUserPlant();
+    API.getUserPlant(plantID).then(res => {
+      this.setState({
+        info: res.data
+      });
+    });
   }
 
   render() {
-    const plantID = this.props.match.params.plant;
     return (
       <>
         <div className="TOP">
           <br />
-          <h1>Manage Plant id: {plantID}</h1>
-          <p>{this.state.info}</p>
+          <h1>{this.state.info.name}</h1>
+          {this.state.info.plantInfo &&
+            Object.entries(this.state.info.plantInfo[0]).map((plant, i) => {
+              return (
+                <li key={i}>
+                  {plant[1].header} {plant[1].info}
+                </li>
+              );
+            })}
+            <img src={this.state.info.url} alt="user uploaded" />
         </div>
       </>
     );
