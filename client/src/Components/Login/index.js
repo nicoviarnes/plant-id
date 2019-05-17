@@ -28,7 +28,7 @@ class Login extends Component {
 		})
 			.then(res => {
 				localStorage.setItem("x-auth-token", res.data.token)
-				localStorage.setItem("user-id", res.data.user.id)
+				// localStorage.setItem("user-id", res.data.user.id)
 			})
 			// this.props.history.push("/protected"
 			.catch(err => console.log(err));
