@@ -1,15 +1,28 @@
 
-
-.panel-back {
-    height:100%;
-    width:100%;
-    background-attachment: fixed;
+.splashImg2{
+    margin-top: 2%;
+   /* height: 280px; */
+   width: 100%;
+   height: 80%;
+   background-attachment: fixed;
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
-   height:620px;
+   /* z-index: ; */
 }
 
+
+
+.bodyId{
+    background-color: white;
+    /* border: 2px solid black; */
+    position: absolute;
+    top:35%;
+    width: 100%;
+    /* height: 100%!important; */
+    /* min-height: 110%!important; */
+    z-index: -0;
+}
 
 
 .input-back {
@@ -17,18 +30,7 @@
     z-index: 1;
 }
 
-.input-back .bg {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* background: url("../../assets/images/tropical.jpg") center center;
-    opacity: .4; */
-    width: 100%;
-    height: 100%;
-}
+
 
 
 .id-title{
@@ -39,7 +41,7 @@
 }
 
 .sub-tag {
-    margin-top:20%;
+    margin-top:12%;
 }
 
 .pic-box {
@@ -61,6 +63,7 @@
     border-radius:20px;
     color:darkgreen;
     font-weight:bolder;
+    margin-top:3%;
     
 }
 
@@ -68,16 +71,3 @@
     cursor:pointer;
 }
 
-@media only screen and (max-width: 600px) {
-    
-    .panel-back {
-        height:60%;
-        width:60%;
-        background-attachment: fixed;
-       background-position: center;
-       background-repeat: no-repeat;
-       background-size: cover;
-       height:120px;
-    }
-    
-}

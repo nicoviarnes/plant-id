@@ -5,10 +5,12 @@ import Paper from '@material-ui/core/Paper';
 import tropical from "../../assets/images/tropical.jpg";
 import succulent from "../../assets/images/succulent.jpg";
 import "./style.css"
+// import Banner from "../../assets/images/banner-lush.jpg"
+import Banner2 from "../../assets/images/leafy.jpg"
 
 
 const styles = {
-    Paper: {marginRight:75, marginLeft:75, marginTop:50, height:500},
+    Paper: {marginRight:75, marginLeft:75, marginTop:50, marginBottom:50, height:450},
     
 }
 
@@ -18,18 +20,14 @@ function IDpage (){
     
     return(
         <>
-            <Grid container>
-                {/* <Grid item sm={12}>
-                    <Navbar/>
-                </Grid> */}
-                <Grid item sm={12}>    
-                    <div>
-                        <h1>Test</h1>
-                    </div>
-                </Grid>
-                <Grid item sm={2}>    
-                <img className="panel-back" src={succulent} alt="succulents"/>
-                </Grid>     
+            <div className="App">
+      <Navbar/>
+                <div>
+                    <img className="splashImg2" src={Banner2} alt="splashImg2"/>
+                </div>
+        <div className="bodyId">
+        <Grid container>
+                <Grid item sm={2}></Grid>
                 <Grid item sm={8}>    
                     <Paper style={styles.Paper}>
                         <div className="input-back">
@@ -42,14 +40,15 @@ function IDpage (){
                         </div>
                     </Paper> 
                 </Grid>
-                              
-                <Grid item sm={2}>    
-                    
-                        <img className="panel-back" src={tropical} alt="tropical plant"/>
-                        
-                    
-                </Grid>               
-            </Grid>
+                <Grid item sm={2}></Grid>
+        </Grid>
+            
+        <div className="footer">
+          
+        </div>
+        </div>
+      </div>
+            
         </>
 
     )
