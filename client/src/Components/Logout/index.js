@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 
 import Button from "@material-ui/core/Button";
 
-// import "./style.css";
+import "./style.css";
 
 class Logout extends Component {
 	handleFormSubmit = event => {
@@ -15,7 +15,7 @@ class Logout extends Component {
 			<Button
 				href="/"
 				className="submitBtn"
-				variant="contained"
+				// variant="contained"
 				color="inherit"
 				onClick={this.handleFormSubmit}
 			>

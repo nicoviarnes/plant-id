@@ -5,15 +5,10 @@
     margin-bottom: 5%;
     /* height: 700px; */
     font-size: 20px;
-    color: #e27d60;
-    color: #85DCB0;
-    color: #E8A87C;
-    color: #c38D9E;
-    color: #41B3A3;
 }
 
 .react-calendar__navigation{
-    background-color: gray;
+    background-color: #006400;
     /* font-size: 30px; */
     height: 50px;
 }
@@ -49,8 +44,8 @@
     background-color: #41B3A3;
     border: 2px solid black;
     border-radius: 50%;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 3px;
+    margin-left: 2px;
     height: 20px;
     /* width: 20px;
     max-height: 5vh;
@@ -60,9 +55,9 @@
 .seedIcon{
     border: 2px solid black;
     border-radius: 50%;
-    max-height: 100%;
-    margin-right: 5px;
-    margin-left: 5px;
+    height: 20px!important;
+    margin-right: 3px;
+    margin-left: 2px;
     height: 23px;
     /* width: 20px; */
     background-color: greenyellow;

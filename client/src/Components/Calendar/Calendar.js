@@ -26,9 +26,9 @@ class CalendarPage extends React.Component {
                 <>
                     <br/><br/>
                     <div className="imageDiv">
-                        <img className="waterIcon" src={waterIcon}></img>
+                        <img className="waterIcon" src={waterIcon} alt="Water Icon"></img>
                     
-                        <img className="seedIcon" src={seedIcon}></img>
+                        <img className="seedIcon" src={seedIcon} alt="Feed Icon"></img>
                     </div>
                 </>
             }

@@ -1,7 +1,8 @@
 .navBar {
     /* background-color: #41b3a3!important; */
-    background-color: white!important;
+    background-color: #F8F8F8!important;
     color: darkgreen !important;
+    padding: 2px;
 }
 
 .navGrid{
@@ -9,37 +10,31 @@
     z-index: 1;
 }
 
+.navBtn{
+    font-family: 'Mate SC', serif!important;
+}
+
+.loginBtn{
+    font-family: 'Mate SC', serif!important;
+}
+
 .registerBtn{
     /* position: absolute; */
-    color: white;
+    /* color: white; */
     font-size: 14px;
     /* text-align: right!important; */
     /* margin-right: 100%!important; */
+    font-family: 'Mate SC', serif;
 }
-
-.modalOne{
-    color: gray;
-    /* z-index: 5000; */
-    /* border: 2px solid black; */
-    color: #85DCB0;
-    color: #e27d60;
-    color: #E8A87C;
-    color: #c38D9E;
-    color: #41B3A3;
-}
-
-
-
-.ReactModalPortal{
-    /* opacity: 0.2; */
-}
-
 
 .ReactModal__Content{
-    width: 350px;
-    height: 500px;
+    height: 85%;
+    width: 40%;
     margin: 0 auto;
-    border: 3px solid #41B3A3!important;
+    /* border: 3px solid !important; */
+    box-shadow: 1px 1px 5px;
+    text-align: center;
+    font-family: 'Mate SC', serif;
 }
 
 .ReactModal__Overlay{
@@ -47,10 +42,10 @@
     z-index: 100;
 }
 
-.modalClose{
+/* .modalClose{
     margin-left: 70%!important;
     margin-top: 7%!important;
-}
+} */
 
 .leftMenu{
     position: block;
