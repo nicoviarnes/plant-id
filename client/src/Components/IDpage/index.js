@@ -11,7 +11,7 @@ import succulent from "../../assets/images/succulent.jpg";
 import "./style.css";
 import decode from "jwt-decode";
 import API from "../../utils/API";
-import KEYS from "../../utils/KEYS"
+import KEYS from "../../utils/KEYS";
 const KEY = KEYS.PLANT_ID_KEY;
 let b64Str;
 let body = {};
@@ -44,13 +44,13 @@ class IDpage extends Component {
 
   componentDidMount() {
     const { id } = decode(localStorage.getItem("x-auth-token"));
-    console.log(id)
+    console.log(id);
     this.setState({ userID: id });
   }
 
   confirmSuggestion = plantName => {
     console.log("scrape plantName: ", plantName);
-    this.setState({plantName})
+    this.setState({ plantName });
     var searchTerm = plantName.toLowerCase().split(" ");
     console.log(searchTerm[0]);
     this.scrape(searchTerm[0], plantName.toLowerCase());
@@ -106,11 +106,11 @@ class IDpage extends Component {
                 self.setState({ isScraped: true });
 
                 API.addUserPlant({
-                    owner: self.state.userID,
-                    name: self.state.plantName,
-                    url: self.state.uploadedFileLink,
-                    plantInfo
-                })
+                  owner: self.state.userID,
+                  name: self.state.plantName,
+                  url: self.state.uploadedFileLink,
+                  plantInfo
+                });
               });
           }
         });
@@ -160,36 +160,37 @@ class IDpage extends Component {
       )
       .then(response => {
         this.setState({ uploadedFileLink: response.data.data.link });
-        image2base64(response.data.data.link)
-          .then(response => {
-            console.log(response);
-            b64Str = response;
-            body = {
-              key: KEY,
-              usage_info: true,
-              images: [b64Str]
-            };
-            console.log(body);
-            // initial request to plant.id
-            axios
-              .post(
-                "https://cors-anywhere.herokuapp.com/https://api.plant.id/identify",
-                body
-              )
-              .then(response => {
-                body = {
-                  key: KEY,
-                  ids: [response.data.id]
-                };
-                console.log(response.data.usage_info);
-                console.log(body);
-                // call method to listen for identification
-                this.checkId(body);
-              });
-          })
-          .catch(error => {
-            console.log(error);
-          });
+        this.scrape('oxalis', 'oxalis corniculata')
+        // image2base64(response.data.data.link)
+        //   .then(response => {
+        //     console.log(response);
+        //     b64Str = response;
+        //     body = {
+        //       key: KEY,
+        //       usage_info: true,
+        //       images: [b64Str]
+        //     };
+        //     console.log(body);
+        //     // initial request to plant.id
+        //     axios
+        //       .post(
+        //         "https://cors-anywhere.herokuapp.com/https://api.plant.id/identify",
+        //         body
+        //       )
+        //       .then(response => {
+        //         body = {
+        //           key: KEY,
+        //           ids: [response.data.id]
+        //         };
+        //         console.log(response.data.usage_info);
+        //         console.log(body);
+        //         // call method to listen for identification
+        //         this.checkId(body);
+        //       });
+        //   })
+        //   .catch(error => {
+        //     console.log(error);
+        //   });
       });
   };
 
