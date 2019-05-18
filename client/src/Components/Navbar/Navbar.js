@@ -10,6 +10,8 @@ import Grid from "@material-ui/core/Grid";
 import Form from "../Form/index";
 import Login from "../Login/index";
 import Logout from "../Logout/index";
+import decode from "jwt-decode";
+
 
 import Modal from "react-modal";
 
@@ -72,6 +74,20 @@ const styles = theme => ({
 	}
 });
 
+const checkAuth = () => {
+	const token = localStorage.getItem("x-auth-token");
+	if (!token) {
+		return false;
+	} else {
+		//Get expiration and id of user from token
+		const { exp } = decode(token);
+		if (exp < new Date().getTime() / 1000) {
+			return false;
+		}
+	}
+	return true;
+};
+
 function ButtonAppBar(props) {
 	const { classes } = props;
 
@@ -110,35 +126,38 @@ function ButtonAppBar(props) {
 
 							{/* Navbar Text */}
 							<Grid item>
-								{/* Login Button */}
-								<ModalProvider>
-									<ModalRoot />
-									<ModalConsumer>
-										{({ showModal }) => (
-											<Fragment>
-												<Button
-													classes={{ label: "loginBtn" }}
-													className="loginBtn"
-													color="inherit"
-													onClick={() => showModal(Modal2)}
-												>
-													Login
-												</Button>
+								{checkAuth() ? (
+									<Logout />
+								) : (
+									<ModalProvider>
+										<ModalRoot />
+										<ModalConsumer>
+											{({ showModal }) => (
+												<Fragment>
+													{/* Login Button */}
+													<Button
+														classes={{ label: "loginBtn" }}
+														className="loginBtn"
+														color="inherit"
+														onClick={() => showModal(Modal2)}
+													>
+														Login
+													</Button>
 
-												{/* Register Button */}
-												<Button
-													classes={{ label: "registerBtn" }}
-													className="registerBtn"
-													color="inherit"
-													onClick={() => showModal(Modal1)}
-												>
-													Register
-												</Button>
-												<Logout/>
-											</Fragment>
-										)}
-									</ModalConsumer>
-								</ModalProvider>
+													{/* Register Button */}
+													<Button
+														classes={{ label: "loginBtn" }}
+														className="loginBtn"
+														color="inherit"
+														onClick={() => showModal(Modal1)}
+													>
+														Register
+													</Button>
+												</Fragment>
+											)}
+										</ModalConsumer>
+									</ModalProvider>
+								)}
 							</Grid>
 						</Toolbar>
 					</AppBar>
