@@ -1,10 +1,11 @@
-.regLogo {
+.regLogo{
+
 	box-shadow: 2px 2px 5px;
 	border-radius: 50%;
 	width: 30%;
 	margin-top: 15px;
 }
 
-.regText {
+.regText{
 	text-align: center;
 }

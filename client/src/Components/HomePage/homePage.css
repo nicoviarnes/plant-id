@@ -18,6 +18,11 @@
    /* z-index: ; */
 }
 
+.hexImg{
+    z-index:49;
+    /* width: 200px; */
+}
+
 .titleName{
     position: absolute;
     width: 100%;
@@ -25,7 +30,8 @@
     font-size: 60px;
     /* z-index: -1; */
     color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black;
+    text-shadow: 1px 0 black, 0 1px black, 1px 0 black;
+    font-family: 'Mate SC', serif;
 }
 
 .body{
@@ -45,6 +51,7 @@
     width: 80%;
     margin-right: 15%;
     z-index: -1;
+    font-family: 'Mate SC', serif;
 }
 
 .docBody{
@@ -53,10 +60,11 @@
     width: 80%;
     margin-left: 15%;
     z-index: -1;
+    font-family: 'Mate SC', serif;
 }
 
 hr{
-    background-color: #E27d60;
+    background-color: #006400;
     height: 1px;
     border: none;
     z-index: -1;

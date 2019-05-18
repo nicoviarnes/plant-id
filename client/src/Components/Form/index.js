@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Button from "@material-ui/core/Button";
-// import RegLogo from "../../assets/images/regLogo.png";
+import RegLogo from "../../assets/images/regLogo.png";
 import "./style.css";
 
-import { withStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
+
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 
 const styles = theme => ({
 	container: {
-		display: "flex",
-		flexWrap: "wrap"
+	  display: 'flex',
+	  flexWrap: 'wrap',
 	},
 	input: {
-		margin: theme.spacing.unit
-	}
-});
+	  margin: theme.spacing.unit,
+	},
+  });
+  
+  
+
 
 class Form extends Component {
 	// Setting the component's initial state
@@ -47,86 +52,51 @@ class Form extends Component {
 		// Notice how each input has a `value`, `name`, and `onChange` prop
 		console.log("Register");
 		return (
-			// <div className="test">
-			// 	<form className="form">
-			// 		<input
-			// 			name="name"
-			// 			type="text"
-			// 			onChange={this.handleInputChange}
-			// 			placeholder="Name"
-			// 		/>
-
-			// 		<input
-			// 			name="email"
-			// 			type="text"
-			// 			onChange={this.handleInputChange}
-			// 			placeholder="Email"
-			// 		/>
-			// 		<input
-			// 			name="password"
-			// 			type="password"
-			// 			onChange={this.handleInputChange}
-			// 			placeholder="Enter a password"
-			// 		/>
-			// 		<button onClick={this.handleFormSubmit}>Submit</button>
-			// 	</form>
-			// </div>
 			<>
-				{/* <img className="regLogo" src={RegLogo} alt="Registration Logo" /> */}
-				<h1 className="regText">
-					Register
-					<hr />
+				<img className="regLogo" src={RegLogo} alt="Registration Logo"/>
+				<h1 className="regText">Register
+				<hr></hr>
 				</h1>
+				
 
 				<form className="form">
 					<TextField
-						id="outlined-name-input"
-						label="name"
-						type="name"
-						name="name"
-						autoComplete="name"
-						onChange={this.handleInputChange}
-						margin="normal"
-						variant="outlined"
-						required
-						errorText="This field is required"
-					/>
-					<br />
-					<TextField
-						id="outlined-email-input"
-						label="Email"
-						type="email"
-						name="email"
-						autoComplete="email"
-						onChange={this.handleInputChange}
-						margin="normal"
-						variant="outlined"
-						required
-						errorText="This field is required"
-					/>
-					<br />
-					<TextField
-						id="outlined-email-input"
-						label="Password"
-						type="password"
-						name="password"
-						onChange={this.handleInputChange}
-						autoComplete="password"
-						margin="normal"
-						variant="outlined"
-						required
-						errorText="This field is required"
-					/>
-					<br />
-					<br />
-					<Button
-						className="submitBtn"
-						variant="contained"
-						color="inherit"
-						onClick={this.handleFormSubmit}
-					>
-						Submit
-					</Button>
+						  id="outlined-name-input"
+						  label="name"
+						  type="name"
+						  name="name"
+						  autoComplete="name"
+						  margin="normal"
+						  variant="outlined"
+							required
+							errorText="This field is required"
+							/>
+						<br/>
+		<TextField
+          id="outlined-email-input"
+          label="Email"
+          type="email"
+          name="email"
+          autoComplete="email"
+          margin="normal"
+		  variant="outlined"
+		  required
+	      errorText="This field is required"
+        />
+					<br/>
+		<TextField
+          id="outlined-email-input"
+          label="Password"
+          type="password"
+          name="password"
+          autoComplete="password"
+          margin="normal"
+		  variant="outlined"
+		  required
+		  errorText="This field is required"
+        />
+					<br/><br/>
+					<Button className="submitBtn" variant="contained" color="inherit" onClick={this.handleFormSubmit}>Submit</Button>
 				</form>
 			</>
 		);
@@ -134,3 +104,4 @@ class Form extends Component {
 }
 
 export default withStyles(styles)(Form);
+

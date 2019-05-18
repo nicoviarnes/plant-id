@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import "./Navbar.css";
 import Grid from "@material-ui/core/Grid";
 import Form from "../Form/index";
 import Login from "../Login/index";
-import Logout from "../Logout";
-import decode from "jwt-decode";
+import Logout from "../Logout/index";
 
 import Modal from "react-modal";
 
@@ -30,14 +27,14 @@ const Modal1 = ({ onRequestClose, ...otherProps }) => (
 		>
 			<div className="modalOne">
 				<Form />
-				<Button
+				{/* <Button
 					variant="contained"
 					className="modalClose"
 					color="secondary"
 					onClick={onRequestClose}
 				>
 					close
-				</Button>
+				</Button> */}
 			</div>
 		</Modal>
 	</div>
@@ -49,14 +46,14 @@ const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 		<Modal isOpen onRequestClose={onRequestClose} {...otherProps}>
 			<div className="modalOne">
 				<Login />
-				<Button
+				{/* <Button
 					variant="contained"
 					className="modalClose"
 					color="secondary"
 					onClick={onRequestClose}
 				>
 					close
-				</Button>
+				</Button> */}
 			</div>
 		</Modal>
 	</div>
@@ -74,20 +71,6 @@ const styles = theme => ({
 		marginRight: 20
 	}
 });
-
-const checkAuth = () => {
-	const token = localStorage.getItem("x-auth-token");
-	if (!token) {
-		return false;
-	} else {
-		//Get expiration and id of user from token
-		const { exp } = decode(token);
-		if (exp < new Date().getTime() / 1000) {
-			return false;
-		}
-	}
-	return true;
-};
 
 function ButtonAppBar(props) {
 	const { classes } = props;
@@ -116,55 +99,46 @@ function ButtonAppBar(props) {
 									</svg>
 								</IconButton>
 								{/* Identify Button */}
-
-								<Button href="/id" color="inherit">
-									Identify
-								</Button>
+								<Button className="navBtn" href="/id" color="inherit">Identify</Button>
 								{/* Manage Button */}
-								<Button href="/manage" color="inherit">
-									Manage
-								</Button>
-
+								<Button className="navBtn" href="/manage" color="inherit">Manage</Button>
 								{/* Calender Button */}
-								<Button href="/calendar" color="inherit">
+								<Button className="navBtn" href="/calendar" color="inherit">
 									Calendar
 								</Button>
 							</Grid>
 
 							{/* Navbar Text */}
 							<Grid item>
-								{checkAuth() ? (
-									<Logout />
-								) : (
-									<ModalProvider>
-										<ModalRoot />
-										<ModalConsumer>
-											{({ showModal }) => (
-												<Fragment>
-													{/* Login Button */}
-													<Button
-														classes={{ label: "loginBtn" }}
-														className="loginBtn"
-														color="inherit"
-														onClick={() => showModal(Modal2)}
-													>
-														Login
-													</Button>
+								{/* Login Button */}
+								<ModalProvider>
+									<ModalRoot />
+									<ModalConsumer>
+										{({ showModal }) => (
+											<Fragment>
+												<Button
+													classes={{ label: "loginBtn" }}
+													className="loginBtn"
+													color="inherit"
+													onClick={() => showModal(Modal2)}
+												>
+													Login
+												</Button>
 
-													{/* Register Button */}
-													<Button
-														classes={{ label: "loginBtn" }}
-														className="loginBtn"
-														color="inherit"
-														onClick={() => showModal(Modal1)}
-													>
-														Register
-													</Button>
-												</Fragment>
-											)}
-										</ModalConsumer>
-									</ModalProvider>
-								)}
+												{/* Register Button */}
+												<Button
+													classes={{ label: "registerBtn" }}
+													className="registerBtn"
+													color="inherit"
+													onClick={() => showModal(Modal1)}
+												>
+													Register
+												</Button>
+												<Logout/>
+											</Fragment>
+										)}
+									</ModalConsumer>
+								</ModalProvider>
 							</Grid>
 						</Toolbar>
 					</AppBar>
