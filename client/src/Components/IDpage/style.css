@@ -63,3 +63,22 @@
     cursor:pointer;
 }
 
+/* Modal Container */
+.idModal{
+    background-color: white;
+    margin-top: 10%;
+    height: 300px;
+    padding-bottom: 10%;
+}
+
+/* Loader div */
+.idModalDiv{
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+}
+
+.loader{
+    margin-top: 10%;
+
+}

@@ -18,10 +18,6 @@
    /* z-index: ; */
 }
 
-.hexImg{
-    z-index:49;
-    /* width: 200px; */
-}
 
 .titleName{
     position: absolute;
@@ -74,4 +70,14 @@ hr{
   z-index: 51;
   color: black;
   bottom: 0!important;
+}
+
+@media (min-width: 320px) and (max-width: 767px){
+    .splashImg{
+        margin-top: 0%;
+    }
+
+    .titleName{
+        top: 13%;
+    }
 }

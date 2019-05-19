@@ -1,5 +1,4 @@
 .navBar {
-    /* background-color: #41b3a3!important; */
     background-color: #F8F8F8!important;
     color: darkgreen !important;
     padding: 2px;
@@ -53,4 +52,14 @@
     /* color: black; */
     padding-bottom: 5px;
     padding-top: 5px;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px){
+    .navBar {
+        display: none!important;
+        /* opacity: 0.0; */
+        /* visibility: hidden; */
+    }
+
 }

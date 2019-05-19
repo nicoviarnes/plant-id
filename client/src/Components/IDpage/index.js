@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Loader from "react-loader-spinner";
 import image2base64 from "image-to-base64";
 import axios from "axios";
@@ -12,6 +12,11 @@ import "./style.css";
 import decode from "jwt-decode";
 import API from "../../utils/API";
 import KEYS from "../../utils/KEYS";
+import Modal from "react-modal";
+
+import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
+import ModalRoot from "../LoginModal/ModalRoot";
+
 const KEY = KEYS.PLANT_ID_KEY;
 let b64Str;
 let body = {};
@@ -23,6 +28,25 @@ const styles = {
   Paper: { marginRight: 75, marginLeft: 75, marginTop: 50, height: 500 }
 };
 
+const Modal3 = ({ onRequestClose, ...otherProps }) => (
+	<div className="modalWrapperId">
+		<Modal
+      className="idModal"
+			isOpen
+			onRequestClose={onRequestClose}
+			{...otherProps}
+			ariaHideApp={false}
+		>
+			<div className="idModalDiv">
+        <div className="loader">
+      <Loader type="Oval"color="#00BFFF" height="200" width="200" />
+    <button onClick={onRequestClose}>close</button>
+        </div>
+			</div>
+		</Modal>
+	</div>
+);
+
 class IDpage extends Component {
   state = {
     selectedFile: null,
@@ -32,8 +56,9 @@ class IDpage extends Component {
     plantObj: {},
     suggestions: {},
     userID: null,
-    plantName: null
+    plantName: null,
   };
+
 
   // componentDidMount = () => {
   //   var plantName = "Oxalis corniculata"
@@ -189,11 +214,12 @@ class IDpage extends Component {
         //       });
         //   })
         //   .catch(error => {
-        //     console.log(error);
-        //   });
-      });
-  };
+          //     console.log(error);
+          //   });
+        });
+      };
 
+      
   render() {
     var self = this;
     return (
@@ -206,20 +232,45 @@ class IDpage extends Component {
               </li>
             );
           })
-        ) : (
+          ) : (
           <div>
             <input
               type="file"
               accept="image/*"
               onChange={this.fileChangedHandler}
             />
-            <button onClick={this.uploadHandler}>Upload!</button>
+                    {/* <button onClick={this.uploadHandler}>Upload!</button> */}
 
+            <ModalProvider className="modalRoot">
+                  <ModalRoot />
+                  <ModalConsumer>
+                    {({ showModal, hideModal}) => (
+                      <Fragment>
+                        
+            <button onClick={() => {
+              // function hideExport = hideModal();
+              this.uploadHandler();
+              showModal(Modal3);
+
+       
+
+              setTimeout(hideModal, 3000)
+              
+      
+            } }>Upload!</button>
+              
+            </Fragment>
+        )}
+        </ModalConsumer>
+      </ModalProvider>
             {this.state.waitingForData ? (
+              
+												
               <Loader type="Oval" color="#00BFFF" height="100" width="100" />
-            ) : (
-              <p />
-            )}
+              ) : (
+                <p />
+                )}
+
 
             <h1>
               {this.state.suggestions.length > 0 &&

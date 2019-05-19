@@ -10,11 +10,10 @@ import Grid from "@material-ui/core/Grid";
 import Form from "../Form/index";
 import Login from "../Login/index";
 import Logout from "../Logout/index";
+import MobileMenu from "../MobileMenu/MobileMenu";
 import decode from "jwt-decode";
 
-
 import Modal from "react-modal";
-
 import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
 import ModalRoot from "../LoginModal/ModalRoot";
 
@@ -61,6 +60,7 @@ const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 	</div>
 );
 
+
 const styles = theme => ({
 	root: {
 		flexGrow: 1
@@ -93,6 +93,7 @@ function ButtonAppBar(props) {
 
 	return (
 		<>
+								<MobileMenu/>
 			<div className={classes.root}>
 				<Grid container className="navGrid">
 					<AppBar className="navBar" position="static">

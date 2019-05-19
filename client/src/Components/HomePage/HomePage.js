@@ -11,7 +11,7 @@ import './homePage.css';
 function HomePage() {
     return (
       <>
-      <Navbar/>
+      {/* <Navbar/> */}
         <div>
             <img className="splashImg" src={SplashBG} alt="splashImg"/>
             <h1 className="titleName">Appname</h1>
