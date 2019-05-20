@@ -69,7 +69,7 @@ class Form extends Component {
 						  margin="normal"
 						  variant="outlined"
 							required
-							errorText="This field is required"
+							errortext="This field is required"
 							/>
 						<br/>
 		<TextField
@@ -81,11 +81,11 @@ class Form extends Component {
           margin="normal"
 		  variant="outlined"
 		  required
-	      errorText="This field is required"
+	      errortext="This field is required"
         />
 					<br/>
 		<TextField
-          id="outlined-email-input"
+          id="outlined-password-input"
           label="Password"
           type="password"
           name="password"
@@ -93,7 +93,7 @@ class Form extends Component {
           margin="normal"
 		  variant="outlined"
 		  required
-		  errorText="This field is required"
+		  errortext="This field is required"
         />
 					<br/><br/>
 					<Button className="submitBtn" variant="contained" color="inherit" onClick={this.handleFormSubmit}>Submit</Button>

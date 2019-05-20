@@ -56,7 +56,7 @@ class Login extends Component {
 							/>
 						<br/>
 					<TextField
-						  id="outlined-name-input"
+						  id="outlined-password-input"
 						  label="Password"
 						  type="password"
 						  name="password"

@@ -44,7 +44,7 @@ const Modal1 = ({ onRequestClose, ...otherProps }) => (
 // Login Modal
 const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 	<div className="modalWrapper">
-		<Modal isOpen onRequestClose={onRequestClose} {...otherProps}>
+		<Modal isOpen onRequestClose={onRequestClose} {...otherProps} ariaHideApp={false}>
 			<div className="modalOne">
 				<Login />
 				{/* <Button

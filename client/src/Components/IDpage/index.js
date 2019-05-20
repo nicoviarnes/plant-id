@@ -29,22 +29,23 @@ const styles = {
 };
 
 const Modal3 = ({ onRequestClose, ...otherProps }) => (
-	<div className="modalWrapperId">
-		<Modal
+  <div className="modalWrapperId">
+    <Modal
       className="idModal"
-			isOpen
-			onRequestClose={onRequestClose}
-			{...otherProps}
-			ariaHideApp={false}
-		>
-			<div className="idModalDiv">
+      isOpen
+      onRequestClose={onRequestClose}
+      {...otherProps}
+      ariaHideApp={false}
+    >
+      <div className="idModalDiv">
         <div className="loader">
-      <Loader type="Oval"color="#00BFFF" height="200" width="200" />
-    <button onClick={onRequestClose}>close</button>
+          <h1>Loading...</h1>
+          <Loader type="Oval" color="#00BFFF" height="200" width="200" />
+          {/* <button onClick={onRequestClose}>close</button> */}
         </div>
-			</div>
-		</Modal>
-	</div>
+      </div>
+    </Modal>
+  </div>
 );
 
 class IDpage extends Component {
@@ -58,7 +59,6 @@ class IDpage extends Component {
     userID: null,
     plantName: null,
   };
-
 
   // componentDidMount = () => {
   //   var plantName = "Oxalis corniculata"
@@ -167,7 +167,7 @@ class IDpage extends Component {
   };
 
   uploadHandler = () => {
-    this.setState({ suggestions: "" });
+    this.setState({ suggestions: ""});
     var headers = {
       "Content-Type": "application/json",
       Authorization: `Client-ID ${IMGURKEY}`,
@@ -185,7 +185,7 @@ class IDpage extends Component {
       )
       .then(response => {
         this.setState({ uploadedFileLink: response.data.data.link });
-        this.scrape('oxalis', 'oxalis corniculata')
+        this.scrape("oxalis", "oxalis corniculata");
         // image2base64(response.data.data.link)
         //   .then(response => {
         //     console.log(response);
@@ -214,12 +214,11 @@ class IDpage extends Component {
         //       });
         //   })
         //   .catch(error => {
-          //     console.log(error);
-          //   });
-        });
-      };
+        //     console.log(error);
+        //   });
+      });
+  };
 
-      
   render() {
     var self = this;
     return (
@@ -232,45 +231,41 @@ class IDpage extends Component {
               </li>
             );
           })
-          ) : (
+        ) : (
           <div>
-            <input
+            <input className="imageBtn"
               type="file"
               accept="image/*"
               onChange={this.fileChangedHandler}
             />
-                    {/* <button onClick={this.uploadHandler}>Upload!</button> */}
-
+        
+{/* Upload Button/Loading modal */}
+          
             <ModalProvider className="modalRoot">
-                  <ModalRoot />
-                  <ModalConsumer>
-                    {({ showModal, hideModal}) => (
-                      <Fragment>
-                        
-            <button onClick={() => {
-              // function hideExport = hideModal();
-              this.uploadHandler();
-              showModal(Modal3);
-
-       
-
-              setTimeout(hideModal, 3000)
-              
-      
-            } }>Upload!</button>
-              
-            </Fragment>
-        )}
-        </ModalConsumer>
-      </ModalProvider>
-            {this.state.waitingForData ? (
-              
-												
-              <Loader type="Oval" color="#00BFFF" height="100" width="100" />
-              ) : (
-                <p />
+              <ModalRoot />
+              <ModalConsumer>
+                {({ showModal, hideModal }) => (
+                  <Fragment>
+                    <button className="uploadBtn"
+                      onClick={() => {
+                        // function hideExport = hideModal();
+                        this.uploadHandler();
+                        showModal(Modal3);
+                        setTimeout(hideModal, 3000);
+                      }}
+                    >
+                      Upload!
+                    </button>
+                  </Fragment>
                 )}
+              </ModalConsumer>
+            </ModalProvider>
 
+            {this.state.waitingForData ? (
+              <Loader type="Oval" color="#00BFFF" height="100" width="100" />
+            ) : (
+              <p />
+            )}
 
             <h1>
               {this.state.suggestions.length > 0 &&
