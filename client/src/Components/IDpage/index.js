@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Loader from "react-loader-spinner";
 import image2base64 from "image-to-base64";
 import axios from "axios";
@@ -12,6 +12,11 @@ import "./style.css";
 import decode from "jwt-decode";
 import API from "../../utils/API";
 import KEYS from "../../utils/KEYS";
+import Modal from "react-modal";
+
+import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
+import ModalRoot from "../LoginModal/ModalRoot";
+
 const KEY = KEYS.PLANT_ID_KEY;
 let b64Str;
 let body = {};
@@ -23,6 +28,26 @@ const styles = {
   Paper: { marginRight: 75, marginLeft: 75, marginTop: 50, height: 500 }
 };
 
+const Modal3 = ({ onRequestClose, ...otherProps }) => (
+  <div className="modalWrapperId">
+    <Modal
+      className="idModal"
+      isOpen
+      onRequestClose={onRequestClose}
+      {...otherProps}
+      ariaHideApp={false}
+    >
+      <div className="idModalDiv">
+        <div className="loader">
+          <h1>Loading...</h1>
+          <Loader type="Oval" color="#00BFFF" height="200" width="200" />
+          {/* <button onClick={onRequestClose}>close</button> */}
+        </div>
+      </div>
+    </Modal>
+  </div>
+);
+
 class IDpage extends Component {
   state = {
     selectedFile: null,
@@ -32,7 +57,7 @@ class IDpage extends Component {
     plantObj: {},
     suggestions: {},
     userID: null,
-    plantName: null
+    plantName: null,
   };
 
   // componentDidMount = () => {
@@ -142,7 +167,7 @@ class IDpage extends Component {
   };
 
   uploadHandler = () => {
-    this.setState({ suggestions: "" });
+    this.setState({ suggestions: ""});
     var headers = {
       "Content-Type": "application/json",
       Authorization: `Client-ID ${IMGURKEY}`,
@@ -160,7 +185,7 @@ class IDpage extends Component {
       )
       .then(response => {
         this.setState({ uploadedFileLink: response.data.data.link });
-        this.scrape('oxalis', 'oxalis corniculata')
+        this.scrape("oxalis", "oxalis corniculata");
         // image2base64(response.data.data.link)
         //   .then(response => {
         //     console.log(response);
@@ -208,12 +233,33 @@ class IDpage extends Component {
           })
         ) : (
           <div>
-            <input
+            <input className="imageBtn"
               type="file"
               accept="image/*"
               onChange={this.fileChangedHandler}
             />
-            <button onClick={this.uploadHandler}>Upload!</button>
+        
+{/* Upload Button/Loading modal */}
+          
+            <ModalProvider className="modalRoot">
+              <ModalRoot />
+              <ModalConsumer>
+                {({ showModal, hideModal }) => (
+                  <Fragment>
+                    <button className="uploadBtn"
+                      onClick={() => {
+                        // function hideExport = hideModal();
+                        this.uploadHandler();
+                        showModal(Modal3);
+                        setTimeout(hideModal, 3000);
+                      }}
+                    >
+                      Upload!
+                    </button>
+                  </Fragment>
+                )}
+              </ModalConsumer>
+            </ModalProvider>
 
             {this.state.waitingForData ? (
               <Loader type="Oval" color="#00BFFF" height="100" width="100" />

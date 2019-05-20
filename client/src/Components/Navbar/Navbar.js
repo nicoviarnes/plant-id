@@ -10,11 +10,10 @@ import Grid from "@material-ui/core/Grid";
 import Form from "../Form/index";
 import Login from "../Login/index";
 import Logout from "../Logout/index";
+import MobileMenu from "../MobileMenu/MobileMenu";
 import decode from "jwt-decode";
 
-
 import Modal from "react-modal";
-
 import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
 import ModalRoot from "../LoginModal/ModalRoot";
 
@@ -45,7 +44,7 @@ const Modal1 = ({ onRequestClose, ...otherProps }) => (
 // Login Modal
 const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 	<div className="modalWrapper">
-		<Modal isOpen onRequestClose={onRequestClose} {...otherProps}>
+		<Modal isOpen onRequestClose={onRequestClose} {...otherProps} ariaHideApp={false}>
 			<div className="modalOne">
 				<Login />
 				{/* <Button
@@ -60,6 +59,7 @@ const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 		</Modal>
 	</div>
 );
+
 
 const styles = theme => ({
 	root: {
@@ -93,6 +93,7 @@ function ButtonAppBar(props) {
 
 	return (
 		<>
+								<MobileMenu/>
 			<div className={classes.root}>
 				<Grid container className="navGrid">
 					<AppBar className="navBar" position="static">
