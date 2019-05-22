@@ -9,13 +9,14 @@
 	z-index: 1;
 }
 
-/* .navBtn{
-    font-family: 'Mate SC', serif!important;
+button {
+	font-family: "Source Sans Pro", sans-serif;
 }
-
-.loginBtn{
-    font-family: 'Mate SC', serif!important;
-} */
+.navFont {
+	font-family: "Source Sans Pro", sans-serif;
+	/* font-weight: bold; */
+	font-size: 1rem;
+}
 
 .registerBtn {
 	/* position: absolute; */
@@ -33,7 +34,6 @@
 	/* border: 3px solid !important; */
 	box-shadow: 1px 1px 5px;
 	text-align: center;
-	font-family: "Noto Sans KR", sans-serif !important;
 }
 
 .ReactModal__Overlay {

@@ -1,7 +1,9 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import SplashBG from "../../assets/images/small.jpg";
-// import Banner from "../../assets/images/banner-lush.jpg"
+import Banner from "../../assets/images/banner-lush.jpg";
+import testbg from "../../assets/images/tests/test4.jpg";
+
 import "./homePage.css";
 
 function HomePage() {
@@ -10,9 +12,11 @@ function HomePage() {
 			{/* <Navbar/> */}
 			<div>
 				<img className="splashImg" src={SplashBG} alt="splashImg" />
-				<h1 className="titleName ">Plantify</h1>
+				<h1 className="titleName ">
+					<span className="testname">Plantify</span>
+				</h1>
 			</div>
-			<div className="body">
+			<div className="container">
 				<br />
 				<div className="aboutBody">
 					<h2>About</h2>
@@ -33,6 +37,13 @@ function HomePage() {
 					<p>
 						This application can help you identify, store, and manage your
 						plants in one easy place.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac elit
+						id risus euismod vestibulum. Sed sodales lobortis mi non aliquam.
+						Nullam eget ex non tortor gravida maximus id nec felis. Duis auctor
+						tristique leo, sed varius sapien. Vivamus feugiat tempor nisl sed
+						ullamcorper. Donec.
 					</p>
 				</div>
 			</div>
