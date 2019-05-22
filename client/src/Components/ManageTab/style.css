@@ -16,16 +16,17 @@
 	opacity: 0.4;
 	width: 100%;
 	height: 100%;
+	padding-bottom:150px;
 }
 
-.wrapper {
+/* .wrapper {
 	padding-top: 50px;
-	background: #eceff1;
+	
 	height: 100%;
 	display: flex;
 	flex-flow: row wrap;
-	padding: 20px;
+	padding: 30px;
 	justify-content: space-around;
 	align-content: flex-start;
 	overflow: auto;
-}
+} */
