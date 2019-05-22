@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Loader from "react-loader-spinner";
 import image2base64 from "image-to-base64";
 import axios from "axios";
@@ -12,7 +12,12 @@ import Banner2 from "../../assets/images/leafy.jpg";
 import "./style.css";
 import decode from "jwt-decode";
 import API from "../../utils/API";
-import KEYS from "../../utils/KEYS"
+import KEYS from "../../utils/KEYS";
+import Modal from "react-modal";
+
+import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
+import ModalRoot from "../LoginModal/ModalRoot";
+
 const KEY = KEYS.PLANT_ID_KEY;
 let b64Str;
 let body = {};
@@ -24,6 +29,26 @@ const styles = {
   Paper: { marginRight: 75, marginLeft: 75, marginBottom:50, marginTop: 50, height: 500 }
 };
 
+const Modal3 = ({ onRequestClose, ...otherProps }) => (
+  <div className="modalWrapperId">
+    <Modal
+      className="idModal"
+      isOpen
+      onRequestClose={onRequestClose}
+      {...otherProps}
+      ariaHideApp={false}
+    >
+      <div className="idModalDiv">
+        <div className="loader">
+          <h1>Loading...</h1>
+          <Loader type="Oval" color="#00BFFF" height="200" width="200" />
+          {/* <button onClick={onRequestClose}>close</button> */}
+        </div>
+      </div>
+    </Modal>
+  </div>
+);
+
 class IDpage extends Component {
   state = {
     selectedFile: null,
@@ -33,7 +58,7 @@ class IDpage extends Component {
     plantObj: {},
     suggestions: {},
     userID: null,
-    plantName: null
+    plantName: null,
   };
 
   // componentDidMount = () => {
@@ -45,13 +70,13 @@ class IDpage extends Component {
 
   componentDidMount() {
     const { id } = decode(localStorage.getItem("x-auth-token"));
-    console.log(id)
+    console.log(id);
     this.setState({ userID: id });
   }
 
   confirmSuggestion = plantName => {
     console.log("scrape plantName: ", plantName);
-    this.setState({plantName})
+    this.setState({ plantName });
     var searchTerm = plantName.toLowerCase().split(" ");
     console.log(searchTerm[0]);
     this.scrape(searchTerm[0], plantName.toLowerCase());
@@ -107,11 +132,11 @@ class IDpage extends Component {
                 self.setState({ isScraped: true });
 
                 API.addUserPlant({
-                    owner: self.state.userID,
-                    name: self.state.plantName,
-                    url: self.state.uploadedFileLink,
-                    plantInfo
-                })
+                  owner: self.state.userID,
+                  name: self.state.plantName,
+                  url: self.state.uploadedFileLink,
+                  plantInfo
+                });
               });
           }
         });
@@ -143,7 +168,7 @@ class IDpage extends Component {
   };
 
   uploadHandler = () => {
-    this.setState({ suggestions: "" });
+    this.setState({ suggestions: ""});
     var headers = {
       "Content-Type": "application/json",
       Authorization: `Client-ID ${IMGURKEY}`,
@@ -161,36 +186,37 @@ class IDpage extends Component {
       )
       .then(response => {
         this.setState({ uploadedFileLink: response.data.data.link });
-        image2base64(response.data.data.link)
-          .then(response => {
-            console.log(response);
-            b64Str = response;
-            body = {
-              key: KEY,
-              usage_info: true,
-              images: [b64Str]
-            };
-            console.log(body);
-            // initial request to plant.id
-            axios
-              .post(
-                "https://cors-anywhere.herokuapp.com/https://api.plant.id/identify",
-                body
-              )
-              .then(response => {
-                body = {
-                  key: KEY,
-                  ids: [response.data.id]
-                };
-                console.log(response.data.usage_info);
-                console.log(body);
-                // call method to listen for identification
-                this.checkId(body);
-              });
-          })
-          .catch(error => {
-            console.log(error);
-          });
+        this.scrape("oxalis", "oxalis corniculata");
+        // image2base64(response.data.data.link)
+        //   .then(response => {
+        //     console.log(response);
+        //     b64Str = response;
+        //     body = {
+        //       key: KEY,
+        //       usage_info: true,
+        //       images: [b64Str]
+        //     };
+        //     console.log(body);
+        //     // initial request to plant.id
+        //     axios
+        //       .post(
+        //         "https://cors-anywhere.herokuapp.com/https://api.plant.id/identify",
+        //         body
+        //       )
+        //       .then(response => {
+        //         body = {
+        //           key: KEY,
+        //           ids: [response.data.id]
+        //         };
+        //         console.log(response.data.usage_info);
+        //         console.log(body);
+        //         // call method to listen for identification
+        //         this.checkId(body);
+        //       });
+        //   })
+        //   .catch(error => {
+        //     console.log(error);
+        //   });
       });
   };
 

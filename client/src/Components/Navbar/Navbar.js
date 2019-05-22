@@ -3,19 +3,17 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import "./Navbar.css";
 import Grid from "@material-ui/core/Grid";
 import Form from "../Form/index";
 import Login from "../Login/index";
-import Logout from "../Logout";
+import Logout from "../Logout/index";
+import MobileMenu from "../MobileMenu/MobileMenu";
 import decode from "jwt-decode";
 
 import Modal from "react-modal";
-
 import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
 import ModalRoot from "../LoginModal/ModalRoot";
 
@@ -30,14 +28,14 @@ const Modal1 = ({ onRequestClose, ...otherProps }) => (
 		>
 			<div className="modalOne">
 				<Form />
-				<Button
+				{/* <Button
 					variant="contained"
 					className="modalClose"
 					color="secondary"
 					onClick={onRequestClose}
 				>
 					close
-				</Button>
+				</Button> */}
 			</div>
 		</Modal>
 	</div>
@@ -46,17 +44,22 @@ const Modal1 = ({ onRequestClose, ...otherProps }) => (
 // Login Modal
 const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 	<div className="modalWrapper">
-		<Modal isOpen onRequestClose={onRequestClose} {...otherProps}>
+		<Modal
+			isOpen
+			onRequestClose={onRequestClose}
+			{...otherProps}
+			ariaHideApp={false}
+		>
 			<div className="modalOne">
 				<Login />
-				<Button
+				{/* <Button
 					variant="contained"
 					className="modalClose"
 					color="secondary"
 					onClick={onRequestClose}
 				>
 					close
-				</Button>
+				</Button> */}
 			</div>
 		</Modal>
 	</div>
@@ -82,7 +85,7 @@ const checkAuth = () => {
 	} else {
 		//Get expiration and id of user from token
 		const { exp } = decode(token);
-		if (exp < new Date().getTime() / 1000) {
+		if (exp < Date.now() / 1000) {
 			return false;
 		}
 	}
@@ -94,6 +97,7 @@ function ButtonAppBar(props) {
 
 	return (
 		<>
+			<MobileMenu />
 			<div className={classes.root}>
 				<Grid container className="navGrid">
 					<AppBar className="navBar" position="static">
@@ -116,17 +120,15 @@ function ButtonAppBar(props) {
 									</svg>
 								</IconButton>
 								{/* Identify Button */}
-
-								<Button href="/id" color="inherit">
+								<Button className="navBtn" href="/id" color="inherit">
 									Identify
 								</Button>
 								{/* Manage Button */}
-								<Button href="/manage" color="inherit">
+								<Button className="navBtn" href="/manage" color="inherit">
 									Manage
 								</Button>
-
 								{/* Calender Button */}
-								<Button href="/calendar" color="inherit">
+								<Button className="navBtn" href="/calendar" color="inherit">
 									Calendar
 								</Button>
 							</Grid>

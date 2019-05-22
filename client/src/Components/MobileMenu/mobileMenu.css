@@ -1,0 +1,39 @@
+.menuWrapper {
+	display: none !important;
+	z-index: 50;
+	background-color: #2e991f;
+	border-radius: 50%;
+}
+
+.MuiIconButton-label-9 {
+	color: white;
+}
+
+/* Menu Text */
+.MuiButton-label-164 {
+	color: #006400;
+	/* font-family: 'Mate SC', serif; */
+	/* padding: 100%; */
+}
+
+.MuiButtonBase-root-10 {
+	margin: 0 auto !important;
+}
+
+.menuBtn {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.modalWrapperMobile {
+	display: inline-block !important;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+	.menuWrapper {
+		display: inline !important;
+		position: fixed;
+		top: 90%;
+		left: 85%;
+	}
+}

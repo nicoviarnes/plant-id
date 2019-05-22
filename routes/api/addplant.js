@@ -7,9 +7,8 @@ const Plant = require("../../models/Plants");
 //@Desc		User Garden Data
 //@Access	Public
 router.post("/", (req, res) => {
-  const { owner, name, url, plantInfo } = req.body;
-  console.log(req.body)
-  Plant.create(req.body).then(plant => res.json(plant));
+	const { owner, name, url, plantInfo } = req.body;
+	Plant.create(req.body).then(plant => res.json(plant));
 });
 
 module.exports = router;

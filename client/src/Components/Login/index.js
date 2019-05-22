@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Logo from "../../assets/images/hands.jpg";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import { Link } from "react-router-dom";
 
 import "./style.css";
-
 
 class Login extends Component {
 	// Setting the component's initial state
@@ -26,41 +27,56 @@ class Login extends Component {
 			email: this.state.email,
 			password: this.state.password
 		})
-			.then(res => {
-				localStorage.setItem("x-auth-token", res.data.token)
-				// localStorage.setItem("user-id", res.data.user.id)
-			})
-			// this.props.history.push("/protected"
+			.then(res => localStorage.setItem("x-auth-token", res.data.token))
 			.catch(err => console.log(err));
 	};
 
 	render() {
-		// Notice how each input has a `value`, `name`, and `onChange` prop
-		console.log("Login");
 		return (
-			<div className="test">
-               <img className="loginLogo" src={Logo} alt="logo"/>
-                    <h3 className="loginText">Login
-                    <hr className="loginHr"></hr>
-                    </h3>
+			<>
+				<img className="loginLogo" src={Logo} alt="logo" />
+				<h1 className="loginText">
+					Login
+					<hr className="loginHr" />
+				</h1>
 				<form className="form">
-					<input
-						name="email"
+					<TextField
+						id="outlined-name-input"
+						label="Email"
 						type="text"
+						name="email"
+						autoComplete="name"
 						onChange={this.handleInputChange}
-						placeholder="Email"
+						margin="normal"
+						variant="outlined"
+						required
+						// errorText="This field is required"
 					/>
-					<input
-						name="password"
+					<br />
+					<TextField
+						id="outlined-password-input"
+						label="Password"
 						type="password"
+						name="password"
+						autoComplete="password"
+						margin="normal"
 						onChange={this.handleInputChange}
-						placeholder="Enter a password"
+						variant="outlined"
+						required
+						// errorText="This field is required"
 					/>
-                    <br/><br/>
-                    <Button className='submitBtn' variant="contained" color="inherit" onClick={this.handleFormSubmit}>Submit</Button>
-
+					<br />
+					<br />
+					<Button
+						className="submitBtn"
+						variant="contained"
+						color="inherit"
+						onClick={this.handleFormSubmit}
+					>
+						Submit
+					</Button>
 				</form>
-			</div>
+			</>
 		);
 	}
 }
