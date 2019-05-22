@@ -121,15 +121,15 @@ function ButtonAppBar(props) {
 								</IconButton>
 								{/* Identify Button */}
 								<Button className="navBtn" href="/id" color="inherit">
-									Identify
+									<span className="navFont">Identify</span>
 								</Button>
 								{/* Manage Button */}
 								<Button className="navBtn" href="/manage" color="inherit">
-									Manage
+									<span className="navFont">Manage</span>
 								</Button>
 								{/* Calender Button */}
 								<Button className="navBtn" href="/calendar" color="inherit">
-									Calendar
+									<span className="navFont">Calendar</span>
 								</Button>
 							</Grid>
 
@@ -150,7 +150,7 @@ function ButtonAppBar(props) {
 														color="inherit"
 														onClick={() => showModal(Modal2)}
 													>
-														Login
+														<span className="navFont">Login</span>
 													</Button>
 
 													{/* Register Button */}
@@ -160,7 +160,7 @@ function ButtonAppBar(props) {
 														color="inherit"
 														onClick={() => showModal(Modal1)}
 													>
-														Register
+														<span className="navFont">Register</span>
 													</Button>
 												</Fragment>
 											)}

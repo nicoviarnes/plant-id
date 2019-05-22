@@ -3,7 +3,6 @@ import API from "../../utils/API";
 import Logo from "../../assets/images/hands.jpg";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
 
 import "./style.css";
 
@@ -28,7 +27,7 @@ class Login extends Component {
 			password: this.state.password
 		})
 			.then(res => {
-				localStorage.setItem("x-auth-token", res.data.token)
+				localStorage.setItem("x-auth-token", res.data.token);
 				window.location.href = "/";
 			})
 			.catch(err => console.log(err));
