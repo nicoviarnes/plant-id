@@ -7,8 +7,7 @@ const Plant = require("../../models/Plants");
 //@Desc		User Garden Data
 //@Access	Public
 router.get("/", (req, res) => {
-  console.log(req)
-  Plant.find(req.body).then(plant => res.json(plant));
+	Plant.find(req.body).then(plant => res.json(plant));
 });
 
 module.exports = router;

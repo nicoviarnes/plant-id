@@ -6,9 +6,6 @@ import IDpage from "./Components/IDpage/index";
 import ManageTab from "./Components/ManageTab/index";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Calendar from "./Components/Calendar/Calendar";
-import Login from "./Components/Login";
-import Form from "./Components/Form";
-import Protected from "./Components/Protected";
 import PlantInfo from "./Components/PlantInfo";
 
 //Decode JWT
@@ -22,8 +19,8 @@ const checkAuth = () => {
 
 	try {
 		//Get expiration and id of user from token
-		const { exp, id } = decode(token);
-		if (exp < new Date().getTime() / 1000) {
+		const { exp } = decode(token);
+		if (exp < Date.now() / 1000) {
 			return false;
 		}
 	} catch (err) {
@@ -60,19 +57,14 @@ function App() {
 					<AuthRoute exact path="/manage" component={ManageTab} />
 					<AuthRoute exact path="/manage/plant/:plant" component={PlantInfo} />
 					<Route path="/calendar" component={Calendar} />
-					<Route path="/login" component={Login} />
-					<Route path="/register" component={Form} />
-					{/* Protected Routes */}
-					<AuthRoute exact path="/auth" component={Protected} />
-
-					{/* 					<AuthRoute
+					{/* 					
+					<AuthRoute
 						exact
 						path="/auth"
 						component={props => <Protected id={id} props={props} />}
 					/> */}
 				</Switch>
 			</BrowserRouter>
-			{/* <SimpleModalWrapped /> */}
 		</div>
 	);
 }
