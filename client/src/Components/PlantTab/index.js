@@ -17,14 +17,14 @@ function PlantTab(props) {
           plantData: "plant db object goes here"
         }
       }}>
-        <div className="card-wrap" onClick={() => clickedPlant(props.id)}>
+        <div className="card-wrap">
           <div className="img-container">
             <img className="thumb" alt={props.id} src={props.image} />
           </div>
           <div className="tile-content">
             {/* <p>Scientific Name:{props.scientific}</p> */}
             <p className="nickname">{props.nickname}</p>
-            <p>Last Watering: {props.daysSince}</p>
+            {/* <p>Last Watering: {props.daysSince}</p> */}
             <img className="wateringCan" src={wateringCan} alt="watering Can" />
           </div>
         </div>

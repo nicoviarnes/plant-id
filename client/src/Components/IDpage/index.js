@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import tropical from "../../assets/images/tropical.jpg";
 import succulent from "../../assets/images/succulent.jpg";
+import Banner2 from "../../assets/images/leafy.jpg";
 import "./style.css";
 import decode from "jwt-decode";
 import API from "../../utils/API";
@@ -25,7 +26,7 @@ let IMGURKEY = KEYS.IMGUR_KEY;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 const styles = {
-  Paper: { marginRight: 75, marginLeft: 75, marginTop: 50, height: 500 }
+  Paper: { marginRight: 75, marginLeft: 75, marginBottom:50, marginTop: 50, height: 500 }
 };
 
 const Modal3 = ({ onRequestClose, ...otherProps }) => (
@@ -222,7 +223,7 @@ class IDpage extends Component {
   render() {
     var self = this;
     return (
-      <div className="TOP">
+      <div>
         {this.state.isScraped ? (
           Object.entries(this.state.plantObj).map((plant, i) => {
             return (
@@ -232,37 +233,29 @@ class IDpage extends Component {
             );
           })
         ) : (
+          
           <div>
-            <input className="imageBtn"
+              <div>
+                <img className="splashImg2" src={Banner2} alt="splashImg2"/>
+              </div>
+              <div className="bodyId">
+            <Grid container>
+                <Grid item sm={2}></Grid>
+                  <Grid item sm={8}>    
+                          <Paper style={styles.Paper}>
+            <div className="input-back">                
+            <h1 className="id-title">My Plant Identifier</h1>
+            <input
               type="file"
               accept="image/*"
               onChange={this.fileChangedHandler}
             />
-        
-{/* Upload Button/Loading modal */}
-          
-            <ModalProvider className="modalRoot">
-              <ModalRoot />
-              <ModalConsumer>
-                {({ showModal, hideModal }) => (
-                  <Fragment>
-                    <button className="uploadBtn"
-                      onClick={() => {
-                        // function hideExport = hideModal();
-                        this.uploadHandler();
-                        showModal(Modal3);
-                        setTimeout(hideModal, 3000);
-                      }}
-                    >
-                      Upload!
-                    </button>
-                  </Fragment>
-                )}
-              </ModalConsumer>
-            </ModalProvider>
-
+            <h4 className="sub-tag">Upload a picture of a plant you wish to identify!</h4>
+            <button class="sub-butt" onClick={this.uploadHandler}>Upload!</button>
+            
             {this.state.waitingForData ? (
               <Loader type="Oval" color="#00BFFF" height="100" width="100" />
+              
             ) : (
               <p />
             )}
@@ -291,6 +284,12 @@ class IDpage extends Component {
                 }
               />
             }
+                      </div>          
+                    </Paper> 
+                  </Grid>
+              <Grid item sm={2}></Grid>
+            </Grid>
+            </div>
           </div>
         )}
       </div>
