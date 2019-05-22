@@ -2,6 +2,8 @@ import React from "react";
 import "./style.css";
 import API from "../../utils/API";
 import Grid from "@material-ui/core/Grid";
+import NoteForm from "../NoteForm";
+
 
 class PlantInfo extends React.Component {
   state = {
@@ -34,11 +36,7 @@ class PlantInfo extends React.Component {
                 <img src={this.state.info[0].url} alt="user uploaded" />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <div className="note-wrap">
-                <h4 className="note-tag">Add a Note</h4>
-                <textarea className="text-area" type="text"/>
-                <button type="submit">add note</button>
-              </div>
+              <NoteForm/>
             </Grid>
             <Grid item xs={12} sm={12}>
             <div className="my-notes-wrap">
