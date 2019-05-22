@@ -27,7 +27,10 @@ class Login extends Component {
 			email: this.state.email,
 			password: this.state.password
 		})
-			.then(res => localStorage.setItem("x-auth-token", res.data.token))
+			.then(res => {
+				localStorage.setItem("x-auth-token", res.data.token)
+				window.location.href = "/";
+			})
 			.catch(err => console.log(err));
 	};
 
