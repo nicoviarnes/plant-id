@@ -13,7 +13,7 @@ function HomePage() {
 			<div>
 				<img className="splashImg" src={SplashBG} alt="splashImg" />
 				<h1 className="titleName ">
-					<span className="testname">Plantify</span>
+					<span className="testname">PLANTIFY</span>
 				</h1>
 			</div>
 			<div className="container">
