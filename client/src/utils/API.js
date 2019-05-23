@@ -20,6 +20,11 @@ export default {
 
 	getUserPlant: function(data) {
 		return axios.get("/api/plant", data);
+	},
+	addPlantNote: function(data) {
+		return axios.post("/api/addnote", data);
+	},
+	getPlantNote: function(data) {
+		return axios.get("/api/note", data);
 	}
-
 };

@@ -30,9 +30,9 @@ h1 {
 }
 .testname {
 	font-weight: 900;
-	border: 5px double #020202;
-	border-radius: 4px;
-	padding: 3px 20px;
+	/* border: 5px double #020202; */
+	border-radius: 2px;
+	padding: 5px 20px;
 	color: rgb(0, 0, 0);
 	mix-blend-mode: lighten;
 	background-color: #f2f8f5;
