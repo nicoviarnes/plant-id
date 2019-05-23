@@ -23,6 +23,11 @@ class NoteForm extends Component {
 		console.log(this.props.plantID);
 		console.log(this.state.title);
 		console.log(this.state.note);
+		if(this.state.title === "" ){
+			alert("add a Title!")
+		} else if(this.state.note === ""){
+			alert("add a Note!")
+		} else {
 		API.addPlantNote({
 			plant: this.props.plantID,
 			title: this.state.title,
@@ -33,6 +38,12 @@ class NoteForm extends Component {
 			})
 			.catch(err => console.log(err));
 
+			this.setState({
+				title:"",
+				note:""
+			})
+			
+		}
 		// if (!this.state.title || !this.state.note) {
 		// 	alert("Fill both a title and a note!");
 		// } else {
@@ -44,30 +55,33 @@ class NoteForm extends Component {
 
 	render() {
 		return (
+			<>
+			<h2 className="note-head">Add a note</h2>
 			<form className="note-form">
 				<label>
 					<p className="label">Title :</p>
 					<input
+						className="title-input"
 						type="text"
 						name="title"
 						value={this.state.title}
 						onChange={this.handleChange}
-						placeholder="title"
 					/>
 				</label>
 				<br />
 				<label>
 					<p className="label">Note :</p>
 					<textarea
+						className="note-input"
 						type="text"
 						name="note"
 						value={this.state.note}
 						onChange={this.handleChange}
-						placeholder="note"
 					/>
 				</label>
-				<button onClick={this.handleSubmit}>Save</button>
+				<button className="note-sub-butt" onClick={this.handleSubmit}>Save</button>
 			</form>
+			</>
 		);
 	}
 }
