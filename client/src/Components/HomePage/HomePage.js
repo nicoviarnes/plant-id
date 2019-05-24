@@ -1,8 +1,8 @@
 import React from "react";
 // import Navbar from "../Navbar/Navbar";
 import SplashBG from "../../assets/images/small.jpg";
-import Banner from "../../assets/images/banner-lush.jpg";
-import testbg from "../../assets/images/tests/test4.jpg";
+// import Banner from "../../assets/images/banner-lush.jpg";
+// import testbg from "../../assets/images/tests/test4.jpg";
 
 import "./homePage.css";
 

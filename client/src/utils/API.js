@@ -25,6 +25,6 @@ export default {
 		return axios.post("/api/addnote", data);
 	},
 	getPlantNote: function(data) {
-		return axios.get("/api/note", data);
+		return axios.get("/api/notes", data);
 	}
 };

@@ -33,9 +33,7 @@ class NoteForm extends Component {
 			title: this.state.title,
 			note: this.state.note
 		})
-			.then(res => {
-				console.log("Note API");
-			})
+			.then(res => {})
 			.catch(err => console.log(err));
 
 			this.setState({
