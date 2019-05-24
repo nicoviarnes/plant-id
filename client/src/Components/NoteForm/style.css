@@ -1,17 +1,16 @@
 .note-head {
 	font-size: 25px;
-	color: black;
+	color: white;
 	font-weight: bolder;
 }
 
 .note-form {
-	background-color: lightyellow;
+	background-color: #397547;
 	position: relative;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-	margin-left: 20%;
-	margin-right: 20%;
 	border-radius: 20px;
-	width: 300px;
+	width: 100%;
+	color: white;
 }
 
 .form input,
