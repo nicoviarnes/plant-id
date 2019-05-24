@@ -7,19 +7,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import NoteForm from "../NoteForm";
+import API from "../../utils/API";
 import "./style.css";
-
-import { createMuiTheme } from "@material-ui/core/styles";
-import purple from "@material-ui/core/colors/purple";
-
-const theme = createMuiTheme({
-	palette: {
-		primary: purple,
-		secondary: {
-			main: "#f44336"
-		}
-	}
-});
 
 function TabContainer(props) {
 	return (
@@ -27,6 +16,15 @@ function TabContainer(props) {
 			{props.children}
 		</Typography>
 	);
+}
+
+function deleteNote(id) {
+	console.log("delete Btn");
+	API.delPlantNote({ id })
+		.then(res => {
+			console.log(res);
+		})
+		.catch(err => console.log(err));
 }
 
 TabContainer.propTypes = {
@@ -96,10 +94,19 @@ function CenteredTabs(props) {
 										{props.notes &&
 											Object.entries(props.notes).map((note, i) => {
 												return (
-													<div key={i}>
+													<div key={i} data-id={note[1]._id}>
 														<h2>Title:</h2>
 														<h3>{note[1].title}</h3>
 														<p>{note[1].note}</p>
+														{/* <button
+															onClick={deleteNote.bind(this, note[1]._id)}
+															id={note[1]._id}
+														>
+															X
+														</button> */}
+														<button onClick={() => deleteNote(note[1]._id)}>
+															X
+														</button>
 														<hr />
 													</div>
 												);

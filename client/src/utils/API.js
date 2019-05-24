@@ -26,5 +26,8 @@ export default {
 	},
 	getPlantNote: function(data) {
 		return axios.get("/api/notes", data);
+	},
+	delPlantNote: function(data) {
+		return axios.post("/api/notes/remove", data);
 	}
 };
