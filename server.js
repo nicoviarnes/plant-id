@@ -33,8 +33,7 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/garden", require("./routes/api/garden"));
 app.use("/api/plant", require("./routes/api/plant"));
 app.use("/api/addplant", require("./routes/api/addplant"));
-app.use("/api/test", require("./routes/api/test"));
-// app.use(routes);
+app.use("/api/addnote", require("./routes/api/addnote"));
 
 //Port
 const port = process.env.PORT || 3001;

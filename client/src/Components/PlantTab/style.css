@@ -1,20 +1,22 @@
 
 
 .main-title {
-  font-size:40px;
-  font-weight:bolder;
-  color:darkgreen;
-  text-decoration: underline;
-  margin-top:20px;
+    font-size: 87px;
+    font-weight: bolder;
+    color: white;
+    margin-top: 5%;
+    margin-bottom:2%;
 }
 .card-wrap {
     background: #fff;
-    height: 100%;
-    border:2px solid black;
+    height:288px;
+    width:150px;
+    /* border:2px solid black; */
     position: relative;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     text-align: left;
     margin: .5em;
+    margin-top:.5em;
 
     
   }
@@ -52,8 +54,9 @@
   }
 
   .wateringCan {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
+    margin-left:30%;
   }
 
 .tile-content {

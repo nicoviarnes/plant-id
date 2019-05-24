@@ -44,7 +44,12 @@ const Modal1 = ({ onRequestClose, ...otherProps }) => (
 // Login Modal
 const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 	<div className="modalWrapper">
-		<Modal isOpen onRequestClose={onRequestClose} {...otherProps} ariaHideApp={false}>
+		<Modal
+			isOpen
+			onRequestClose={onRequestClose}
+			{...otherProps}
+			ariaHideApp={false}
+		>
 			<div className="modalOne">
 				<Login />
 				{/* <Button
@@ -59,7 +64,6 @@ const Modal2 = ({ onRequestClose, foo, ...otherProps }) => (
 		</Modal>
 	</div>
 );
-
 
 const styles = theme => ({
 	root: {
@@ -81,7 +85,7 @@ const checkAuth = () => {
 	} else {
 		//Get expiration and id of user from token
 		const { exp } = decode(token);
-		if (exp < new Date().getTime() / 1000) {
+		if (exp < Date.now() / 1000) {
 			return false;
 		}
 	}
@@ -93,7 +97,11 @@ function ButtonAppBar(props) {
 
 	return (
 		<>
+<<<<<<< HEAD
 								{/* <MobileMenu/> */}
+=======
+			<MobileMenu />
+>>>>>>> master
 			<div className={classes.root}>
 				<Grid container className="navGrid">
 					<AppBar className="navBar" position="static">
@@ -116,12 +124,16 @@ function ButtonAppBar(props) {
 									</svg>
 								</IconButton>
 								{/* Identify Button */}
-								<Button className="navBtn" href="/id" color="inherit">Identify</Button>
+								<Button className="navBtn" href="/id" color="inherit">
+									<span className="navFont">Identify</span>
+								</Button>
 								{/* Manage Button */}
-								<Button className="navBtn" href="/manage" color="inherit">Manage</Button>
+								<Button className="navBtn" href="/manage" color="inherit">
+									<span className="navFont">Manage</span>
+								</Button>
 								{/* Calender Button */}
 								<Button className="navBtn" href="/calendar" color="inherit">
-									Calendar
+									<span className="navFont">Calendar</span>
 								</Button>
 							</Grid>
 
@@ -142,7 +154,7 @@ function ButtonAppBar(props) {
 														color="inherit"
 														onClick={() => showModal(Modal2)}
 													>
-														Login
+														<span className="navFont">Login</span>
 													</Button>
 
 													{/* Register Button */}
@@ -152,7 +164,7 @@ function ButtonAppBar(props) {
 														color="inherit"
 														onClick={() => showModal(Modal1)}
 													>
-														Register
+														<span className="navFont">Register</span>
 													</Button>
 												</Fragment>
 											)}

@@ -6,6 +6,9 @@
     padding: 12px;
     justify-content: space-around;
     align-content: flex-start;
-    overflow: auto;
-    border:6px solid darkgreen;
+    overflow: hidden;
+    margin-left:10%;
+    margin-right:10%;
+    /* border:6px solid darkgreen; */
+    /* flex-direction:column; */
   }

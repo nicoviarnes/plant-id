@@ -1,44 +1,44 @@
 .navBar {
-    background-color: #F8F8F8!important;
-    color: darkgreen !important;
-    padding: 2px;
+	background-color: #f8f8f8 !important;
+	color: darkgreen !important;
+	padding: 2px;
 }
 
-.navGrid{
-    position: fixed;
-    z-index: 1;
+.navGrid {
+	position: fixed;
+	z-index: 1;
 }
 
-.navBtn{
-    font-family: 'Mate SC', serif!important;
+button {
+	font-family: "Source Sans Pro", sans-serif;
+}
+.navFont {
+	font-family: "Source Sans Pro", sans-serif;
+	/* font-weight: bold; */
+	font-size: 1rem;
 }
 
-.loginBtn{
-    font-family: 'Mate SC', serif!important;
+.registerBtn {
+	/* position: absolute; */
+	/* color: white; */
+	font-size: 14px;
+	/* text-align: right!important; */
+	/* margin-right: 100%!important; */
+	/* font-family: "Mate SC", serif; */
 }
 
-.registerBtn{
-    /* position: absolute; */
-    /* color: white; */
-    font-size: 14px;
-    /* text-align: right!important; */
-    /* margin-right: 100%!important; */
-    font-family: 'Mate SC', serif;
+.ReactModal__Content {
+	height: 85%;
+	width: 40%;
+	margin: 0 auto;
+	/* border: 3px solid !important; */
+	box-shadow: 1px 1px 5px;
+	text-align: center;
 }
 
-.ReactModal__Content{
-    height: 85%;
-    width: 40%;
-    margin: 0 auto;
-    /* border: 3px solid !important; */
-    box-shadow: 1px 1px 5px;
-    text-align: center;
-    font-family: 'Mate SC', serif;
-}
-
-.ReactModal__Overlay{
-    /* opacity: 0.2; */
-    z-index: 100;
+.ReactModal__Overlay {
+	/* opacity: 0.2; */
+	z-index: 100;
 }
 
 /* .modalClose{
@@ -46,20 +46,18 @@
     margin-top: 7%!important;
 } */
 
-.leftMenu{
-    position: block;
-    margin-right: 50%!important;
-    /* color: black; */
-    padding-bottom: 5px;
-    padding-top: 5px;
+.leftMenu {
+	position: block;
+	margin-right: 50% !important;
+	/* color: black; */
+	padding-bottom: 5px;
+	padding-top: 5px;
 }
 
-
-@media (min-width: 320px) and (max-width: 767px){
-    .navBar {
-        display: none!important;
-        /* opacity: 0.0; */
-        /* visibility: hidden; */
-    }
-
+@media (min-width: 320px) and (max-width: 767px) {
+	.navBar {
+		display: none !important;
+		/* opacity: 0.0; */
+		/* visibility: hidden; */
+	}
 }

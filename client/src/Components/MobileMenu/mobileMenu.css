@@ -1,23 +1,23 @@
-.menuWrapper{
-    display: none!important;
-    z-index: 50;
-    background-color: #2e991f;
-    border-radius: 50%;
+.menuWrapper {
+	display: none !important;
+	z-index: 50;
+	background-color: #2e991f;
+	border-radius: 50%;
 }
 
-.MuiIconButton-label-9{
-    color: white;
+.MuiIconButton-label-9 {
+	color: white;
 }
 
 /* Menu Text */
-.MuiButton-label-164{
-    color: #006400;
-    font-family: 'Mate SC', serif;
-    /* padding: 100%; */
+.MuiButton-label-164 {
+	color: #006400;
+	/* font-family: 'Mate SC', serif; */
+	/* padding: 100%; */
 }
 
-.MuiButtonBase-root-10{
-    margin: 0 auto!important;
+.MuiButtonBase-root-10 {
+	margin: 0 auto !important;
 }
 
 .menuBtn{
@@ -28,8 +28,8 @@
     text-decoration: none;
 }
 
-.modalWrapperMobile{
-    display: inline-block!important;
+.modalWrapperMobile {
+	display: inline-block !important;
 }
 
 
