@@ -97,11 +97,7 @@ function ButtonAppBar(props) {
 
 	return (
 		<>
-<<<<<<< HEAD
-								{/* <MobileMenu/> */}
-=======
 			<MobileMenu />
->>>>>>> master
 			<div className={classes.root}>
 				<Grid container className="navGrid">
 					<AppBar className="navBar" position="static">
