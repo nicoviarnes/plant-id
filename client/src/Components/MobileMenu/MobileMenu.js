@@ -132,8 +132,7 @@ const options = [
     <a href="/manage" className="menuBtn">Manage</a>,
     <a href="/calendar" className="menuBtn">Calendar</a>,
 
-
-<ModalProvider>
+    <ModalProvider>
     <ModalRoot />
     <ModalConsumer>
       {({ showModal }) => (
@@ -162,6 +161,7 @@ const options = [
       )}
     </ModalConsumer>
   </ModalProvider>
+
 ];
 
 

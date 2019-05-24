@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
+// import MobileMenu from "./Components/MobileMenu/MobileMenu";
+import SimpleMenu from "./Components/MobileMenu2/MobileMenu2";
+
 import HomePage from "./Components/HomePage/HomePage";
 import IDpage from "./Components/IDpage/index";
 import ManageTab from "./Components/ManageTab/index";
@@ -49,6 +52,9 @@ function App() {
 	return (
 		<div className="App">
 			<Navbar />
+			{/* <MobileMenu /> */}
+			<SimpleMenu />
+			
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/" component={HomePage} />
