@@ -15,7 +15,7 @@ class CalendarPage extends React.Component {
 
     render(){
     return(
-        <>
+        <div className="calendarBody">
         <Navbar/>
         <br></br>
         <Calendar
@@ -34,7 +34,7 @@ class CalendarPage extends React.Component {
             }
             // tileContent={<img src={seedIcon}></img>}
 />
-        </>
+        </div>
     )
 }
 }

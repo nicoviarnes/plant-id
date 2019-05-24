@@ -1,3 +1,7 @@
+.calendarBody{
+    background-image: url("../../assets/images/aloe.jpg");
+}
+
 .react-calendar{
     margin-top: 10%;
     margin-left: 10%;
@@ -5,24 +9,43 @@
     margin-bottom: 5%;
     /* height: 700px; */
     font-size: 20px;
+    box-shadow: 2px 2px 5px;
+    border: none;
 }
 
+
 .react-calendar__navigation{
-    background-color: #006400;
+    /* background-color: #C0C0C0; */
+    /* background-color: rgba(18, 153, 6, 0.74); */
+    background-image: url("../../assets/images/ivy.jpg");
+    background-size: 100%, 60%;
+    background-position: center;
+    background-repeat: no-repeat;
     /* font-size: 30px; */
     height: 50px;
 }
 
+.react-calendar__month-view__days{
+    /* background-image: url("../../assets/images/banner-lush.jpg"); */
+    background-color: whitesmoke;
+}
+
 .react-calendar__navigation__label{
     font-size: 25px;
-    text-shadow: 1px 1px black;
+    /* text-shadow: 1px 1px black; */
     font-weight: bold;
     pointer-events: none;  
-    color:#41B3A3;
+    color: black;
+}
+
+.react-calendar__month-view__days__day--weekend{
+    /* background-color: rgba(39, 170, 202, 0.11); */
+    background-color: rgba(39, 202, 39, 0.11);
+
 }
 
 .react-calendar__tile{
-    border: 1px solid gray!important;
+    border: .05px solid gray!important;
     /* text-align: center; */
     pointer-events: none;  
     padding-bottom: 5%;
@@ -30,10 +53,13 @@
     /* word-break: break-all;
     white-space: pre; */
     display: block;
+    min-width: 14%;
 }
 
 .react-calendar__tile--active{
-    background-color: #85DCB0;
+    /* background-color: #DCDCDC; */
+    background-color: rgba(13, 146, 1, 0.651);
+
 }
 
 .imageDiv{
@@ -66,10 +92,14 @@
 abbr{
     /* line-height: 50px; */
     /* vertical-align: middle; */
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
+    /* border-bottom: none; */
     font-size: 16px;
+    font-weight: bold;
 }
 
 abbr[title] {
-    border-bottom: none;
+    border-bottom: none!important;
+    cursor: inherit !important;
+    text-decoration: none !important;
 }

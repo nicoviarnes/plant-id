@@ -23,11 +23,24 @@
 .menuBtn{
     text-align: center;
     margin: 0 auto;
+    /* background-color: #006400; */
+    color: black;
+    text-decoration: none;
 }
 
 .modalWrapperMobile{
     display: inline-block!important;
 }
+
+
+
+
+/* ~~~~~~~~~~~~~~~~~ */
+
+.loginBtnMobile{
+}
+
+
 
 @media (min-width: 320px) and (max-width: 767px){
     .menuWrapper{
