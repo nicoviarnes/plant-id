@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import API from "../../utils/API";
+import Button from "@material-ui/core/Button";
 
 class NoteForm extends Component {
 	state = {
@@ -20,9 +21,9 @@ class NoteForm extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		console.log(this.props.plantID);
-		console.log(this.state.title);
-		console.log(this.state.note);
+		// console.log(this.props.plantID);
+		// console.log(this.state.title);
+		// console.log(this.state.note);
 		if (this.state.title === "") {
 			alert("add a Title!");
 		} else if (this.state.note === "") {
@@ -54,7 +55,7 @@ class NoteForm extends Component {
 		return (
 			<>
 				<form className="note-form">
-					<h2 className="note-head">Add a note</h2>
+					<h2 className="note-head">Add a Note</h2>
 					<label>
 						<p className="label">Title :</p>
 						<input
@@ -76,9 +77,15 @@ class NoteForm extends Component {
 							onChange={this.handleChange}
 						/>
 					</label>
-					<button className="note-sub-butt" onClick={this.handleSubmit}>
+
+					<Button
+						className="note-sub-butt"
+						variant="contained"
+						color="inherit"
+						onClick={this.handleSubmit}
+					>
 						Save
-					</button>
+					</Button>
 				</form>
 			</>
 		);

@@ -35,6 +35,7 @@ app.use("/api/plant", require("./routes/api/plant"));
 app.use("/api/addplant", require("./routes/api/addplant"));
 app.use("/api/addnote", require("./routes/api/addnote"));
 app.use("/api/notes", require("./routes/api/notes"));
+app.use("/api/notes/remove", require("./routes/api/deletenote"));
 
 //Port
 const port = process.env.PORT || 3001;
