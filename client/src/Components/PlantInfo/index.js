@@ -45,15 +45,17 @@ class PlantInfo extends React.Component {
 								{this.state.info && this.state.info[0].name}
 							</h1>
 						</Grid>
-						<Grid item xs={12} sm={2} />
+						<Grid item xs={12} sm={1} />
 						<Grid item xs={12} sm={12} md={4}>
 							<img src={this.state.info[0].url} alt="user uploaded" />
 						</Grid>
+						<Grid item xs={12} sm={1} />
 
-						<Grid item xs={12} sm={12} md={4}>
+						<Grid item xs={12} sm={12} md={5}>
 							<CenteredTabs
 								info={this.state.info}
 								plantId={this.state.plantId}
+								notes={this.state.notes}
 							/>
 						</Grid>
 
