@@ -19,3 +19,10 @@
 	height: 28%;
 	background-size: cover;
 }
+
+@media only screen and (max-width: 380px) {
+    
+    .content-wrap .bg {
+		top: -100px;
+	}
+  }

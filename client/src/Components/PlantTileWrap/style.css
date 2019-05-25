@@ -9,6 +9,38 @@
     overflow: hidden;
     margin-left:10%;
     margin-right:10%;
+    padding-top:50px;
     /* border:6px solid darkgreen; */
     /* flex-direction:column; */
+  }
+
+  @media only screen and (max-width: 880px) {
+    
+    .wrapper {
+      padding-top: 50px;
+      height: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      padding: 12px;
+      justify-content: space-around;
+      align-content: flex-start;
+      overflow: hidden;
+      margin-left:10%;
+      margin-right:10%;
+      padding-top:100px;
+      
+    }
+  
+  }
+
+  @media only screen and (max-width: 670px) {
+    .wrapper {
+      padding-top:100px;
+    }
+  }
+
+  @media only screen and (max-width: 380px) {
+    .wrapper {
+      padding-top:64px;
+    }
   }
