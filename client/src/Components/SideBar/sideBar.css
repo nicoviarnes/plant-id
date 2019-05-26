@@ -1,0 +1,46 @@
+.mobileMenu{
+    background-color: #2d991fec;
+    border-radius: 100%;
+    display: inline!important;
+    position: fixed;
+    top: 90%!important;
+    left: 85%;
+    z-index: 40;
+    display: none !important;
+    box-shadow: 1px 1px 1px;
+}
+
+.MuiSvgIcon-root-176{
+    color: rgba(0, 0, 0, 0.733);
+}
+
+.sideBarWrapper{
+   padding: 20px!important;
+
+}
+
+.menuLink{
+    text-decoration: none;
+}
+
+.menuText{
+    display: block!important;
+    text-align: center!important;
+    /* color: green!important; */
+    font-family: "Source Sans Pro", sans-serif!important;
+}
+
+.logoutBtn{
+    /* color: #2e991f!important; */
+}
+
+.MuiTypography-root-244{
+    font-family: "Source Sans Pro", sans-serif!important;
+}
+
+
+@media (min-width: 320px) and (max-width: 767px){
+    .mobileMenu{
+        display: inline!important;
+    }
+}

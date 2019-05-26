@@ -1,5 +1,7 @@
 .calendarBody{
     background-image: url("../../assets/images/aloe.jpg");
+    background-size: cover;
+    padding-bottom: 5%;
 }
 
 .react-calendar{

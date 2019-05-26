@@ -1,17 +1,10 @@
 import React from "react";
-// import Navbar from "../Navbar/Navbar";
-import SplashBG from "../../assets/images/small.jpg";
-// import Banner from "../../assets/images/banner-lush.jpg";
-// import testbg from "../../assets/images/tests/test4.jpg";
-
 import "./homePage.css";
 
 function HomePage() {
 	return (
-		<>
-			{/* <Navbar/> */}
-			<div>
-				<img className="splashImg" src={SplashBG} alt="splashImg" />
+		<div className="homeWrapper">
+			<div className="splashDiv">
 				<h1 className="titleName ">
 					<span className="testname">PLANTIFY</span>
 				</h1>
@@ -47,7 +40,7 @@ function HomePage() {
 					</p>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 

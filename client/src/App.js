@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
-// import MobileMenu from "./Components/MobileMenu/MobileMenu";
-import SimpleMenu from "./Components/MobileMenu2/MobileMenu2";
+import SideBar from "./Components/SideBar/SideBar";
 
 import HomePage from "./Components/HomePage/HomePage";
 import IDpage from "./Components/IDpage/index";
@@ -52,8 +51,7 @@ function App() {
 	return (
 		<div className="App">
 			<Navbar />
-			{/* <MobileMenu /> */}
-			<SimpleMenu />
+			<SideBar/>
 			
 			<BrowserRouter>
 				<Switch>
@@ -65,10 +63,10 @@ function App() {
 					<Route path="/calendar" component={Calendar} />
 					{/* 					
 					<AuthRoute
-						exact
-						path="/auth"
-						component={props => <Protected id={id} props={props} />}
-					/> */}
+					exact
+					path="/auth"
+					component={props => <Protected id={id} props={props} />}
+				/> */}
 				</Switch>
 			</BrowserRouter>
 		</div>

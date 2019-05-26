@@ -10,7 +10,6 @@ import Grid from "@material-ui/core/Grid";
 import Form from "../Form/index";
 import Login from "../Login/index";
 import Logout from "../Logout/index";
-import MobileMenu from "../MobileMenu/MobileMenu";
 import decode from "jwt-decode";
 
 import Modal from "react-modal";
@@ -97,7 +96,6 @@ function ButtonAppBar(props) {
 
 	return (
 		<>
-			<MobileMenu />
 			<div className={classes.root}>
 				<Grid container className="navGrid">
 					<AppBar className="navBar" position="static">
