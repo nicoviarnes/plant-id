@@ -1,58 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Roboto|Source+Sans+Pro&display=swap");
+* {
+	font-family: "Lato", sans-serif;
+}
 .note-head {
-    font-size: 25px;
-    color:black;
-    font-weight: bolder;
+	font-size: 25px;
+	color: white;
+	font-weight: bolder;
 }
 
-  .note-form {
-      background-color:lightyellow;
-      position:relative;
-      box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-      margin-left:20%;
-      margin-right:20%;
-      border-radius:20px;
-  }
-  
-  .form input, textarea {
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    
-    
-    
-  }
+.note-form {
+	background-color: #397547;
+	position: relative;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+	border-radius: 20px;
+	width: 100%;
+	color: white;
+}
 
-  .title-input{
-    width:92%;
-    height:30px;
-    margin-left:3%;
-    margin-right:3%;
-    
-  }
-  
-  .note-input {
-      margin-left:3%;
-      margin-right:3%;
-      width:92%;
-      
-  }
+.form input,
+textarea {
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 
-  .label {
-      text-align: left;
-      margin-left:3%;
-      padding-top:4%;
-      font-weight: bold;
-      
-  }
+.title-input {
+	width: 92%;
+	height: 30px;
+	margin-left: 3%;
+	margin-right: 3%;
+}
 
-  .note-sub-butt {
-        color:black;
-        padding:1% 3% 1% 3%;
-        margin-bottom:3%;
-        margin-top:3%;
-        box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-  }
+.note-input {
+	margin-left: 3%;
+	margin-right: 3%;
+	width: 92%;
+	height: 100px;
+}
 
-  .note-sub-butt:hover{
-      cursor:pointer
-  }
+.label {
+	text-align: left;
+	margin-left: 3%;
+	padding-top: 4%;
+	font-weight: bold;
+}
+
+.note-sub-butt {
+	color: black;
+	padding: 1% 3% 1% 3%;
+	margin-bottom: 3% !important;
+	margin-top: 3% !important;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+}
+
+.note-sub-butt:hover {
+	cursor: pointer;
+}
+
+h2 {
+	padding-top: 20px;
+}
+/* *********************************************************************** */
+/* Larry Test Styling Below */
+
+/* @import url("https://fonts.googleapis.com/css?family=Lato:400,700|Roboto|Source+Sans+Pro&display=swap");
+* {
+	font-family: "Lato", sans-serif;
+}
+.note-head {
+	font-size: 25px;
+	color: white;
+	font-weight: bolder;
+	color: #2f6834;
+	padding-top: 20px;
+}
+
+.note-form {
+	background-color: #fafafa;
+	position: relative;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+	border-radius: 20px;
+	width: 100%;
+	color: #2f6834;
+}
+
+
+form {
+	border: 0.5px solid #2f6834;
+}
+
+.title-input {
+	width: 92%;
+	height: 30px;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+.note-input {
+	margin-left: 3%;
+	margin-right: 3%;
+	width: 92%;
+	height: 100px;
+}
+
+.label {
+	text-align: left;
+	margin-left: 3%;
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+
+.note-sub-butt {
+	margin: 20px !important;
+}
+
+input[type="text"],
+textarea {
+	font-size: 1rem;
+} */

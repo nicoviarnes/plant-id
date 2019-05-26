@@ -1,73 +1,79 @@
-
-
 .main-title {
-    font-size: 87px;
-    font-weight: bolder;
-    color: white;
-    margin-top: 5%;
-    margin-bottom:2%;
+	font-size: 87px;
+	font-weight: bolder;
+	color: white;
+	margin-top: 100px;
+	margin-bottom: 2%;
+	text-shadow: -1px 2px 2px #5e5d58;
 }
 .card-wrap {
-    background: #fff;
-    height:288px;
-    width:150px;
-    /* border:2px solid black; */
-    position: relative;
-    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-    text-align: left;
-    margin: .5em;
-    margin-top:.5em;
+	background: #fff;
+	height: 288px;
+	width: 150px;
+	/* border:2px solid black; */
+	position: relative;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+	text-align: left;
+	margin: 0.5em;
+	margin-top: 0.5em;
+}
 
-    
-  }
-
-  .card-wrap:hover{
-    cursor: pointer;
-  }
+.card-wrap:hover {
+	cursor: pointer;
+}
 
 .card-wrap > .img-container {
-    
-    height:150px;
-    width:150px;
-    object-fit:cover;
-    overflow: hidden;
-    text-align: center;
-    background:#6CADDC;
-    
-  }
+	height: 150px;
+	width: 150px;
+	object-fit: cover;
+	overflow: hidden;
+	text-align: center;
+	background: #6caddc;
+}
 
+.card-wrap > .img-container > img {
+	width: 60%;
+}
 
+.thumb {
+	background-size: contain;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+}
 
-  .card-wrap > .img-container > img {
-    width: 60%;
-    
-  }
-
-
-  
-  .thumb {    
-    background-size: contain;    
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-  }
-
-  .wateringCan {
-    width: 40px;
-    height: 40px;
-    margin-left:30%;
-  }
+.wateringCan {
+	width: 40px;
+	height: 40px;
+	margin-left: 30%;
+}
 
 .tile-content {
-    padding:5px;
+	padding: 5px;
 }
 
 .nickname {
-  font-size: large;
-  color:darkgreen;
-  font-weight: bolder;
-  text-align:center;
-
+	font-size: large;
+	color: darkgreen;
+	font-weight: bolder;
+	text-align: center;
 }
 
+@media only screen and (max-width: 895px) {
+    .main-title {
+		margin-top: 93px;
+	}
+  }
+
+  @media only screen and (max-width: 876px) {
+    .main-title {
+		margin-top: 154px;
+	}
+  }
+
+  @media only screen and (max-width: 671px) {
+    .main-title {
+		margin-top: 210px;
+	}
+  }

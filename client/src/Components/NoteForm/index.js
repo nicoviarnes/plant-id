@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import API from "../../utils/API";
+import Button from "@material-ui/core/Button";
 
 class NoteForm extends Component {
 	state = {
@@ -20,29 +21,26 @@ class NoteForm extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		console.log(this.props.plantID);
-		console.log(this.state.title);
-		console.log(this.state.note);
-		if(this.state.title === "" ){
-			alert("add a Title!")
-		} else if(this.state.note === ""){
-			alert("add a Note!")
+		// console.log(this.props.plantID);
+		// console.log(this.state.title);
+		// console.log(this.state.note);
+		if (this.state.title === "") {
+			alert("add a Title!");
+		} else if (this.state.note === "") {
+			alert("add a Note!");
 		} else {
-		API.addPlantNote({
-			plant: this.props.plantID,
-			title: this.state.title,
-			note: this.state.note
-		})
-			.then(res => {
-				console.log("Note API");
+			API.addPlantNote({
+				plant: this.props.plantID,
+				title: this.state.title,
+				note: this.state.note
 			})
-			.catch(err => console.log(err));
+				.then(res => {})
+				.catch(err => console.log(err));
 
 			this.setState({
-				title:"",
-				note:""
-			})
-			
+				title: "",
+				note: ""
+			});
 		}
 		// if (!this.state.title || !this.state.note) {
 		// 	alert("Fill both a title and a note!");
@@ -56,31 +54,39 @@ class NoteForm extends Component {
 	render() {
 		return (
 			<>
-			<h2 className="note-head">Add a note</h2>
-			<form className="note-form">
-				<label>
-					<p className="label">Title :</p>
-					<input
-						className="title-input"
-						type="text"
-						name="title"
-						value={this.state.title}
-						onChange={this.handleChange}
-					/>
-				</label>
-				<br />
-				<label>
-					<p className="label">Note :</p>
-					<textarea
-						className="note-input"
-						type="text"
-						name="note"
-						value={this.state.note}
-						onChange={this.handleChange}
-					/>
-				</label>
-				<button className="note-sub-butt" onClick={this.handleSubmit}>Save</button>
-			</form>
+				<form className="note-form">
+					<h2 className="note-head">Add a Note</h2>
+					<label>
+						<p className="label">Title :</p>
+						<input
+							className="title-input"
+							type="text"
+							name="title"
+							value={this.state.title}
+							onChange={this.handleChange}
+						/>
+					</label>
+					<br />
+					<label>
+						<p className="label">Note :</p>
+						<textarea
+							className="note-input"
+							type="text"
+							name="note"
+							value={this.state.note}
+							onChange={this.handleChange}
+						/>
+					</label>
+
+					<Button
+						className="note-sub-butt"
+						variant="contained"
+						color="inherit"
+						onClick={this.handleSubmit}
+					>
+						Save
+					</Button>
+				</form>
 			</>
 		);
 	}
