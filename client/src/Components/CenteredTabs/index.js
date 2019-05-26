@@ -18,25 +18,32 @@ function TabContainer(props) {
 	);
 }
 
-function deleteNote(id) {
-	console.log("delete Btn");
-	API.delPlantNote({ id })
-		.then(res => {
-			console.log(res);
-		})
-		.catch(err => console.log(err));
-}
-
 TabContainer.propTypes = {
 	children: PropTypes.node.isRequired
 };
 
 function CenteredTabs(props) {
 	const [value, setValue] = React.useState(0);
+	const [notes, setNotes] = React.useState(0);
 
 	function handleChange(event, newValue) {
 		setValue(newValue);
+		setNotes(props.notes);
 	}
+
+	function deleteNote(id) {
+		API.delPlantNote({ id })
+			.then(res => {
+				let afterDel = notes.filter(data => data._id !== id);
+				setNotes(afterDel);
+			})
+			.catch(err => console.log(err));
+	}
+	// React.useEffect(() => {
+	// 	return () => {
+	// 		effect;
+	// 	};
+	// }, []);
 
 	return (
 		<div>
@@ -91,26 +98,38 @@ function CenteredTabs(props) {
 								<div className="my-notes-wrap">
 									<h2>My Notes</h2>
 									<div className="notes-target">
-										{props.notes &&
+										{/* {props.notes &&
 											Object.entries(props.notes).map((note, i) => {
 												return (
-													<div key={i} data-id={note[1]._id}>
+													<div key={i}>
 														<h2>Title:</h2>
 														<h3>{note[1].title}</h3>
 														<p>{note[1].note}</p>
-														{/* <button
-															onClick={deleteNote.bind(this, note[1]._id)}
-															id={note[1]._id}
-														>
-															X
-														</button> */}
 														<button onClick={() => deleteNote(note[1]._id)}>
+															X
+														</button>
+														
+														<hr />
+													</div>
+												);
+											})} */}
+										{notes ? (
+											notes.map((note, i) => {
+												return (
+													<div key={i}>
+														<h2>Title:</h2>
+														<h3>{note.title}</h3>
+														<p>{note.note}</p>
+														<button onClick={() => deleteNote(note._id)}>
 															X
 														</button>
 														<hr />
 													</div>
 												);
-											})}
+											})
+										) : (
+											<h1>No Notes!</h1>
+										)}
 									</div>
 								</div>
 							</Grid>
