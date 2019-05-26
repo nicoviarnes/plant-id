@@ -14,7 +14,7 @@ class Logout extends Component {
 		return (
 			<Button
 				href="/"
-				className="submitBtn"
+				className="logoutBtn"
 				// variant="contained"
 				color="inherit"
 				onClick={this.handleFormSubmit}

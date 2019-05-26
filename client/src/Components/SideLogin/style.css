@@ -1,0 +1,19 @@
+.loginLogo{
+	border-radius: 50%;
+	width: 50%;
+	/* margin-left: 25%; */
+	box-shadow: 2px 2px 5px;
+}
+
+.loginText{
+	text-align: center;
+}
+
+/* #outlined-password-input{
+	padding-left: 50px!important;
+} */
+
+.loginHr{
+	margin-left: 50px!important;
+	margin-right: 50px!important;
+}
