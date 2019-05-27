@@ -8,7 +8,8 @@ class PlantInfo extends React.Component {
 	state = {
 		info: null,
 		plantId: "",
-		notes: null
+		notes: null,
+		prevNotes: null
 	};
 
 	componentWillMount() {
@@ -16,21 +17,24 @@ class PlantInfo extends React.Component {
 		const { plantData } = this.props.location.state;
 		this.setState({ info: plantData });
 		API.getUserPlant(plantID).then(res => {
-			// console.log(res.data.filter(dat => dat._id === plantID));
 			this.setState({ plantId: plantID });
 			this.setState({ info: res.data.filter(dat => dat._id === plantID) });
 		});
-	}
-	componentDidMount() {
-		const plantID = this.props.match.params.plant;
-		// console.log(plantID);
 		API.getPlantNote(plantID).then(res => {
 			this.setState({
 				notes: res.data.filter(data => data.plant === plantID)
 			});
-			// console.log(this.state.notes);
 		});
-		// .then(console.log(this.state.notes));
+	}
+
+	componentDidMount() {
+		const plantID = this.props.match.params.plant;
+		API.getPlantNote(plantID).then(res => {
+			console.log(`res: `, res.data.filter(data => data.plant === plantID));
+			this.setState({
+				notes: res.data.filter(data => data.plant === plantID)
+			});
+		});
 	}
 
 	render() {
@@ -58,8 +62,6 @@ class PlantInfo extends React.Component {
 								notes={this.state.notes}
 							/>
 						</Grid>
-
-						{/* <img src={this.state.info[0].url} alt="user uploaded" /> */}
 					</Grid>
 				</div>
 			</>
