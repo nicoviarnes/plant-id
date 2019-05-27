@@ -21,6 +21,10 @@
 	text-decoration: none;
 }
 
+.plantInfo :hover {
+	color: darkgreen;
+}
+
 .card-wrap:hover {
 	cursor: pointer;
 }
