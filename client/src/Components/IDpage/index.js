@@ -12,6 +12,10 @@ import API from "../../utils/API";
 import KEYS from "../../utils/KEYS";
 import Modal from "react-modal";
 import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
 
 // import tropical from "../../assets/images/tropical.jpg";
 // import Navbar from "../Navbar/Navbar";
@@ -32,8 +36,8 @@ const styles = {
     marginRight: 75,
     marginLeft: 75,
     marginBottom: 50,
-    marginTop: 50,
-    height: 500
+    marginTop: 100,
+    paddingBottom: 50
   }
 };
 
@@ -62,6 +66,7 @@ class IDpage extends Component {
     selectedFile: null,
     uploadedFileLink: "",
     waitingForData: false,
+    isIdentified: false,
     isScraped: false,
     plantObj: {},
     suggestions: {},
@@ -80,6 +85,41 @@ class IDpage extends Component {
     const { id } = decode(localStorage.getItem("x-auth-token"));
     console.log(id);
     this.setState({ userID: id });
+  }
+
+  identify(t) {
+    var self = t;
+    self.setState({ waitingForData: true });
+    image2base64(self.state.uploadedFileLink)
+      .then(response => {
+        console.log(response);
+        b64Str = response;
+        body = {
+          key: KEY,
+          usage_info: true,
+          images: [b64Str]
+        };
+        console.log(body);
+        // initial request to plant.id
+        axios
+          .post(
+            "https://cors-anywhere.herokuapp.com/https://api.plant.id/identify",
+            body
+          )
+          .then(response => {
+            body = {
+              key: KEY,
+              ids: [response.data.id]
+            };
+            console.log(response.data.usage_info);
+            console.log(body);
+            // call method to listen for identification
+            this.checkId(body);
+          });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   confirmSuggestion = plantName => {
@@ -101,6 +141,7 @@ class IDpage extends Component {
         `https://cors-anywhere.herokuapp.com/https://garden.org/plants/search/text/?q=${searchTerm}`
       )
       .then(response => {
+        console.log("response from garden.org");
         var $ = cheerio.load(response.data);
 
         $(".pretty-table a").each(function(i, element) {
@@ -111,7 +152,7 @@ class IDpage extends Component {
               .endsWith(`(${plantName})`)
           ) {
             plantURL = $(this).attr("href");
-
+            console.log("hello?");
             console.log(plantURL);
 
             axios
@@ -161,6 +202,8 @@ class IDpage extends Component {
       .then(response => {
         if (response.data[0].suggestions.length > 0) {
           this.setState({ suggestions: response.data[0].suggestions });
+          this.setState({ isIdentified: true });
+          console.log(response.data[0]);
           this.setState({ waitingForData: false });
           // this.scrape(this.state.suggestions[0].plant.name.toLowerCase())
         } else {
@@ -177,7 +220,7 @@ class IDpage extends Component {
 
   uploadHandler = () => {
     this.setState({ suggestions: "" });
-    this.setState({ waitingForData: true })
+    this.setState({ waitingForData: true });
     var headers = {
       "Content-Type": "application/json",
       Authorization: `Client-ID ${IMGURKEY}`,
@@ -195,38 +238,11 @@ class IDpage extends Component {
       )
       .then(response => {
         this.setState({ uploadedFileLink: response.data.data.link });
-        this.setState({ waitingForData: false})
+        this.setState({ waitingForData: false });
         // this.scrape("oxalis", "oxalis corniculata");
-        // image2base64(response.data.data.link)
-        //   .then(response => {
-        //     console.log(response);
-        //     b64Str = response;
-        //     body = {
-        //       key: KEY,
-        //       usage_info: true,
-        //       images: [b64Str]
-        //     };
-        //     console.log(body);
-        //     // initial request to plant.id
-        //     axios
-        //       .post(
-        //         "https://cors-anywhere.herokuapp.com/https://api.plant.id/identify",
-        //         body
-        //       )
-        //       .then(response => {
-        //         body = {
-        //           key: KEY,
-        //           ids: [response.data.id]
-        //         };
-        //         console.log(response.data.usage_info);
-        //         console.log(body);
-        //         // call method to listen for identification
-        //         this.checkId(body);
-        //       });
-        //   })
-        //   .catch(error => {
-        //     console.log(error);
-        //   });
+      })
+      .catch(error => {
+        console.log(error);
       });
   };
 
@@ -234,109 +250,121 @@ class IDpage extends Component {
     var self = this;
     return (
       <div>
-        {this.state.isScraped ? (
-          Object.entries(this.state.plantObj).map((plant, i) => {
-            return (
-              <li key={i}>
-                {plant[1].header} {plant[1].info} {console.log(plant)}
-              </li>
-            );
-          })
-        ) : (
-          <div>
-            <div className="splashImg2">
-              {/* <img className="splashImg2" src={Banner2} alt="splashImg2" /> */}
-            </div>
-            <div className="bodyId">
-              <Grid container>
-                <Grid item sm={2} />
-                <Grid item sm={8}>
-                  <Paper style={styles.Paper}>
-                    <div className="input-back">
-                      <h1 className="id-title">Identify Your Plant</h1>
-
-                      {this.state.waitingForData ? (
-                        <Loader
-                          type="Oval"
-                          color="#00BFFF"
-                          height="100"
-                          width="100"
-                        />
-                      ) : (
-                        <>
-                          {this.state.uploadedFileLink.length > 0 ? (
-                            <>
-                              <img
-                                className="user-image"
-                                alt="user uploaded"
-                                src={this.state.uploadedFileLink}
-                              />
-                              <br />
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                className="upload"
-                                onClick={this.uploadHandler}
-                              >
-                                Identify!
-                              </Button>
-                            </>
-                          ) : (
-                            <>
-                              <input
-                                className="chooseFileInput"
-                                type="file"
-                                accept="image/*"
-                                onChange={this.fileChangedHandler}
-                              />
-                              <h4 className="sub-tag">
-                                Upload a picture of a plant you wish to
-                                identify!
-                              </h4>
-
-                              <Button
-                                variant="contained"
-                                color="primary"
-                                className="upload"
-                                onClick={this.uploadHandler}
-                              >
-                                Upload!
-                              </Button>
-                            </>
-                          )}
-                        </>
-                      )}
-
-                      <h1>
-                        {this.state.suggestions.length > 0 &&
-                          this.state.suggestions.map(function(suggestion, i) {
-                            return (
-                              <button
-                                key={i}
-                                onClick={() =>
-                                  self.confirmSuggestion(suggestion.plant.name)
-                                }
-                              >
-                                {suggestion.plant.name}
-                              </button>
-                            );
-                          })}
-                      </h1>
-                      {/* {this.state.uploadedFileLink.length > 0 && (
-                        <img
-                          className="user-image"
-                          alt="user uploaded"
-                          src={this.state.uploadedFileLink}
-                        />
-                      )} */}
-                    </div>
-                  </Paper>
-                </Grid>
-                <Grid item sm={2} />
-              </Grid>
-            </div>
+        <div>
+          <div className="splashImg2">
+            {/* <img className="splashImg2" src={Banner2} alt="splashImg2" /> */}
           </div>
-        )}
+          <div className="bodyId">
+            <Grid container>
+              <Grid item sm={2} />
+              <Grid item sm={8}>
+                <Paper style={styles.Paper}>
+                  <div className="input-back">
+                    <h1 className="id-title">Identify Your Plant</h1>
+                    {this.state.isIdentified ? (
+                      <>
+                        {this.state.isScraped ? (
+                          <>
+                            <h1>Success! Your plant was added to your garden!</h1>
+                          </>
+                        ) : (
+                          <>
+                            <List component="nav">
+                              {this.state.suggestions.length > 0 &&
+                                this.state.suggestions.map(function(
+                                  suggestion,
+                                  i
+                                ) {
+                                  return (
+                                    <>
+                                      <ListItem
+                                        key={i}
+                                        button
+                                        divider
+                                        onClick={() =>
+                                          self.confirmSuggestion(
+                                            suggestion.plant.name
+                                          )
+                                        }
+                                      >
+                                        <ListItemText
+                                          primary={suggestion.plant.name}
+                                          secondary={
+                                            "Probability: " +
+                                            suggestion.probability * 100 +
+                                            "%"
+                                          }
+                                        />
+                                      </ListItem>
+                                    </>
+                                  );
+                                })}
+                            </List>
+                          </>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {this.state.waitingForData ? (
+                          <Loader
+                            type="Oval"
+                            color="#397547"
+                            height="100"
+                            width="100"
+                          />
+                        ) : (
+                          <>
+                            {this.state.uploadedFileLink.length > 0 ? (
+                              <>
+                                <img
+                                  className="user-image"
+                                  alt="user uploaded"
+                                  src={this.state.uploadedFileLink}
+                                />
+                                <br />
+                                <Button
+                                  variant="contained"
+                                  color="primary"
+                                  className="upload"
+                                  onClick={() => this.identify(this)}
+                                >
+                                  Identify!
+                                </Button>
+                              </>
+                            ) : (
+                              <>
+                                <input
+                                  className="chooseFileInput"
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={this.fileChangedHandler}
+                                />
+                                <h4 className="sub-tag">
+                                  Upload a picture of a plant you wish to
+                                  identify!
+                                </h4>
+
+                                <Button
+                                  variant="contained"
+                                  color="primary"
+                                  className="upload"
+                                  onClick={this.uploadHandler}
+                                >
+                                  Upload!
+                                </Button>
+                              </>
+                            )}
+                          </>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </Paper>
+              </Grid>
+              <Grid item sm={2} />
+            </Grid>
+          </div>
+        </div>
       </div>
     );
   }
