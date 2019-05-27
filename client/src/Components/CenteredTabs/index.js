@@ -74,7 +74,7 @@ function CenteredTabs(props) {
 									Object.entries(props.info[0].plantInfo[0]).map((plant, i) => {
 										return (
 											<li key={i}>
-												{plant[1].header} {plant[1].info}
+												<strong>{plant[1].header}</strong> {plant[1].info}
 											</li>
 										);
 									})}
