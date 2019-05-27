@@ -23,27 +23,33 @@ TabContainer.propTypes = {
 };
 
 function CenteredTabs(props) {
+	// console.log(`props:`, props);
+
 	const [value, setValue] = React.useState(0);
 	const [notes, setNotes] = React.useState(0);
 
 	function handleChange(event, newValue) {
 		setValue(newValue);
-		setNotes(props.notes);
+		const plant = props.notes[0].plant;
+		API.getPlantNote(plant).then(res => {
+			let newNotes = res.data.filter(data => data.plant === plant);
+			setNotes(newNotes);
+		});
 	}
 
 	function deleteNote(id) {
 		API.delPlantNote({ id })
 			.then(res => {
-				let afterDel = notes.filter(data => data._id !== id);
-				setNotes(afterDel);
+				let newNotes = notes.filter(data => data._id !== id);
+				setNotes(newNotes);
+
+				// API.getPlantNote(plant).then(res => {
+				// 	let newNotes = res.data.filter(data => data.plant === plant);
+				// 	setNotes(newNotes);
+				// });
 			})
 			.catch(err => console.log(err));
 	}
-	// React.useEffect(() => {
-	// 	return () => {
-	// 		effect;
-	// 	};
-	// }, []);
 
 	return (
 		<div>
@@ -98,21 +104,6 @@ function CenteredTabs(props) {
 								<div className="my-notes-wrap">
 									<h2>My Notes</h2>
 									<div className="notes-target">
-										{/* {props.notes &&
-											Object.entries(props.notes).map((note, i) => {
-												return (
-													<div key={i}>
-														<h2>Title:</h2>
-														<h3>{note[1].title}</h3>
-														<p>{note[1].note}</p>
-														<button onClick={() => deleteNote(note[1]._id)}>
-															X
-														</button>
-														
-														<hr />
-													</div>
-												);
-											})} */}
 										{notes ? (
 											notes.map((note, i) => {
 												return (
