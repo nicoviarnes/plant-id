@@ -32,7 +32,11 @@ class ManageTab extends Component {
           <Grid item sm={12}>
             <div className="content-wrap">
               <div className="bg" />
-              <h1 className="main-title">My Garden</h1>
+              <h1 className="main-title">My Garden
+              {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+              <hr className="gardenHr"/>
+              {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+              </h1>
               <PlantTileWrap>
                 {this.state.garden && this.state.garden.map(plant => (
                   <PlantTab

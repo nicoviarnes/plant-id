@@ -21,6 +21,7 @@ class CalendarPage extends React.Component {
         <Calendar
             onChange={this.onChange}
             value={this.state.date}
+            calendarType = {"US"}
             // showNavigation={false}
             tileContent={
                 <>

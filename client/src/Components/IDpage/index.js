@@ -6,7 +6,6 @@ import axios from "axios";
 import cheerio from "cheerio";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Banner2 from "../../assets/images/leafy.jpg";
 import "./style.css";
 import decode from "jwt-decode";
 import API from "../../utils/API";
@@ -242,8 +241,8 @@ class IDpage extends Component {
 					})
 				) : (
 					<div>
-						<div>
-							<img className="splashImg2" src={Banner2} alt="splashImg2" />
+						<div className="splashImg2">
+							{/* <img className="splashImg2" src={Banner2} alt="splashImg2" /> */}
 						</div>
 						<div className="bodyId">
 							<Grid container>
@@ -253,6 +252,7 @@ class IDpage extends Component {
 										<div className="input-back">
 											<h1 className="id-title">My Plant Identifier</h1>
 											<input
+												className="chooseFileInput"
 												type="file"
 												accept="image/*"
 												onChange={this.fileChangedHandler}
