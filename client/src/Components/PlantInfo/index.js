@@ -41,8 +41,6 @@ class PlantInfo extends React.Component {
 		return (
 			<>
 				<div className="TOP">
-					<br />
-
 					<Grid container>
 						<Grid item xs={12} sm={12}>
 							<h1 className="info-title">

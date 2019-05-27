@@ -7,8 +7,33 @@ class NoteForm extends Component {
 	state = {
 		plant: "",
 		title: "",
-		note: ""
+		note: "",
+		titleError: "",
+		noteError:""
 	};
+
+	
+
+	validate = () => {
+		let titleError = "";
+		let noteError = "";
+
+		if(this.state.title===""){
+			titleError = "Please add a title!"
+		}
+		if(this.state.note===""){
+			noteError = "Please add a note!"
+		}
+		if(titleError || noteError){
+			this.setState({titleError, noteError});
+			return false;
+
+		}
+		
+
+		return true;
+
+	}
 
 	handleChange = event => {
 		let value = event.target.value;
@@ -21,14 +46,9 @@ class NoteForm extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		// console.log(this.props.plantID);
-		// console.log(this.state.title);
-		// console.log(this.state.note);
-		if (this.state.title === "") {
-			alert("add a Title!");
-		} else if (this.state.note === "") {
-			alert("add a Note!");
-		} else {
+		const isValid = this.validate();
+		if(isValid){
+		
 			API.addPlantNote({
 				plant: this.props.plantID,
 				title: this.state.title,
@@ -41,14 +61,10 @@ class NoteForm extends Component {
 				title: "",
 				note: ""
 			});
+		} else {
+
 		}
-		// if (!this.state.title || !this.state.note) {
-		// 	alert("Fill both a title and a note!");
-		// } else {
-		// 	alert("Submitted to Database");
-		// 	console.log(this.state.title);
-		// 	console.log(this.state.note);
-		// }
+		
 	};
 
 	render() {
@@ -65,6 +81,7 @@ class NoteForm extends Component {
 							value={this.state.title}
 							onChange={this.handleChange}
 						/>
+						<div className="errorStyle">{this.state.titleError}</div>
 					</label>
 					<br />
 					<label>
@@ -76,6 +93,7 @@ class NoteForm extends Component {
 							value={this.state.note}
 							onChange={this.handleChange}
 						/>
+						<div className="errorStyle">{this.state.noteError}</div>
 					</label>
 
 					<Button
