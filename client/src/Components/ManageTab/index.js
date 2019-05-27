@@ -34,7 +34,6 @@ class ManageTab extends Component {
               <div className="bg" />
               <h1 className="main-title">My Garden
               {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
-              <hr className="gardenHr"/>
               {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
               </h1>
               <PlantTileWrap>
