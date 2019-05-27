@@ -30,7 +30,7 @@ function CenteredTabs(props) {
 
 	function handleChange(event, newValue) {
 		setValue(newValue);
-		const plant = props.notes[0].plant;
+		const plant = props.plantId;
 		API.getPlantNote(plant).then(res => {
 			let newNotes = res.data.filter(data => data.plant === plant);
 			setNotes(newNotes);
