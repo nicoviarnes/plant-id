@@ -11,7 +11,7 @@ import decode from "jwt-decode";
 import API from "../../utils/API";
 import KEYS from "../../utils/KEYS";
 import Modal from "react-modal";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 // import tropical from "../../assets/images/tropical.jpg";
 // import Navbar from "../Navbar/Navbar";
@@ -177,6 +177,7 @@ class IDpage extends Component {
 
   uploadHandler = () => {
     this.setState({ suggestions: "" });
+    this.setState({ waitingForData: true })
     var headers = {
       "Content-Type": "application/json",
       Authorization: `Client-ID ${IMGURKEY}`,
@@ -194,6 +195,7 @@ class IDpage extends Component {
       )
       .then(response => {
         this.setState({ uploadedFileLink: response.data.data.link });
+        this.setState({ waitingForData: false})
         // this.scrape("oxalis", "oxalis corniculata");
         // image2base64(response.data.data.link)
         //   .then(response => {
@@ -252,35 +254,6 @@ class IDpage extends Component {
                   <Paper style={styles.Paper}>
                     <div className="input-back">
                       <h1 className="id-title">Identify Your Plant</h1>
-                      {this.state.uploadedFileLink.length > 0 ? (
-                        <>
-                          <img
-                            className="user-image"
-                            alt="user uploaded"
-                            src={this.state.uploadedFileLink}
-                          />
-						  <br />
-                          <Button variant="contained" color="primary" className="upload" onClick={this.uploadHandler}>
-                            Identify!
-                          </Button>
-                        </>
-                      ) : (
-                        <>
-                          <input
-                            className="chooseFileInput"
-                            type="file"
-                            accept="image/*"
-                            onChange={this.fileChangedHandler}
-                          />
-                          <h4 className="sub-tag">
-                            Upload a picture of a plant you wish to identify!
-                          </h4>
-
-                          <Button variant="contained" color="primary" className="upload" onClick={this.uploadHandler}>
-                            Upload!
-                          </Button>
-                        </>
-                      )}
 
                       {this.state.waitingForData ? (
                         <Loader
@@ -290,7 +263,48 @@ class IDpage extends Component {
                           width="100"
                         />
                       ) : (
-                        <p />
+                        <>
+                          {this.state.uploadedFileLink.length > 0 ? (
+                            <>
+                              <img
+                                className="user-image"
+                                alt="user uploaded"
+                                src={this.state.uploadedFileLink}
+                              />
+                              <br />
+                              <Button
+                                variant="contained"
+                                color="primary"
+                                className="upload"
+                                onClick={this.uploadHandler}
+                              >
+                                Identify!
+                              </Button>
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                className="chooseFileInput"
+                                type="file"
+                                accept="image/*"
+                                onChange={this.fileChangedHandler}
+                              />
+                              <h4 className="sub-tag">
+                                Upload a picture of a plant you wish to
+                                identify!
+                              </h4>
+
+                              <Button
+                                variant="contained"
+                                color="primary"
+                                className="upload"
+                                onClick={this.uploadHandler}
+                              >
+                                Upload!
+                              </Button>
+                            </>
+                          )}
+                        </>
                       )}
 
                       <h1>
