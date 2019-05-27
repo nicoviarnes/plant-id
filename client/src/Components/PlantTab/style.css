@@ -1,8 +1,8 @@
 .main-title {
 	font-size: 87px;
 	font-weight: bolder;
-	color: white;
-	margin-top: 100px;
+	color: #397547;
+	margin-top: 80px;
 	text-shadow: -1px 2px 2px #5e5d58;
 }
 .card-wrap {
@@ -65,21 +65,3 @@
 	font-weight: bolder;
 	text-align: center;
 }
-
-@media only screen and (max-width: 895px) {
-    .main-title {
-		margin-top: 93px;
-	}
-  }
-
-  @media only screen and (max-width: 876px) {
-    .main-title {
-		margin-top: 154px;
-	}
-  }
-
-  @media only screen and (max-width: 671px) {
-    .main-title {
-		margin-top: 210px;
-	}
-  }

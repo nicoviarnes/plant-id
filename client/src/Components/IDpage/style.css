@@ -6,20 +6,30 @@
 }
 
 .splashImg2{
-    background-image: url("../../assets/images/leafy.jpg");
-    height: 75vh;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: url("../../assets/images/succ-row.jpg") center center;
+	opacity: 0.4;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+
+.user-image {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 250px;
+    height: 250px;
 }
 
 
 .bodyId{
-    background-color: white;
-    /* border: 2px solid black; */
     position: absolute;
-    top:33%;
+    margin-top: 5%;
     width: 100%;
     /* height: 100%!important; */
     /* min-height: 110%!important; */
@@ -30,7 +40,7 @@
 .input-back {
     position: relative;
     z-index: 1;
-}
+} 
 
 
 
@@ -38,12 +48,11 @@
 .id-title{
     padding-top:5%;
     font-size: 50px;
-    color:rgb(18, 92, 18)
+    color:#397547
     
 }
 
 .sub-tag {
-    margin-top:16%;
 }
 
 .pic-box {
@@ -57,7 +66,9 @@
     margin-bottom:4%;
 }
 
-
+.upload {
+    background-color: #397547 !important;
+}
 
 .sub-butt {
     height:40px;
@@ -95,7 +106,7 @@
 
 .chooseFileInput{
     padding-left: 80px;
-    margin: 0 auto;
+    margin-top: 10%;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
