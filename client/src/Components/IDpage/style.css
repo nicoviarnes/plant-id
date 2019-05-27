@@ -6,16 +6,12 @@
 }
 
 .splashImg2{
-    margin-top: 2%;
-   /* height: 280px; */
-   width: 100%;
-   height: 80%;
-   background-attachment: fixed;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   
-   /* z-index: ; */
+    background-image: url("../../assets/images/leafy.jpg");
+    height: 75vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -95,4 +91,41 @@
 .loader{
     margin-top: 5%;
 
+}
+
+.chooseFileInput{
+    padding-left: 80px;
+    margin: 0 auto;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+
+
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .MuiPaper-root-110{
+        margin-top: 0%!important;
+    }
+
+    .MuiGrid-item-5{
+        margin: 0 auto!important;
+    }
+
+    .MuiGrid-grid-sm-8-54{
+        width: 100%;
+    }
+
+    .chooseFileInput{
+        padding-left: 10%;
+    } 
+
+    .bodyId{
+        top: 15%;
+    }
+
+    .MuiGrid-grid-sm-2-48{
+        width: 0%;
+    }
 }
