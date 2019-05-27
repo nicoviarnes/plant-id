@@ -42,10 +42,17 @@
 	height: auto;
 }
 
+.water {
+	position: absolute;
+	bottom: 0;
+	margin-left: 30%;
+	margin-bottom: 2%;
+	height: 45px;
+}	
 .wateringCan {
 	width: 40px;
 	height: 40px;
-	margin-left: 30%;
+
 }
 
 .tile-content {
