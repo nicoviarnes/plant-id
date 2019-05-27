@@ -17,6 +17,10 @@
 	margin-top: 0.5em;
 }
 
+.plantInfo {
+	text-decoration: none;
+}
+
 .card-wrap:hover {
 	cursor: pointer;
 }
@@ -61,7 +65,7 @@
 
 .nickname {
 	font-size: large;
-	color: darkgreen;
+	color: #397547;
 	font-weight: bolder;
 	text-align: center;
 }
