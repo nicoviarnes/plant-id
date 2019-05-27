@@ -10,8 +10,36 @@ class Login extends Component {
 	// Setting the component's initial state
 	state = {
 		email: "",
-		password: ""
+		password: "",
+		emailError:"",
+		passwordError:"",
+		failedError:""
 	};
+
+	validate = () => {
+		let emailError = "";
+		let passwordError = "";
+
+		if(!this.state.email.includes("@")){
+			emailError = "Please choose a valid email address!"
+		}
+		if(!this.state.email.includes(".com")){
+			emailError = "Please choose a valid email address!"
+		}
+		if(this.state.password.length<6){
+			passwordError = "Please choose a password at of least 6 characters"
+		}
+
+		if(emailError || passwordError){
+			this.setState({emailError, passwordError});
+			return false;
+
+		}
+		
+
+		return true;
+
+	}
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
@@ -22,6 +50,9 @@ class Login extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
+		let isValid = this.validate();
+
+		if(isValid){
 		API.userLogin({
 			email: this.state.email,
 			password: this.state.password
@@ -31,6 +62,11 @@ class Login extends Component {
 				window.location.href = "/";
 			})
 			.catch(err => console.log(err));
+		} else{
+			let failedError = "Login Failed";
+			this.setState({failedError});
+
+		}	
 	};
 
 	render() {
@@ -42,6 +78,7 @@ class Login extends Component {
 					<hr className="loginHr" />
 				</h1>
 				<form className="form">
+					<div className="login-failed">{this.state.failedError}</div>
 					<TextField
 						id="outlined-name-input"
 						label="Email"
@@ -54,6 +91,7 @@ class Login extends Component {
 						required
 						// errorText="This field is required"
 					/>
+					<div className="errorStyle">{this.state.emailError}</div>
 					<br />
 					<TextField
 						id="outlined-password-input"
@@ -67,6 +105,7 @@ class Login extends Component {
 						required
 						// errorText="This field is required"
 					/>
+					<div className="errorStyle">{this.state.passwordError}</div>
 					<br />
 					<br />
 					<Button
