@@ -57,6 +57,11 @@ textarea {
 	font-size: 1rem;
 }
 
+.errorStyle {
+	color:red;
+	font-size: 1em;
+}
+
 /* OG Style */
 
 /* @import url("https://fonts.googleapis.com/css?family=Lato:400,700|Roboto|Source+Sans+Pro&display=swap");
