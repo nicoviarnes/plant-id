@@ -3,6 +3,8 @@ import "./style.css";
 import API from "../../utils/API";
 import Grid from "@material-ui/core/Grid";
 import CenteredTabs from "../CenteredTabs";
+import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 class PlantInfo extends React.Component {
 	state = {
@@ -37,6 +39,13 @@ class PlantInfo extends React.Component {
 		});
 	}
 
+	removePlant(t) {
+		var self = t;
+		API.removePlant({ id: self.state.plantId }).then(res => {
+			window.location = "/manage";
+		});
+	}
+
 	render() {
 		return (
 			<>
@@ -50,6 +59,18 @@ class PlantInfo extends React.Component {
 						<Grid item xs={12} sm={1} />
 						<Grid item xs={12} sm={12} md={4}>
 							<img src={this.state.info[0].url} alt="user uploaded" />
+							<br />
+							<br />
+							<Button
+								variant="contained"
+								color="secondary"
+								onClick={() => this.removePlant(this)}
+							>
+								Remove From Garden
+								<DeleteIcon />
+							</Button>
+							<br />
+							<br />
 						</Grid>
 						<Grid item xs={12} sm={1} />
 

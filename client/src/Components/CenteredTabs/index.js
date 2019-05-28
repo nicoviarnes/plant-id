@@ -23,8 +23,6 @@ TabContainer.propTypes = {
 };
 
 function CenteredTabs(props) {
-	// console.log(`props:`, props);
-
 	const [value, setValue] = React.useState(0);
 	const [notes, setNotes] = React.useState(0);
 
@@ -36,7 +34,6 @@ function CenteredTabs(props) {
 			setNotes(newNotes);
 		});
 	}
-
 	function deleteNote(id) {
 		API.delPlantNote({ id })
 			.then(res => {
@@ -79,7 +76,7 @@ function CenteredTabs(props) {
 								{props.info[0].plantInfo &&
 									Object.entries(props.info[0].plantInfo[0]).map((plant, i) => {
 										return (
-											<li key={i}>
+											<li key={i} className="leaves">
 												<strong>{plant[1].header}</strong> {plant[1].info}
 											</li>
 										);
