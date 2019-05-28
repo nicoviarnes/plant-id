@@ -112,6 +112,10 @@
     text-overflow: ellipsis;
 } 
 
+.upload {
+    background-color: darkgreen;
+}
+
 
 
 @media (min-width: 320px) and (max-width: 767px) {
