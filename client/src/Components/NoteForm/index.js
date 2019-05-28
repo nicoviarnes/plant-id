@@ -8,24 +8,19 @@ class NoteForm extends Component {
 		plant: "",
 		title: "",
 		note: "",
-		titleError: "",
 		noteError:""
 	};
 
 	
 
 	validate = () => {
-		let titleError = "";
+		
 		let noteError = "";
-
-		if(this.state.title===""){
-			titleError = "Please add a title!"
-		}
 		if(this.state.note===""){
 			noteError = "Please add a note!"
 		}
-		if(titleError || noteError){
-			this.setState({titleError, noteError});
+		if( noteError){
+			this.setState({noteError});
 			return false;
 
 		}
@@ -72,7 +67,7 @@ class NoteForm extends Component {
 			<>
 				<form className="note-form">
 					<h2 className="note-head">Add a Note</h2>
-					<label>
+					{/* <label>
 						<p className="label">Title :</p>
 						<input
 							className="title-input"
@@ -82,7 +77,7 @@ class NoteForm extends Component {
 							onChange={this.handleChange}
 						/>
 						<div className="errorStyle">{this.state.titleError}</div>
-					</label>
+					</label> */}
 					<br />
 					<label>
 						<p className="label">Note :</p>

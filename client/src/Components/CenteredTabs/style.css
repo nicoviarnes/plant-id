@@ -2,3 +2,16 @@
 	background-color: #397547 !important;
 	/* background-color: #797979 !important; */
 }
+
+.note-form {
+	background-color: #fafafa;
+	position: relative;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+	border-radius: 20px;
+	width: 100%;
+	color: #2f6834;
+	font-size: 1.25em;
+	font-weight: bold;
+	margin-bottom:1em;
+	padding:1em;
+}

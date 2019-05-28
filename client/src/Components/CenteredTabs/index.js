@@ -101,20 +101,18 @@ function CenteredTabs(props) {
 					{
 						<>
 							<Grid item xs={12} sm={12}>
-								<div className="my-notes-wrap">
-									<h2>My Notes</h2>
-									<div className="notes-target">
+								<div>
+									<h2 className="note-head">My Notes</h2>
+									<div>
 										{notes ? (
 											notes.map((note, i) => {
 												return (
-													<div key={i}>
-														<h2>Title:</h2>
-														<h3>{note.title}</h3>
+													<div className="note-form" key={i}>
 														<p>{note.note}</p>
 														<button onClick={() => deleteNote(note._id)}>
 															X
 														</button>
-														<hr />
+														
 													</div>
 												);
 											})
