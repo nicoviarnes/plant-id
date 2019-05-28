@@ -64,6 +64,7 @@ class PlantInfo extends React.Component {
 							<Button
 								variant="contained"
 								color="secondary"
+								className="delete"
 								onClick={() => this.removePlant(this)}
 							>
 								Remove From Garden
