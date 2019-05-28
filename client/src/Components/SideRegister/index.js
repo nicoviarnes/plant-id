@@ -43,8 +43,8 @@ class Form extends Component {
 		if(this.state.password.length<6){
 			passwordError = "Please choose a password of at least 6 characters"
 		}
-		if(this.state.name.length<6){
-			nameError = "Please choose a name of at least 6 characters"
+		if(this.state.name.length<1){
+			nameError = "Please choose a name!"
 		}
 
 		if(emailError || passwordError || nameError){
