@@ -8,6 +8,10 @@ import wateringCan from "../../assets/images/wateringCan.png";
 //   console.log(id);
 // };
 
+const water = (event) => {
+  event.preventDefault()
+}
+
 function PlantTab(props) {
   return (
     <>
@@ -32,6 +36,7 @@ function PlantTab(props) {
               <img
                 className="wateringCan"
                 src={wateringCan}
+                onClick={water}
                 alt="watering Can"
               />
             </div>
