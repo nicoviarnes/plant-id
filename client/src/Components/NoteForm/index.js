@@ -6,29 +6,23 @@ import Button from "@material-ui/core/Button";
 class NoteForm extends Component {
 	state = {
 		plant: "",
-		title: "",
+		// title: "",
 		note: "",
-		noteError:""
+		noteError: ""
 	};
 
-	
-
 	validate = () => {
-		
 		let noteError = "";
-		if(this.state.note===""){
-			noteError = "Please add a note!"
+		if (this.state.note === "") {
+			noteError = "Please add a note!";
 		}
-		if( noteError){
-			this.setState({noteError});
+		if (noteError) {
+			this.setState({ noteError });
 			return false;
-
 		}
-		
 
 		return true;
-
-	}
+	};
 
 	handleChange = event => {
 		let value = event.target.value;
@@ -42,11 +36,10 @@ class NoteForm extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		const isValid = this.validate();
-		if(isValid){
-		
+		if (isValid) {
 			API.addPlantNote({
 				plant: this.props.plantID,
-				title: this.state.title,
+				// title: this.state.title,
 				note: this.state.note
 			})
 				.then(res => {})
@@ -57,9 +50,7 @@ class NoteForm extends Component {
 				note: ""
 			});
 		} else {
-
 		}
-		
 	};
 
 	render() {

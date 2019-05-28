@@ -7,7 +7,7 @@ const Note = require("../../models/Notes");
 //@Desc		Add Plant Notes
 //@Access	Public
 router.post("/", (req, res) => {
-	const { owner, title, note } = req.body;
+	const { owner, note } = req.body;
 	Note.create(req.body).then(note => res.json(note));
 });
 
