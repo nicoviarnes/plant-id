@@ -8,6 +8,8 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import NoteForm from "../NoteForm";
 import API from "../../utils/API";
+import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
 import "./style.css";
 
 function TabContainer(props) {
@@ -54,13 +56,8 @@ function CenteredTabs(props) {
 				<Tabs
 					value={value}
 					onChange={handleChange}
+					indicatorColor="primary"
 					centered
-					// indicatorColor="primary"
-					TabIndicatorProps={{
-						style: {
-							backgroundColor: "#fff"
-						}
-					}}
 				>
 					<Tab label="Plant Info" />
 					<Tab label="Add Notes" />
@@ -104,21 +101,26 @@ function CenteredTabs(props) {
 						<>
 							<Grid item xs={12} sm={12}>
 								<div>
-									<h2 className="note-head">My Notes</h2>
 									<div>
 										{notes ? (
 											notes.map((note, i) => {
 												return (
 													<div className="note-form" key={i}>
 														<p>{note.note}</p>
-														<button onClick={() => deleteNote(note._id)}>
-															X
-														</button>
+														<Button
+															variant="contained"
+															color="secondary"
+															className="delete"
+															size="small"
+															onClick={() => deleteNote(note._id)}
+														>
+															x{/* <DeleteIcon /> */}
+														</Button>
 													</div>
 												);
 											})
 										) : (
-											<h1>No Notes!</h1>
+											<h1 />
 										)}
 									</div>
 								</div>
