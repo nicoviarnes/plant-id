@@ -2,3 +2,9 @@
 	background-color: #397547 !important;
 	/* background-color: #797979 !important; */
 }
+
+li {
+	list-style-image: url(../../assets/images/leaf.svg);
+}
+/* Icon made by https://www.flaticon.com/authors/good-ware from www.flaticon.com 
+ */

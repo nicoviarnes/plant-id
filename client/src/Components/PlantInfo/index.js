@@ -30,7 +30,6 @@ class PlantInfo extends React.Component {
 	componentDidMount() {
 		const plantID = this.props.match.params.plant;
 		API.getPlantNote(plantID).then(res => {
-			console.log(`res: `, res.data.filter(data => data.plant === plantID));
 			this.setState({
 				notes: res.data.filter(data => data.plant === plantID)
 			});
