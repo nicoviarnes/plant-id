@@ -15,6 +15,7 @@
 	text-align: left;
 	margin: 0.5em;
 	margin-top: 0.5em;
+	padding-top: 5px;
 }
 
 .plantInfo {
@@ -30,12 +31,15 @@
 }
 
 .card-wrap > .img-container {
-	height: 150px;
-	width: 150px;
+	height: 140px;
+	width: 140px;
+	border-radius: 50%;
 	object-fit: cover;
 	overflow: hidden;
 	text-align: center;
 	background: #6caddc;
+	margin: 5px;
+
 }
 
 .card-wrap > .img-container > img {
