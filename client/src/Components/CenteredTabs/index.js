@@ -54,8 +54,13 @@ function CenteredTabs(props) {
 				<Tabs
 					value={value}
 					onChange={handleChange}
-					indicatorColor="primary"
 					centered
+					// indicatorColor="primary"
+					TabIndicatorProps={{
+						style: {
+							backgroundColor: "#fff"
+						}
+					}}
 				>
 					<Tab label="Plant Info" />
 					<Tab label="Add Notes" />
@@ -109,7 +114,6 @@ function CenteredTabs(props) {
 														<button onClick={() => deleteNote(note._id)}>
 															X
 														</button>
-														
 													</div>
 												);
 											})
