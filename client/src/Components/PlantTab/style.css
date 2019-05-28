@@ -8,15 +8,14 @@
 .card-wrap {
 	background: #fff;
 	height: 288px;
-	width: 150px;
-	/* border:2px solid black; */
+	width: 200px;
 	position: relative;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 	text-align: left;
 	margin: 0.5em;
 	margin-top: 0.5em;
-	padding-top: 5px;
-	border-radius: 5%;
+	padding-top: 20px;
+	border-radius: 20px;
 }
 
 .plantInfo {
@@ -35,13 +34,13 @@
 	height: 140px;
 	width: 140px;
 	border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 	object-fit: cover;
 	overflow: hidden;
 	text-align: center;
 	background: #6caddc;
-	margin: 5px;
-
 }
 
 .card-wrap > .img-container > img {
@@ -62,14 +61,14 @@
 	margin-left: 30%;
 	margin-bottom: 2%;
 	height: 50px;
-}	
+}
 .wateringCan {
 	width: 40px;
 	height: 40px;
 }
 
 .wateringCan:hover {
-	transform: scale(1.3, 1.3)
+	transform: scale(1.3, 1.3);
 }
 
 .tile-content {
