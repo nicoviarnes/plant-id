@@ -58,7 +58,7 @@ class PlantInfo extends React.Component {
 						</Grid>
 						<Grid item xs={12} sm={1} />
 						<Grid item xs={12} sm={12} md={4}>
-							<img src={this.state.info[0].url} alt="user uploaded" />
+							<img className="userUpload" src={this.state.info[0].url} alt="user uploaded" />
 							<br />
 							<br />
 							<Button
