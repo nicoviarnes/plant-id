@@ -12,6 +12,7 @@
 	color: #2f6834;
 	font-size: 1.25em;
 	font-weight: bold;
+<<<<<<< HEAD
 	margin-bottom:1em;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -20,6 +21,11 @@
 	background-color: red !important;
 	
 }
+=======
+	margin-bottom: 1em;
+	padding: 1em;
+}
+>>>>>>> 5cf7017388d1383e97edea3bd6e3e42ba9aa6cf3
 
 li {
 	list-style-image: url(../../assets/images/leaf.svg);
