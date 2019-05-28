@@ -3,7 +3,6 @@
 	/* background-color: #797979 !important; */
 }
 
-<<<<<<< HEAD
 .note-form {
 	background-color: #fafafa;
 	position: relative;
@@ -13,13 +12,12 @@
 	color: #2f6834;
 	font-size: 1.25em;
 	font-weight: bold;
-	margin-bottom:1em;
-	padding:1em;
+	margin-bottom: 1em;
+	padding: 1em;
 }
-=======
+
 li {
 	list-style-image: url(../../assets/images/leaf.svg);
 }
 /* Icon made by https://www.flaticon.com/authors/good-ware from www.flaticon.com 
  */
->>>>>>> master
