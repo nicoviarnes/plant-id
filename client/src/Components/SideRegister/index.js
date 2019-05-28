@@ -21,9 +21,47 @@ class Form extends Component {
 	state = {
 		name: "",
 		email: "",
-		password: ""
+		password: "",
+		nameError:"",
+		emailError:"",
+		passwordError:"",
+		failedError:""
 	};
 
+	validate = () => {
+		let nameError = "";
+		let emailError = "";
+		let passwordError = "";
+		
+
+		if(!this.state.email.includes("@")){
+			emailError = "Please choose a valid email address!"
+		}
+		if(!this.state.email.includes(".com")){
+			emailError = "Please choose a valid email address!"
+		}
+		if(this.state.password.length<6){
+			passwordError = "Please choose a password of at least 6 characters"
+		}
+		if(this.state.name.length<6){
+			nameError = "Please choose a name of at least 6 characters"
+		}
+
+		if(emailError || passwordError || nameError){
+			this.setState({
+				emailError,
+				passwordError,
+				nameError
+				
+			});
+			return false;
+
+		}
+		
+
+		return true;
+
+	}
 	handleInputChange = event => {
 		const { name, value } = event.target;
 		this.setState({
@@ -33,6 +71,8 @@ class Form extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
+		let isValid = this.validate();
+		if(isValid){
 		API.userRegister({
 			name: this.state.name,
 			email: this.state.email,
@@ -50,6 +90,13 @@ class Form extends Component {
 					.catch(err => console.log(err));
 			})
 			.catch(err => console.log(err));
+		} else {
+			let failedError = "Registration Failed!";
+			
+			this.setState({
+				failedError
+			});
+		}	
 	};
 
 	render() {
@@ -58,6 +105,7 @@ class Form extends Component {
 		return (
 			<>
 				<form className="form">
+				<div className="login-failed">{this.state.failedError}</div>
 					<TextField
 						id="outlined-name-input"
 						label="Name"
@@ -70,6 +118,7 @@ class Form extends Component {
 						required
 						errortext="This field is required"
 					/>
+					<div className="errorStyle">{this.state.nameError}</div>
 					<br />
 					<TextField
 						id="outlined-email-input"
@@ -83,6 +132,7 @@ class Form extends Component {
 						required
 						errortext="This field is required"
 					/>
+					<div className="errorStyle">{this.state.emailError}</div>
 					<br />
 					<TextField
 						id="outlined-password-input"
@@ -96,6 +146,7 @@ class Form extends Component {
 						required
 						errortext="This field is required"
 					/>
+					<div className="errorStyle">{this.state.passwordError}</div>
 					<br />
 					<br />
 					<Button

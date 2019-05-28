@@ -18,6 +18,7 @@ function PlantTab(props) {
             plantData: "plant db object goes here"
           }
         }}
+        className="plantInfo"
       >
         <div className="card-wrap">
           <div className="img-container">
