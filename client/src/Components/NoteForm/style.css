@@ -18,8 +18,8 @@
 	background-color: #fafafa;
 	position: relative;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-	border-radius: 20px;
-	width: 100%;
+	border-radius: 10px !important;
+	width: 90% !important;
 	color: #2f6834;
 }
 
@@ -64,36 +64,5 @@ textarea {
 
 textarea {
 	resize: none;
+	border-radius: 5px;
 }
-/* OG Style */
-
-/* @import url("https://fonts.googleapis.com/css?family=Lato:400,700|Roboto|Source+Sans+Pro&display=swap");
-* {
-	font-family: "Lato", sans-serif;
-}
-.note-head {
-	font-size: 25px;
-	color: white;
-	font-weight: bolder;
-}
-
-.note-form {
-	background-color: #397547;
-	position: relative;
-	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-	border-radius: 20px;
-	width: 100%;
-	color: white;
-}
-
-.form input,
-textarea {
-	display: block;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-.title-input {
-	width: 92%;
-	height: 30px;
- */

@@ -16,8 +16,12 @@
 	padding: 1em;
 }
 
+/* Icon made by https://www.flaticon.com/authors/good-ware from www.flaticon.com 
+*/
 li {
 	list-style-image: url(../../assets/images/leaf.svg);
 }
-/* Icon made by https://www.flaticon.com/authors/good-ware from www.flaticon.com 
- */
+
+.deleteNote {
+	float: right;
+}
