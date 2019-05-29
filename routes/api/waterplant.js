@@ -9,9 +9,9 @@ var ObjectId = mongoose.Types.ObjectId;
 //@Desc		Add Plant Notes
 //@Access	Public
 router.post("/", (req, res) => {
-    const { id } = req.body;
-    console.log(id)
-	Plant.findOneAndUpdate(ObjectId(id), {watered: Date.now()})
+    const { id, date } = req.body;
+    console.log(req.body)
+	Plant.findOneAndUpdate({_id: id}, {watered: date})
 		.then(plant => res.json(plant))
 		.catch(err => console.log(err));
 });
