@@ -19,7 +19,7 @@ const PlantSchema = new Schema({
 		type: []
 	},
 	watered: {
-		type: Date
+		type: String
 	}
 });
 

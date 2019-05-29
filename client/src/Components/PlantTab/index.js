@@ -3,11 +3,12 @@ import API from "../../utils/API"
 import { Link } from "react-router-dom";
 import "./style.css";
 import wateringCan from "../../assets/images/wateringCan.png";
+import moment from "moment"
 
 const water = (id) => {
   //event.preventDefault();
-  console.log(id)
-  API.waterPlant({id}).then(res => {
+  var date = moment().format("MMM Do")
+  API.waterPlant({id, date}).then(res => {
     console.log(res)
   })
 
