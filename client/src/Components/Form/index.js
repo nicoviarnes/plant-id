@@ -97,7 +97,6 @@ class Form extends Component {
 
 	render() {
 		// Notice how each input has a `value`, `name`, and `onChange` prop
-		console.log("Register");
 		return (
 			<>
 				<img className="regLogo" src={RegLogo} alt="Registration Logo" />
