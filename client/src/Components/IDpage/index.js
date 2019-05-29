@@ -74,13 +74,6 @@ class IDpage extends Component {
     plantName: null
   };
 
-  // componentDidMount = () => {
-  //   var plantName = "Oxalis corniculata"
-  //   var searchTerm = plantName.toLowerCase().split(" ")
-  //   console.log(searchTerm[0])
-  //   this.scrape(searchTerm[0], plantName.toLowerCase());
-  // };
-
   componentDidMount() {
     const { id } = decode(localStorage.getItem("x-auth-token"));
     console.log(id);
@@ -149,7 +142,11 @@ class IDpage extends Component {
             $(this)
               .text()
               .toLowerCase()
-              .endsWith(`(${plantName})`)
+              .endsWith(`(${plantName})`) ||
+            $(this)
+              .text()
+              .toLowerCase()
+              .endsWith(`${plantName}`)
           ) {
             plantURL = $(this).attr("href");
             console.log("hello?");
@@ -265,7 +262,9 @@ class IDpage extends Component {
                       <>
                         {this.state.isScraped ? (
                           <>
-                            <h1>Success! Your plant was added to your garden!</h1>
+                            <h1>
+                              Success! Your plant was added to your garden!
+                            </h1>
                           </>
                         ) : (
                           <>
@@ -340,8 +339,7 @@ class IDpage extends Component {
                                   onChange={this.fileChangedHandler}
                                 />
                                 <h4 className="sub-tag">
-                                  Upload a picture of a plant you wish to
-                                  identify!
+                                  Let's upload your plant!
                                 </h4>
 
                                 <Button

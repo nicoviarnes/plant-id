@@ -32,6 +32,9 @@ export default {
 	},
 	removePlant: function(data) {
 		return axios.post("/api/removeplant", data);
-	}
+	},
+	waterPlant: function(data) {
+		return axios.post("/api/waterplant", data);
+	},
 
 };
