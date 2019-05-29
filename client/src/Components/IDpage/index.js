@@ -339,8 +339,7 @@ class IDpage extends Component {
                                   onChange={this.fileChangedHandler}
                                 />
                                 <h4 className="sub-tag">
-                                  Upload a picture of a plant you wish to
-                                  identify!
+                                  Let's upload your plant!
                                 </h4>
 
                                 <Button
