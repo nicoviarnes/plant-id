@@ -54,6 +54,10 @@ button[type="submit"] {
 	cursor: pointer;
 }
 
+.delete {
+	background-color: red !important;
+}
+
 button[type="submit"]:hover {
 	background-color: #45a049;
 }

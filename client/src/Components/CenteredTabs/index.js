@@ -113,7 +113,7 @@ function CenteredTabs(props) {
 														<Button
 															variant="contained"
 															color="secondary"
-															className="deleteNote"
+															className="deleteNote delete"
 															size="small"
 															onClick={() => deleteNote(note._id)}
 														>
