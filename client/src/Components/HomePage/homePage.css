@@ -16,16 +16,13 @@ h1 {
 
 .titleName {
 	position: absolute;
-	/* margin: 0 auto; */
-	width: 100% !important;
+	width: 100%!important;
 	top: 20%;
-	/* font-size: 85px; */
 	font-size: 8vw;
-	/* z-index: -1; */
 }
+
 .testname {
 	font-weight: 900;
-	/* border: 5px double #020202; */
 	border-radius: 2px;
 	padding: 5px 20px;
 	color: rgb(0, 0, 0);
@@ -34,15 +31,12 @@ h1 {
 }
 
 .container {
-	background-color: #f0efef;
+	background-color: #f0efef31;
 	background-size: cover;
-	/* position: fixed; */
 	width: 100%;
 	min-height: 100%;
-	z-index: -0;
-	/* top: 70%!important; */
-	top: auto !important;
-	/* padding-bottom: 300%!important; */
+	top: auto!important;
+	padding-top: 10px;
 }
 .container p {
 	line-height: 1.6rem;
@@ -70,8 +64,6 @@ h1 {
 
 .doc {
 	text-align: right;
-	/* margin-right: 15%;
-	margin-left: 15%; */
 	width: 75%;
 	margin: auto;
 	z-index: -1;
@@ -82,14 +74,33 @@ hr {
 	background-color: #006400;
 	height: 1px;
 	border: none;
-	z-index: -1;
 }
 
-.footer {
-	z-index: 51;
-	color: black;
-	bottom: 0 !important;
+.howToDiv{
+	text-align: center;
 }
+
+.exampleDiv{
+	word-wrap: break-word;
+}
+
+
+.goodExample{
+	width: 30%;
+	margin-left: 5%;
+	margin-right: 5%;
+	vertical-align: middle;
+	box-shadow: 2px 2px 5px;
+}
+
+.badExample{
+	width: 35%;
+	margin-left: 5%;
+	margin-right: 5%;
+	vertical-align: middle;
+	box-shadow: 2px 2px 5px;
+}
+
 
 @media (min-width: 320px) and (max-width: 767px) {
 	.splashDiv {

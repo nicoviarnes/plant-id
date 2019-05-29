@@ -1,4 +1,6 @@
 import React from "react";
+import GoodExample from "../../assets/images/goodExample.jpg";
+import BadExample from "../../assets/images/badExample.jpg";
 import "./homePage.css";
 
 function HomePage() {
@@ -10,12 +12,12 @@ function HomePage() {
 				</h1>
 			</div>
 			<div className="container">
-				<br />
 				<div className="aboutBody">
-					<h2>About</h2>
+					<h2>About
+					</h2>
 					<hr />
 					<p>
-						Welcome too Plantify! Do you ever wonder what that plant was you
+						Welcome to Plantify! Do you ever wonder what that plant was you
 						recieved as a house warming gift? Or do you have a hard time
 						remembering when all your plants need to be feed and watered? Well
 						worry no more! This App can help identify your plants via your own
@@ -27,17 +29,22 @@ function HomePage() {
 				<div className="docBody">
 					<h2>Documentation</h2>
 					<hr />
-					<p>
-						This application can help you identify, store, and manage your
-						plants in one easy place.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac elit
-						id risus euismod vestibulum. Sed sodales lobortis mi non aliquam.
-						Nullam eget ex non tortor gravida maximus id nec felis. Duis auctor
-						tristique leo, sed varius sapien. Vivamus feugiat tempor nisl sed
-						ullamcorper. Donec.
-					</p>
+					<br/>
+
+
+					<div className="howToDiv">
+					{/* <h3>How to</h3> */}
+					<p>Identifying a plant is as easy as taking a picture and uploading it. For best results take a picture that clearly shows the plants leaves or petals.</p>
+					<div className="exampleDiv">
+						
+						<img className="goodExample" src={GoodExample} alt="Good Example"/>
+
+						<img className="badExample" src={BadExample} alt="Good Example"/>
+						
+						<p>On the left the picture clearly displays the flowers petals and leaves. On the right there are multiple plants and the angle of the image makes it difficult to see the plants features.</p>
+					</div>
+					{/* <br/><br/><br/> */}
+					</div>
 				</div>
 			</div>
 		</div>
