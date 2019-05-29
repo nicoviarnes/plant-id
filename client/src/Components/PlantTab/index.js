@@ -1,30 +1,31 @@
 import React from "react";
+import API from "../../utils/API"
 import { Link } from "react-router-dom";
 import "./style.css";
 import wateringCan from "../../assets/images/wateringCan.png";
 
-// const clickedPlant = id => {
-//   console.log("you clicked");
-//   console.log(id);
-// };
+const water = (id) => {
+  //event.preventDefault();
+  console.log(id)
+  API.waterPlant({id}).then(res => {
+    console.log(res)
+  })
 
-const water = (event) => {
-  event.preventDefault()
-}
+};
 
 function PlantTab(props) {
   return (
     <>
-      <Link
-        to={{
-          pathname: `/manage/plant/${props.id}`,
-          state: {
-            plantData: "plant db object goes here"
-          }
-        }}
-        className="plantInfo"
-      >
-        <div className="card-wrap">
+      <div className="card-wrap">
+        <Link
+          to={{
+            pathname: `/manage/plant/${props.id}`,
+            state: {
+              plantData: "plant db object goes here"
+            }
+          }}
+          className="plantInfo"
+        >
           <div className="img-container">
             <img className="thumb" alt={props.id} src={props.image} />
           </div>
@@ -32,17 +33,17 @@ function PlantTab(props) {
             {/* <p>Scientific Name:{props.scientific}</p> */}
             <p className="nickname">{props.nickname}</p>
             {/* <p>Last Watering: {props.daysSince}</p> */}
-            <div className="water">
-              <img
-                className="wateringCan"
-                src={wateringCan}
-                onClick={water}
-                alt="watering Can"
-              />
-            </div>
           </div>
+        </Link>
+        <div className="water">
+          <img
+            className="wateringCan"
+            src={wateringCan}
+            onClick={() => water(props.id)}
+            alt="watering Can"
+          />
         </div>
-      </Link>
+      </div>
     </>
   );
 }

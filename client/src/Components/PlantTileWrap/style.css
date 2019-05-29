@@ -4,11 +4,9 @@
     display: flex;
     flex-flow: row wrap;
     padding: 12px;
-    /* justify-content: space-around; */
+    justify-content: center;
     align-content: flex-start;
     overflow: hidden;
-    margin-left:10%;
-    margin-right:10%;
     padding-top:50px;
    
   }

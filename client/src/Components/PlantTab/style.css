@@ -30,7 +30,7 @@
 	cursor: pointer;
 }
 
-.card-wrap > .img-container {
+.img-container {
 	height: 140px;
 	width: 140px;
 	border-radius: 50%;
@@ -43,7 +43,7 @@
 	background: #6caddc;
 }
 
-.card-wrap > .img-container > img {
+.img-container > img {
 	width: 60%;
 }
 
@@ -58,7 +58,7 @@
 .water {
 	position: absolute;
 	bottom: 0;
-	margin-left: 30%;
+	margin-left: 35%;
 	margin-bottom: 2%;
 	height: 50px;
 }
