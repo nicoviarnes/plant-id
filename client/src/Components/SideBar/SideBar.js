@@ -101,6 +101,7 @@ function SwipeableTemporaryDrawer() {
             </MenuItem>
           </a>
           <Divider />
+          <Divider />
 
           {/* Identify Btn */}
           <a className="menuLink" href="/id">
