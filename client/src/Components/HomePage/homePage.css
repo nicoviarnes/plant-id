@@ -14,11 +14,10 @@ h1 {
 	font-family: "Lato", sans-serif;
 }
 
-
 .titleName {
 	position: absolute;
 	/* margin: 0 auto; */
-	width: 100%!important;
+	width: 100% !important;
 	top: 20%;
 	/* font-size: 85px; */
 	font-size: 8vw;
@@ -42,7 +41,7 @@ h1 {
 	min-height: 100%;
 	z-index: -0;
 	/* top: 70%!important; */
-	top: auto!important;
+	top: auto !important;
 	/* padding-bottom: 300%!important; */
 }
 .container p {
@@ -69,7 +68,7 @@ h1 {
 	/* font-family: "Mate SC", serif; */
 }
 
-.doc{
+.doc {
 	text-align: right;
 	/* margin-right: 15%;
 	margin-left: 15%; */
@@ -102,6 +101,6 @@ hr {
 	}
 
 	.container {
-		top: auto!important;
+		top: auto !important;
 	}
 }

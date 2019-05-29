@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Chivo|Jaldi:400,700|Mukta&display=swap");
+
 .logoutBtn {
-	margin: 0 auto!important;
-	display: block!important;
-	text-align: center!important;
-	/* font-family: "Source Sans Pro", sans-serif!important; */
+	margin: 0 auto !important;
+	display: block !important;
+	text-align: center !important;
+
+	font-family: "Jaldi", sans-serif;
+	font-size: 1rem !important;
 }
