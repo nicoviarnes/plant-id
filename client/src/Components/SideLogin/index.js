@@ -109,7 +109,7 @@ class SideLogin extends Component {
 					<br />
 					<br />
 					<Button
-						className="submitBtn"
+						className="submitBtnReg"
 						variant="contained"
 						color="inherit"
 						onClick={this.handleFormSubmit}

@@ -58,6 +58,10 @@ button[type="submit"]:hover {
 	background-color: #45a049;
 }
 
+.userUpload{
+	width:100%;
+}
+
 
 @media (min-width: 320px) and (max-width: 767px) {
 	.MuiGrid-container-4{
@@ -65,7 +69,7 @@ button[type="submit"]:hover {
 	}
 
 	.userUpload{
-		max-width: 80%!important;
+		/* max-width: 80%!important; */
 		width: auto;
 		height: auto;	
 	}
