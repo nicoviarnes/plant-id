@@ -17,12 +17,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 
-// import tropical from "../../assets/images/tropical.jpg";
-// import Navbar from "../Navbar/Navbar";
-// import succulent from "../../assets/images/succulent.jpg";
 
-// import { ModalProvider, ModalConsumer } from "../LoginModal/ModalContext";
-// import ModalRoot from "../LoginModal/ModalRoot";
 
 const KEY = KEYS.PLANT_ID_KEY;
 let b64Str;
@@ -76,7 +71,6 @@ class IDpage extends Component {
 
   componentDidMount() {
     const { id } = decode(localStorage.getItem("x-auth-token"));
-    console.log(id);
     this.setState({ userID: id });
   }
 

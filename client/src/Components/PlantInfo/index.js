@@ -32,7 +32,6 @@ class PlantInfo extends React.Component {
 	componentDidMount() {
 		const plantID = this.props.match.params.plant;
 		API.getPlantNote(plantID).then(res => {
-			console.log(`res: `, res.data.filter(data => data.plant === plantID));
 			this.setState({
 				notes: res.data.filter(data => data.plant === plantID)
 			});
@@ -58,7 +57,11 @@ class PlantInfo extends React.Component {
 						</Grid>
 						<Grid item xs={12} sm={1} />
 						<Grid item xs={12} sm={12} md={4}>
-							<img className="userUpload" src={this.state.info[0].url} alt="user uploaded" />
+							<img
+								className="userUpload"
+								src={this.state.info[0].url}
+								alt="user uploaded"
+							/>
 							<br />
 							<br />
 							<Button
