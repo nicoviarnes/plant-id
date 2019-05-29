@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,900&display=swap");
 
 .splashDiv {
-	background-image: url("../../assets/images/small.jpg");
+	background-image: url("../../assets/images/larryimg.jpg");
 	height: 75vh;
 	background-attachment: fixed;
 	background-position: center;
@@ -13,7 +13,6 @@
 h1 {
 	font-family: "Lato", sans-serif;
 }
-
 
 .titleName {
 	position: absolute;
@@ -63,7 +62,7 @@ h1 {
 	/* font-family: "Mate SC", serif; */
 }
 
-.doc{
+.doc {
 	text-align: right;
 	width: 75%;
 	margin: auto;
@@ -113,6 +112,6 @@ hr {
 	}
 
 	.container {
-		top: auto!important;
+		top: auto !important;
 	}
 }

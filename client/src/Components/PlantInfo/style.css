@@ -59,7 +59,7 @@ button[type="submit"]:hover {
 }
 
 .userUpload{
-	/* width: 100%; */
+	width:100%;
 }
 
 
@@ -69,7 +69,7 @@ button[type="submit"]:hover {
 	}
 
 	.userUpload{
-		max-width: 80%!important;
+		/* max-width: 80%!important; */
 		width: auto;
 		height: auto;	
 	}

@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Chivo|Jaldi:400,700|Mukta&display=swap");
+
+/* 
+font-family: 'Mukta', sans-serif;
+font-family: 'Chivo', sans-serif;
+font-family: 'Jaldi', sans-serif;
+ */
+
 .navBar {
 	background-color: #f8f8f8 !important;
 	color: #397547 !important;
@@ -9,13 +17,13 @@
 	z-index: 1;
 }
 
-button {
-	font-family: "Source Sans Pro", sans-serif;
-}
+/* button {
+	font-family: "Jaldi", sans-serif;
+} */
 .navFont {
-	font-family: "Source Sans Pro", sans-serif;
-	/* font-weight: bold; */
-	font-size: 1rem;
+	font-family: "Jaldi", sans-serif;
+	font-size: 1.1rem;
+	/* margin-left: 5px; */
 }
 
 .registerBtn {
