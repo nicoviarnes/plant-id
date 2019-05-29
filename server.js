@@ -12,17 +12,11 @@ app.use(express.json());
 //DB Mongo Atlas Config
 const db = config.get("mongoURI");
 
-//Connect to Mongo
-//Mongo Atlas
-//Gmail: project.plant.id@gmail.com : projectplantid
-//Atlas: USER:	project.plant.id@gmail.com
-//PASS: project3!
-// "mongoURI": "mongodb+srv://project_3:123@cluster0-zndk3.mongodb.net/test?retryWrites=true",
-//Blake sucks
 mongoose
 	.connect(process.env.MONGODB_URI || db, {
 		useNewUrlParser: true,
-		useCreateIndex: true
+		useCreateIndex: true,
+		useFindAndModify: false
 	})
 	.then(() => console.log("Connected to Mongo"))
 	.catch(err => console.log(err));
