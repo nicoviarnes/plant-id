@@ -24,7 +24,7 @@ class PlantInfo extends React.Component {
     console.log(plantID, date);
     API.waterPlant({ id: plantID, date }).then(res => {
       this.setState({ watered: date });
-      return console.log(this.state.info[0].watered);
+      return console.log(this.state.watered);
     });
   };
 
@@ -89,7 +89,7 @@ class PlantInfo extends React.Component {
                 <h4>
                   Last Watering:{" "}
                   <span class="waterSpan">
-                    {this.state.info[0].watered !== undefined
+                    {this.state.watered !== undefined
                       ? moment(
                           this.state.watered,
                           "MMMM Do YYYY, h:mm:ss a"
@@ -100,7 +100,7 @@ class PlantInfo extends React.Component {
                 <h4>
                   Last Feeding:{" "}
                   <span class="feedSpan">
-                    {this.state.info[0].fed !== undefined
+                    {this.state.fed !== undefined
                       ? moment(
                           this.state.fed,
                           "MMMM Do YYYY, h:mm:ss a"
