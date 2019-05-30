@@ -7,7 +7,9 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import NoteForm from "../NoteForm";
 import API from "../../utils/API";
+import DeleteIcon from "@material-ui/icons/Delete";
 import Button from "@material-ui/core/Button";
+import CareSettings from "../CareSettings";
 import "./style.css";
 
 function TabContainer(props) {
@@ -42,6 +44,11 @@ function CenteredTabs(props) {
       })
       .catch(err => console.log(err));
   }
+  function removePlant(id) {
+    API.removePlant({ id }).then(res => {
+      window.location = "/manage";
+    });
+  }
 
   return (
     <div>
@@ -57,6 +64,7 @@ function CenteredTabs(props) {
           }}
         >
           <Tab label="Plant Info" />
+          <Tab label="Care Settings" />
           <Tab label="Add Notes" />
           <Tab label="My Notes" />
         </Tabs>
@@ -74,6 +82,16 @@ function CenteredTabs(props) {
                       </li>
                     );
                   })}
+                  <br/>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className="delete d"
+                  onClick={() => removePlant(props.plantId)}
+                >
+                  Remove From Garden
+                  <DeleteIcon />
+                </Button>
               </Grid>
             </>
           }
@@ -81,12 +99,21 @@ function CenteredTabs(props) {
       )}
       {value === 1 && (
         <TabContainer>
+          <>
+            <Grid item xs={12} sm={12}>
+              <CareSettings info={props.info} plantID={props.plantId} />
+            </Grid>
+          </>
+        </TabContainer>
+      )}
+      {value === 2 && (
+        <TabContainer>
           <Grid item xs={12} sm={12}>
             <NoteForm plantID={props.plantId} />
           </Grid>
         </TabContainer>
       )}
-      {value === 2 && (
+      {value === 3 && (
         <TabContainer>
           {
             <>
@@ -111,7 +138,10 @@ function CenteredTabs(props) {
                         );
                       })
                     ) : (
-                      <h1>No Notes</h1>
+                      <>
+                        <br />
+                        <h1>No Notes</h1>
+                      </>
                     )}
                   </div>
                 </div>

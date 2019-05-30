@@ -6,8 +6,8 @@ import wateringCan from "../../assets/images/wateringCan.png";
 import moment from "moment";
 
 const water = id => {
-  var date = moment().format("MMM Do");
-  API.waterPlant({ id, date }).then(res => {});
+  var date = moment().format('MMMM Do YYYY, h:mm:ss a');
+  API.waterPlant({ id, date }).then(res => {return console.log(res)});
 };
 
 function PlantTab(props) {

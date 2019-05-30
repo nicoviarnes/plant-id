@@ -122,6 +122,7 @@ class IDpage extends Component {
 		let plantURL;
 		let plantInfo = {};
 		var self = this;
+		this.setState({ waitingForData: true });
 		console.log("Scrape started");
 
 		axios
@@ -178,6 +179,7 @@ class IDpage extends Component {
 									url: self.state.uploadedFileLink,
 									plantInfo
 								});
+								self.setState({ waitingForData: false });
 								function sweetAlert() {
 									swal("", "Plant has been added to your garden!!", "success");
 								}

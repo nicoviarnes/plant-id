@@ -36,5 +36,14 @@ export default {
 	waterPlant: function(data) {
 		return axios.post("/api/waterplant", data);
 	},
+	feedPlant: function(data) {
+		return axios.post("/api/feedplant", data);
+	},
+	setWateringInterval: function(data) {
+		return axios.post("/api/wateringinterval", data);
+	},
+	setFeedingInterval: function(data) {
+		return axios.post("/api/feedinginterval", data);
+	},
 
 };

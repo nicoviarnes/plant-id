@@ -18,7 +18,16 @@ const PlantSchema = new Schema({
 	plantInfo: {
 		type: []
 	},
+	wateringInterval: {
+		type: Number
+	},
+	feedingInterval: {
+		type: Number
+	},
 	watered: {
+		type: String
+	},
+	fed: {
 		type: String
 	}
 });
