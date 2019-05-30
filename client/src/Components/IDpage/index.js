@@ -124,7 +124,7 @@ class IDpage extends Component {
 
   scrape = (searchTerm, plantName) => {
     function sweetAlert () {
-      swal("NicoGay!", "Plant has been added to your garden!!", "success");
+      swal("", "Plant has been added to your garden!!", "success");
     }
     sweetAlert();
     let plantRaw = [];
