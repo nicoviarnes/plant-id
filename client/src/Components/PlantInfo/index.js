@@ -108,11 +108,34 @@ class PlantInfo extends React.Component {
     // get current day
     var date = moment().format("MMMM Do YYYY");
 
-    // last watering date and format
-    var date2 = this.state.watered.split(",");
-    var lastWatered = moment(date2[0], "MMMM Do YYYY");
-    lastWatered = lastWatered.format("MMMM Do YYYY");
+    if (this.state.watered) {
+      // last watering date and format
+      var date2 = this.state.watered.split(",");
+      var lastWatered = moment(date2[0], "MMMM Do YYYY");
 
+      lastWatered = lastWatered.format("MMMM Do YYYY");
+    }
+
+    if (this.state.fed) {
+      var date3 = this.state.fed.split(",");
+      var lastFed = moment(date3[0], "MMMM Do YYYY");
+      lastFed = lastFed.format("MMMM Do YYYY");
+    }
+
+    date = moment(date, "MMMM Do YYYY")
+      .subtract(this.state.wateringInterval, "days")
+      .format("MMMM Do YYYY");
+    
+    if (moment(lastWatered).isAfter(date) === false) {
+      waterStyle.backgroundColor = "#70ef76";
+    } else {
+      waterStyle.backgroundColor = "#ebf271";
+    }
+    if (moment(lastFed).isAfter(date) === false) {
+      feederStyle.backgroundColor = "#70ef76";
+    } else {
+      feederStyle.backgroundColor = "#ebf271";
+    }
     // in here compare the last watering date with this.state.wateringInterval
     // do the same with feeding date and interval
     // if the plant doesn't need to be watered -> waterStyle.backgroundColor = "#70ef76"
