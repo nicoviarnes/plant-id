@@ -32,6 +32,10 @@ app.use("/api/notes", require("./routes/api/notes"));
 app.use("/api/notes/remove", require("./routes/api/deletenote"));
 app.use("/api/removeplant", require("./routes/api/removeplant"));
 app.use("/api/waterplant", require("./routes/api/waterplant"));
+app.use("/api/feedplant", require("./routes/api/feedplant"));
+app.use("/api/wateringinterval", require("./routes/api/wateringinterval"));
+app.use("/api/feedinginterval", require("./routes/api/feedinginterval"));
+
 
 //Port
 const port = process.env.PORT || 3001;

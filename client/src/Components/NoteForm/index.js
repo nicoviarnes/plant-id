@@ -58,17 +58,6 @@ class NoteForm extends Component {
 			<>
 				<form className="note-form">
 					<h2 className="note-head">Add a Note</h2>
-					{/* <label>
-						<p className="label">Title :</p>
-						<input
-							className="title-input"
-							type="text"
-							name="title"
-							value={this.state.title}
-							onChange={this.handleChange}
-						/>
-						<div className="errorStyle">{this.state.titleError}</div>
-					</label> */}
 					<br />
 					<label>
 						<p className="label">Note :</p>
@@ -83,9 +72,9 @@ class NoteForm extends Component {
 					</label>
 
 					<Button
-						className="note-sub-butt"
+						className="note-sub-butt upload"
 						variant="contained"
-						color="inherit"
+						color="primary"
 						onClick={this.handleSubmit}
 					>
 						Save

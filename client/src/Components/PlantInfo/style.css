@@ -12,9 +12,24 @@
 }
 
 .TOP img {
-	max-width: 500px;
-	max-height: 500px;
+    display:block;
+    margin:auto;
+	max-width: 400px;
+	max-height: 400px;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+}
+
+.d {
+    display:block !important;
+	margin:auto !important;	
+}
+
+.waterSpan{
+	color: darkgreen;
+}
+
+.card-wrapBig h4 {
+	color: black;
 }
 
 .info-title {

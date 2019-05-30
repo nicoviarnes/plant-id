@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import NoteForm from "../NoteForm";
 import API from "../../utils/API";
 import Button from "@material-ui/core/Button";
+import CareSettings from "../CareSettings"
 import "./style.css";
 
 function TabContainer(props) {
@@ -57,6 +58,7 @@ function CenteredTabs(props) {
           }}
         >
           <Tab label="Plant Info" />
+          <Tab label="Care Settings" />
           <Tab label="Add Notes" />
           <Tab label="My Notes" />
         </Tabs>
@@ -81,12 +83,21 @@ function CenteredTabs(props) {
       )}
       {value === 1 && (
         <TabContainer>
+          <>
+            <Grid item xs={12} sm={12}>
+              <CareSettings info={props.info} plantID={props.plantId} />
+            </Grid>
+          </>
+        </TabContainer>
+      )}
+      {value === 2 && (
+        <TabContainer>
           <Grid item xs={12} sm={12}>
             <NoteForm plantID={props.plantId} />
           </Grid>
         </TabContainer>
       )}
-      {value === 2 && (
+      {value === 3 && (
         <TabContainer>
           {
             <>
