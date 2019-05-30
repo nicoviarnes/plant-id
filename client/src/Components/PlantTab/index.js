@@ -6,8 +6,17 @@ import wateringCan from "../../assets/images/wateringCan.png";
 import moment from "moment";
 
 const water = id => {
-  var date = moment().format('MMMM Do YYYY, h:mm:ss a');
-  API.waterPlant({ id, date }).then(res => {return console.log(res)});
+  var date = moment().format("MMMM Do YYYY, h:mm:ss a");
+  API.waterPlant({ id, date }).then(res => {
+    return console.log(res);
+  });
+};
+
+const feed = id => {
+  var date = moment().format("MMMM Do YYYY, h:mm:ss a");
+  API.feedPlant({ id, date }).then(res => {
+    return console.log(res);
+  });
 };
 
 function PlantTab(props) {
@@ -30,6 +39,7 @@ function PlantTab(props) {
             <p className="nickname">{props.nickname}</p>
           </div>
         </Link>
+        <div className="careButtons">
         <div className="water">
           <img
             className="wateringCan"
@@ -37,6 +47,17 @@ function PlantTab(props) {
             onClick={() => water(props.id)}
             alt="watering Can"
           />
+        </div>
+        <div className="feeder">
+          <img
+            className="feedCan"
+            src={
+              "https://cdn3.iconfinder.com/data/icons/ecology-caramel-vol-1/512/FERTILIZE_THE_PLANTS-512.png"
+            }
+            onClick={() => feed(props.id)}
+            alt="feeding Can"
+          />
+        </div>
         </div>
       </div>
     </>

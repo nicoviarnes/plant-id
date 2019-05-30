@@ -69,19 +69,48 @@
 }
 
 .water {
-	position: absolute;
-	bottom: 0;
-	margin-left: 37%;
-	margin-bottom: 2%;
-	height: 50px;
+	display: inline-block;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	margin-left: 15px;
+	margin-right: 15px;
+	background-color: #70ef76;
+}
+.feeder {
+	display: inline-block;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	margin-left: 15px;
+	margin-right: 15px;
+	background-color: #70ef76;
 }
 .wateringCan {
 	width: 40px;
 	height: 40px;
+	margin-top: 2px;
 }
 
+
 .wateringCan:hover {
-	transform: scale(1.3, 1.3);
+	transform: scale(1.2, 1.2);
+}
+
+.water:hover {
+	transform: scale(1.2, 1.2);
+}
+
+.feeder:hover {
+	transform: scale(1.2, 1.2);
+}
+
+.feedCan {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
 .tile-content {
