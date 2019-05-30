@@ -117,10 +117,6 @@ class IDpage extends Component {
   };
 
   scrape = (searchTerm, plantName) => {
-    function sweetAlert() {
-      swal("", "Plant has been added to your garden!!", "success");
-    }
-    sweetAlert();
     let plantRaw = [];
     let plantURL;
     let plantInfo = {};
@@ -181,6 +177,10 @@ class IDpage extends Component {
                   url: self.state.uploadedFileLink,
                   plantInfo
                 });
+                function sweetAlert() {
+                  swal("", "Plant has been added to your garden!!", "success");
+                }
+                sweetAlert();
               });
           }
         });
