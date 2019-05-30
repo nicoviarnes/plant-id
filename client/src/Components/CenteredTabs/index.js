@@ -122,7 +122,10 @@ function CenteredTabs(props) {
                         );
                       })
                     ) : (
+                      <>
+                      <br/>
                       <h1>No Notes</h1>
+                      </>
                     )}
                   </div>
                 </div>

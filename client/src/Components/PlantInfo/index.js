@@ -67,8 +67,8 @@ class PlantInfo extends React.Component {
                     alt="user uploaded"
                   />
                 </div>
-				<h4>Last Watered: <span class="waterSpan">{this.state.info[0].watered}</span></h4>
-				<h4>Last Feeding: <span class="feedSpan">{this.state.info[0].fed}</span></h4>
+				<h4>Last Watering: <span class="waterSpan">{this.state.info[0].watered !== undefined ? (moment(this.state.info[0].watered, "MMMM Do YYYY, h:mm:ss a").fromNow()):("Never!")}</span></h4>
+				<h4>Last Feeding: <span class="feedSpan">{this.state.info[0].fed !== undefined ? (moment([this.state.info[0].fed]).fromNow()):("Never!")}</span></h4>
                 <Button
                   variant="contained"
                   color="secondary"

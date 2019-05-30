@@ -24,7 +24,11 @@
 	margin:auto !important;	
 }
 
-.waterSpan{
+.waterSpan {
+	color: darkgreen;
+}
+
+.feedSpan {
 	color: darkgreen;
 }
 
