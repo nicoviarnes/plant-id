@@ -96,7 +96,7 @@ function SwipeableTemporaryDrawer() {
 						<ListItemIcon>
 							<img src={HomeIcon} alt="Login Icon" />
 						</ListItemIcon>
-						<ListItemText primary="Home" />
+						<ListItemText className="sideText">Home</ListItemText>
 					</MenuItem>
 				</a>
 				<Divider />
@@ -108,7 +108,7 @@ function SwipeableTemporaryDrawer() {
 								<ListItemIcon>
 									<img src={IdentifyIcon} alt="Identify Icon" />
 								</ListItemIcon>
-								<ListItemText primary="Identify" />
+								<ListItemText className="sideText" primary="Identify" />
 							</MenuItem>
 						</a>
 
@@ -120,7 +120,7 @@ function SwipeableTemporaryDrawer() {
 								<ListItemIcon>
 									<img src={ManageIcon} alt="Manage Icon" />
 								</ListItemIcon>
-								<ListItemText primary="Manage" />
+								<ListItemText className="sideText" primary="Manage" />
 							</MenuItem>
 						</a>
 						<Divider />
@@ -131,7 +131,7 @@ function SwipeableTemporaryDrawer() {
 								<ListItemIcon>
 									<img src={CalendarIcon} alt="Calendar Icon" />
 								</ListItemIcon>
-								<ListItemText primary="Calendar" />
+								<ListItemText className="sideText" primary="Calendar" />
 							</MenuItem>
 						</a>
 						<Divider />
@@ -152,7 +152,7 @@ function SwipeableTemporaryDrawer() {
 							<ListItemIcon>
 								<img src={LoginIcon} alt="Login Icon" />
 							</ListItemIcon>
-							<ListItemText className="collapseItem" primary="Login" />
+							<ListItemText className="sideText collapseItem" primary="Login" />
 							{open ? <ExpandLess /> : <ExpandMore />}
 						</ListItem>
 						<Collapse in={open} timeout="auto" unmountOnExit>
@@ -169,7 +169,7 @@ function SwipeableTemporaryDrawer() {
 							<ListItemIcon>
 								<img src={RegisterIcon} alt="Register Icon" />
 							</ListItemIcon>
-							<ListItemText primary="Register" />
+							<ListItemText className="sideText" primary="Register" />
 							{open1 ? <ExpandLess /> : <ExpandMore />}
 						</ListItem>
 						<Collapse in={open1} timeout="auto" unmountOnExit>

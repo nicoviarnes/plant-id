@@ -151,9 +151,9 @@ class Form extends Component {
 					<br />
 					<br />
 					<Button
-						className="submitBtn"
+						className="upload"
 						variant="contained"
-						color="inherit"
+						color="primary"
 						onClick={this.handleFormSubmit}
 					>
 						Submit

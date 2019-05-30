@@ -26,12 +26,9 @@
 .menuText{
     display: block!important;
     text-align: center!important;
+    color: #397547 !important;
     /* color: green!important; */
     font-family: "Source Sans Pro", sans-serif!important;
-}
-
-.logoutBtn{
-    /* color: #2e991f!important; */
 }
 
 .MuiTypography-root-244{

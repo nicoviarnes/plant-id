@@ -5,6 +5,10 @@
 	padding-top: 100px;
 }
 
+.upload {
+    margin: 15px !important;
+}
+
 .splashImg2{
 	position: fixed;
 	z-index: -1;
@@ -126,6 +130,118 @@
     background-color: darkgreen;
 }
 
+//
+.fileUpload {
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .fileUploadBtn {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .fileUploadBtn:hover {
+    background: #1AA059;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .fileUploadBtn:active {
+    border: 0;
+    transition: all .2s ease;
+  }
+  
+  .fileUploadContent {
+    display: none;
+    text-align: center;
+  }
+  
+  .fileUploadInput {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .imageUploadWrap {
+    margin-top: 20px;
+    border: 4px dashed #1FB264;
+    position: relative;
+  }
+  
+  .imageDropping,
+  .imageUploadwrap:hover {
+    background-color: #1FB264;
+    border: 4px dashed #ffffff;
+  }
+  
+  .imageTitleWrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+  }
+  
+  .dragText {
+    text-align: center;
+  }
+  
+  .dragText h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #15824B;
+    padding: 60px 0;
+  }
+  
+  .fileUpload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .removeImage {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b02818;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .removeImage:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .removeImage:active {
+    border: 0;
+    transition: all .2s ease;
+  }
 
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -160,3 +276,4 @@
         
     }
 }
+

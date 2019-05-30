@@ -151,7 +151,7 @@ class Form extends Component {
 					<Button
 						className="submitBtnReg"
 						variant="contained"
-						color="inherit"
+						color="primary"
 						onClick={this.handleFormSubmit}
 					>
 						Register
