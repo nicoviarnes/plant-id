@@ -5,15 +5,27 @@ import Grid from "@material-ui/core/Grid";
 import CenteredTabs from "../CenteredTabs";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
+import wateringCan from "../../assets/images/wateringCan.png";
 import moment from "moment";
-
 
 class PlantInfo extends React.Component {
   state = {
     info: null,
+    watered: "",
+    fed: "",
     plantId: "",
     notes: null,
     prevNotes: null
+  };
+
+  water = id => {
+    var date = moment().format("MMMM Do YYYY, h:mm:ss a");
+    const plantID = this.props.match.params.plant;
+    console.log(plantID, date);
+    API.waterPlant({ id: plantID, date }).then(res => {
+      this.setState({ watered: date });
+      return console.log(this.state.info[0].watered);
+    });
   };
 
   componentWillMount() {
@@ -23,7 +35,10 @@ class PlantInfo extends React.Component {
     API.getUserPlant(plantID).then(res => {
       this.setState({ plantId: plantID });
       this.setState({ info: res.data.filter(dat => dat._id === plantID) });
+      this.setState({ watered: this.state.info[0].watered });
+      this.setState({ fed: this.state.info[0].fed });
     });
+
     API.getPlantNote(plantID).then(res => {
       this.setState({
         notes: res.data.filter(data => data.plant === plantID)
@@ -33,6 +48,9 @@ class PlantInfo extends React.Component {
 
   componentDidMount() {
     const plantID = this.props.match.params.plant;
+
+    console.log(this.state.watered);
+
     API.getPlantNote(plantID).then(res => {
       this.setState({
         notes: res.data.filter(data => data.plant === plantID)
@@ -48,6 +66,7 @@ class PlantInfo extends React.Component {
   }
 
   render() {
+    const plantID = this.props.match.params.plant;
     return (
       <>
         <div className="TOP">
@@ -67,9 +86,37 @@ class PlantInfo extends React.Component {
                     alt="user uploaded"
                   />
                 </div>
-				<h4>Last Watering: <span class="waterSpan">{this.state.info[0].watered !== undefined ? (moment(this.state.info[0].watered, "MMMM Do YYYY, h:mm:ss a").fromNow()):("Never!")}</span></h4>
-				<h4>Last Feeding: <span class="feedSpan">{this.state.info[0].fed !== undefined ? (moment([this.state.info[0].fed]).fromNow()):("Never!")}</span></h4>
-                <Button
+                <h4>
+                  Last Watering:{" "}
+                  <span class="waterSpan">
+                    {this.state.info[0].watered !== undefined
+                      ? moment(
+                          this.state.watered,
+                          "MMMM Do YYYY, h:mm:ss a"
+                        ).fromNow()
+                      : "Never!"}
+                  </span>
+                </h4>
+                <h4>
+                  Last Feeding:{" "}
+                  <span class="feedSpan">
+                    {this.state.info[0].fed !== undefined
+                      ? moment(
+                          this.state.fed,
+                          "MMMM Do YYYY, h:mm:ss a"
+                        ).fromNow()
+                      : "Never!"}
+                  </span>
+                </h4>
+                <div className="waterBig">
+                  <img
+                    className="wateringCanBig"
+                    src={wateringCan}
+                    onClick={() => this.water(plantID)}
+                    alt="watering Can"
+                  />
+                </div>
+                {/* <Button
                   variant="contained"
                   color="secondary"
                   className="delete d"
@@ -77,14 +124,13 @@ class PlantInfo extends React.Component {
                 >
                   Remove From Garden
                   <DeleteIcon />
-                </Button>
+                </Button> */}
               </div>
               {/* <img
                 className="userUpload"
                 src={this.state.info[0].url}
                 alt="user uploaded"
               /> */}
-
             </Grid>
             <Grid item xs={12} sm={1} />
 

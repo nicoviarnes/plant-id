@@ -7,7 +7,7 @@ import moment from "moment";
 
 const water = id => {
   var date = moment().format('MMMM Do YYYY, h:mm:ss a');
-  API.waterPlant({ id, date }).then(res => {});
+  API.waterPlant({ id, date }).then(res => {return console.log(res)});
 };
 
 function PlantTab(props) {
