@@ -16,6 +16,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+import swal from "sweetalert";
+
 
 
 
@@ -69,6 +71,8 @@ class IDpage extends Component {
     plantName: null
   };
 
+ 
+
   componentDidMount() {
     const { id } = decode(localStorage.getItem("x-auth-token"));
     this.setState({ userID: id });
@@ -115,14 +119,20 @@ class IDpage extends Component {
     var searchTerm = plantName.toLowerCase().split(" ");
     console.log(searchTerm[0]);
     this.scrape(searchTerm[0], plantName.toLowerCase());
+    
   };
 
   scrape = (searchTerm, plantName) => {
+    function sweetAlert () {
+      swal("NicoGay!", "Plant has been added to your garden!!", "success");
+    }
+    sweetAlert();
     let plantRaw = [];
     let plantURL;
     let plantInfo = {};
     var self = this;
     console.log("Scrape started");
+    
     axios
       .get(
         `https://cors-anywhere.herokuapp.com/https://garden.org/plants/search/text/?q=${searchTerm}`
@@ -170,6 +180,7 @@ class IDpage extends Component {
                 console.log(plantInfo);
                 self.setState({ plantObj: plantInfo });
                 self.setState({ isScraped: true });
+                
 
                 API.addUserPlant({
                   owner: self.state.userID,
@@ -177,6 +188,7 @@ class IDpage extends Component {
                   url: self.state.uploadedFileLink,
                   plantInfo
                 });
+                  
               });
           }
         });
@@ -255,10 +267,13 @@ class IDpage extends Component {
                     {this.state.isIdentified ? (
                       <>
                         {this.state.isScraped ? (
-                          <>
-                            <h1>
-                              Success! Your plant was added to your garden!
-                            </h1>
+                          <>  
+                              <Button className="navBtn hotlink" href="/id" color="inherit">
+											        <span className="navFont">Identify Another Plant!</span>
+										          </Button>
+                              <Button className="navBtn hotlink" href="/manage" color="inherit">
+											        <span className="navFont">Check Out My Garden!</span>
+										          </Button>
                           </>
                         ) : (
                           <>
