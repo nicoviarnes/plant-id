@@ -83,6 +83,16 @@
     cursor:pointer;
 }
 
+.hotlink {
+    color:black !important;
+    font-weight: bolder !important;
+    margin-right:20px !important;
+    margin-left:20px!important;
+    border:4px solid darkgreen !important;
+    border-radius:20px !important;
+    margin-top:40px !important;
+}
+
 /* Modal Container */
 .idModal{
     background-color: white;
