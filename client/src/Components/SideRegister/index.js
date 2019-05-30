@@ -101,7 +101,6 @@ class Form extends Component {
 
 	render() {
 		// Notice how each input has a `value`, `name`, and `onChange` prop
-		console.log("Register");
 		return (
 			<>
 				<form className="form">
@@ -152,7 +151,7 @@ class Form extends Component {
 					<Button
 						className="submitBtnReg"
 						variant="contained"
-						color="inherit"
+						color="primary"
 						onClick={this.handleFormSubmit}
 					>
 						Register

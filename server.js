@@ -12,17 +12,11 @@ app.use(express.json());
 //DB Mongo Atlas Config
 const db = config.get("mongoURI");
 
-//Connect to Mongo
-//Mongo Atlas
-//Gmail: project.plant.id@gmail.com : projectplantid
-//Atlas: USER:	project.plant.id@gmail.com
-//PASS: project3!
-// "mongoURI": "mongodb+srv://project_3:123@cluster0-zndk3.mongodb.net/test?retryWrites=true",
-//Blake sucks
 mongoose
 	.connect(process.env.MONGODB_URI || db, {
 		useNewUrlParser: true,
-		useCreateIndex: true
+		useCreateIndex: true,
+		useFindAndModify: false
 	})
 	.then(() => console.log("Connected to Mongo"))
 	.catch(err => console.log(err));
@@ -38,6 +32,10 @@ app.use("/api/notes", require("./routes/api/notes"));
 app.use("/api/notes/remove", require("./routes/api/deletenote"));
 app.use("/api/removeplant", require("./routes/api/removeplant"));
 app.use("/api/waterplant", require("./routes/api/waterplant"));
+app.use("/api/feedplant", require("./routes/api/feedplant"));
+app.use("/api/wateringinterval", require("./routes/api/wateringinterval"));
+app.use("/api/feedinginterval", require("./routes/api/feedinginterval"));
+
 
 //Port
 const port = process.env.PORT || 3001;

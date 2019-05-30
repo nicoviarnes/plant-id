@@ -14,15 +14,11 @@ class ManageTab extends Component {
   };
 
   componentWillMount() {
-   // const UID = localStorage.getItem("user-id");
     const { id } = decode(localStorage.getItem("x-auth-token"));
-   // console.log(UID);
     API.getUserGarden(id).then(res => {
-      //console.log(res.data.filter(dat => dat.owner === UID))
-      this.setState({garden: res.data.filter(dat => dat.owner === id)})
-      //console.log("hello?")
+      this.setState({ garden: res.data.filter(dat => dat.owner === id) });
+      console.log(this.state.garden)
     });
-
   }
 
   render() {
@@ -32,23 +28,27 @@ class ManageTab extends Component {
           <Grid item sm={12}>
             <div className="content-wrap">
               <div className="bg" />
-              <h1 className="main-title">My Garden
-              {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
-              {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
-              </h1>
-              <PlantTileWrap>
-                {this.state.garden && this.state.garden.map(plant => (
-                  <PlantTab
-                    key={plant._id}
-                    id={plant._id}
-                    image={plant.url}
-                    scientific={plant.name}
-                    nickname={plant.name}
-                    daysSince={plant.daysSince}
-                    plantInfo={plant.plantInfo}
-                  />
-                ))}
-              </PlantTileWrap>
+              <h1 className="main-title">My Garden</h1>
+              {this.state.garden !== null && this.state.garden !== undefined && this.state.garden.length !== 0 ? (
+                <PlantTileWrap>
+                  {this.state.garden &&
+                    this.state.garden.map(plant => (
+                      <PlantTab
+                        key={plant._id}
+                        id={plant._id}
+                        image={plant.url}
+                        scientific={plant.name}
+                        nickname={plant.name}
+                        daysSince={plant.daysSince}
+                        plantInfo={plant.plantInfo}
+                      />
+                    ))}
+                </PlantTileWrap>
+              ) : (
+                <>
+                  <h1>No Plants Here! Identify a Plant to Get Started!</h1>
+                </>
+              )}
             </div>
           </Grid>
         </Grid>

@@ -13,16 +13,14 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: url("../../assets/images/succ-row.jpg") no-repeat;
+	background: url("../../assets/images/nbg.jpg");
 	opacity: 0.4;
-	width: 100%;
 	min-height: 100%;
 	background-size: cover;
 }
 
 @media only screen and (max-width: 380px) {
-    
-    .content-wrap .bg {
+	.content-wrap .bg {
 		top: -100px;
 	}
-  }
+}

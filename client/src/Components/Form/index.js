@@ -23,43 +23,40 @@ class Form extends Component {
 		name: "",
 		email: "",
 		password: "",
-		nameError:"",
-		emailError:"",
-		passwordError:"",
-		failedError:""
+		nameError: "",
+		emailError: "",
+		passwordError: "",
+		failedError: ""
 	};
-	
+
 	validate = () => {
 		let nameError = "";
 		let emailError = "";
 		let passwordError = "";
-		
 
-		if(!this.state.email.includes("@")){
-			emailError = "Please choose a valid email address!"
+		if (!this.state.email.includes("@")) {
+			emailError = "Please choose a valid email address!";
 		}
-		if(!this.state.email.includes(".com")){
-			emailError = "Please choose a valid email address!"
+		if (!this.state.email.includes(".com")) {
+			emailError = "Please choose a valid email address!";
 		}
-		if(this.state.password.length<6){
-			passwordError = "Please choose a password of at least 6 characters"
+		if (this.state.password.length < 6) {
+			passwordError = "Please choose a password of at least 6 characters";
 		}
-		if(this.state.name.length<1){
-			nameError = "Please choose a name!"
+		if (this.state.name.length < 1) {
+			nameError = "Please choose a name!";
 		}
 
-		if(emailError || passwordError || nameError){
+		if (emailError || passwordError || nameError) {
 			this.setState({
 				emailError,
 				passwordError,
 				nameError
-				
 			});
 			return false;
-
 		}
 		return true;
-	}
+	};
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
@@ -71,36 +68,35 @@ class Form extends Component {
 	handleFormSubmit = event => {
 		event.preventDefault();
 		let isValid = this.validate();
-		if(isValid){
-		API.userRegister({
-			name: this.state.name,
-			email: this.state.email,
-			password: this.state.password
-		})
-			.then(res => {
-				API.userLogin({
-					email: this.state.email,
-					password: this.state.password
-				})
-					.then(res => {
-						localStorage.setItem("x-auth-token", res.data.token);
-						window.location.href = "/";
-					})
-					.catch(err => console.log(err));
+		if (isValid) {
+			API.userRegister({
+				name: this.state.name,
+				email: this.state.email.toLowerCase(),
+				password: this.state.password
 			})
-			.catch(err => console.log(err));
+				.then(res => {
+					API.userLogin({
+						email: this.state.email,
+						password: this.state.password
+					})
+						.then(res => {
+							localStorage.setItem("x-auth-token", res.data.token);
+							window.location.href = "/";
+						})
+						.catch(err => console.log(err));
+				})
+				.catch(err => console.log(err));
 		} else {
 			let failedError = "Registration Failed!";
-			
+
 			this.setState({
 				failedError
 			});
-		}	
+		}
 	};
 
 	render() {
 		// Notice how each input has a `value`, `name`, and `onChange` prop
-		console.log("Register");
 		return (
 			<>
 				<img className="regLogo" src={RegLogo} alt="Registration Logo" />
@@ -110,7 +106,7 @@ class Form extends Component {
 				</h1>
 
 				<form className="form">
-				<div className="login-failed">{this.state.failedError}</div>
+					<div className="login-failed">{this.state.failedError}</div>
 					<TextField
 						id="outlined-name-input"
 						label="Name"
@@ -155,9 +151,9 @@ class Form extends Component {
 					<br />
 					<br />
 					<Button
-						className="submitBtn"
+						className="upload"
 						variant="contained"
-						color="inherit"
+						color="primary"
 						onClick={this.handleFormSubmit}
 					>
 						Submit

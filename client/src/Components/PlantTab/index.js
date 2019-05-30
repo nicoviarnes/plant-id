@@ -1,17 +1,13 @@
 import React from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import "./style.css";
 import wateringCan from "../../assets/images/wateringCan.png";
-import moment from "moment"
+import moment from "moment";
 
-const water = (id) => {
-  //event.preventDefault();
-  var date = moment().format("MMM Do")
-  API.waterPlant({id, date}).then(res => {
-    console.log(res)
-  })
-
+const water = id => {
+  var date = moment().format('MMMM Do YYYY, h:mm:ss a');
+  API.waterPlant({ id, date }).then(res => {return console.log(res)});
 };
 
 function PlantTab(props) {
@@ -31,9 +27,7 @@ function PlantTab(props) {
             <img className="thumb" alt={props.id} src={props.image} />
           </div>
           <div className="tile-content">
-            {/* <p>Scientific Name:{props.scientific}</p> */}
             <p className="nickname">{props.nickname}</p>
-            {/* <p>Last Watering: {props.daysSince}</p> */}
           </div>
         </Link>
         <div className="water">

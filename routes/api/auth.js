@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
 				//Check user.js for comments
 				{ id: user.id },
 				config.get("jwtSecret"),
-				{ expiresIn: "20d" },
+				{ expiresIn: "1d" },
 				(err, token) => {
 					if (err) throw err;
 					res.json({

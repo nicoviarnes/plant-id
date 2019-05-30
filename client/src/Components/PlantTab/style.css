@@ -18,6 +18,18 @@
 	border-radius: 20px;
 }
 
+.card-wrapBig {
+	background: #fff;
+	height: 600px;
+	width: 400px;
+	position: relative;
+	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+	text-align: center;
+	margin: 0.5em;
+	margin-top: 0.5em;
+	padding-top: 20px;
+	border-radius: 20px;
+}
 .plantInfo {
 	text-decoration: none;
 }
@@ -43,6 +55,7 @@
 	background: #6caddc;
 }
 
+
 .img-container > img {
 	width: 60%;
 }
@@ -58,7 +71,7 @@
 .water {
 	position: absolute;
 	bottom: 0;
-	margin-left: 35%;
+	margin-left: 37%;
 	margin-bottom: 2%;
 	height: 50px;
 }
