@@ -79,14 +79,12 @@ class IDpage extends Component {
 		self.setState({ waitingForData: true });
 		image2base64(self.state.uploadedFileLink)
 			.then(response => {
-				console.log(response);
 				b64Str = response;
 				body = {
 					key: KEY,
 					usage_info: true,
 					images: [b64Str]
 				};
-				console.log(body);
 				// initial request to plant.id
 				axios
 					.post(
@@ -98,8 +96,7 @@ class IDpage extends Component {
 							key: KEY,
 							ids: [response.data.id]
 						};
-						console.log(response.data.usage_info);
-						console.log(body);
+						//console.log(response.data.usage_info);
 						// call method to listen for identification
 						this.checkId(body);
 					});
@@ -145,8 +142,6 @@ class IDpage extends Component {
 							.endsWith(`${plantName}`)
 					) {
 						plantURL = $(this).attr("href");
-						console.log("hello?");
-						console.log(plantURL);
 
 						axios
 							.get(
