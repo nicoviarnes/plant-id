@@ -307,6 +307,7 @@ button[disabled] {
 
 	.MuiGrid-item-5 {
 		margin: 0 auto !important;
+		margin-top: 18%!important;
 	}
 
 	.MuiGrid-grid-sm-8-54 {
@@ -330,4 +331,18 @@ button[disabled] {
 		font-size: 2rem;
 		color: #397547;
 	}
+
+
+	.mobileCrop{
+		max-width: 375px!important;
+		width: 370px;
+		/* overflow: hidden; */
+	}
+	.splashImg2 {
+		top: 0;
+		background: url("../../assets/images/idMobile.jpeg") no-repeat;
+		/* opacity: 0.3; */
+		min-height: 0%;
+	}
+	
 }
