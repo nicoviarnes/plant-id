@@ -11,7 +11,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //DB Mongo Atlas Config
 const db = config.get("mongoURI");
-
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
 mongoose
 	.connect(process.env.MONGODB_URI || db, {
 		useNewUrlParser: true,
