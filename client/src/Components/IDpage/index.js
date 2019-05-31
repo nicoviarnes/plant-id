@@ -231,8 +231,7 @@ class IDpage extends Component {
 		}
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 	uploadHandler = () => {
 		this.setState({ suggestions: "" });
 		this.setState({ waitingForData: true });
@@ -321,7 +320,7 @@ class IDpage extends Component {
 																					primary={suggestion.plant.name}
 																					secondary={
 																						"Probability: " +
-																						suggestion.probability * 100 +
+																						Math.round(suggestion.probability * 100) +
 																						"%"
 																					}
 																				/>
