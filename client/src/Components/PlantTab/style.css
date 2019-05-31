@@ -72,22 +72,27 @@
 
 .water {
 	display: inline-block;
+	position: absolute;
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
-	
 	margin-left: 22%;
 	/* margin-right: 15px; */
 	background-color: #70ef76;
+	bottom: 0;
+	margin-bottom: 20px;
 }
 .feeder {
 	display: inline-block;
+	position: absolute;
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
-	margin-left: 15px;
-	margin-right: 15px;
+	margin-left: 56%;
+	/* margin-right: 15px; */
 	background-color: #70ef76;
+	bottom: 0;
+	margin-bottom: 20px;
 }
 .wateringCan {
 	width: 40px;
