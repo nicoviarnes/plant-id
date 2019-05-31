@@ -12,7 +12,9 @@ class PlantInfo extends React.Component {
   state = {
     info: null,
     watered: "",
+    wateringInterval: "",
     fed: "",
+    feedingInterval: "",
     plantId: "",
     notes: null,
     prevNotes: null
@@ -28,6 +30,16 @@ class PlantInfo extends React.Component {
     });
   };
 
+  feed = id => {
+    var date = moment().format("MMMM Do YYYY, h:mm:ss a");
+    const plantID = this.props.match.params.plant;
+    console.log(plantID, date);
+    API.feedPlant({ id: plantID, date }).then(res => {
+      this.setState({ fed: date });
+      return console.log(this.state.fed);
+    });
+  };
+
   componentWillMount() {
     const plantID = this.props.match.params.plant;
     const { plantData } = this.props.location.state;
@@ -37,6 +49,8 @@ class PlantInfo extends React.Component {
       this.setState({ info: res.data.filter(dat => dat._id === plantID) });
       this.setState({ watered: this.state.info[0].watered });
       this.setState({ fed: this.state.info[0].fed });
+      this.setState({ feedingInterval: this.state.info[0].feedingInterval });
+      this.setState({ wateringInterval: this.state.info[0].wateringInterval });
     });
 
     API.getPlantNote(plantID).then(res => {
@@ -67,6 +81,71 @@ class PlantInfo extends React.Component {
 
   render() {
     const plantID = this.props.match.params.plant;
+
+    const waterStyle = {
+      display: "inline-block",
+      width: "60px",
+      height: "60px",
+      borderRadius: "50%",
+      marginLeft: "15px",
+      marginRight: "15px"
+      // backgroundColor: "#70ef76",
+    };
+    const feederStyle = {
+      display: "inline-block",
+      width: "60px",
+      height: "60px",
+      borderRadius: "50%",
+      marginLeft: "15px",
+      marginRight: "15px"
+      // backgroundColor: "#70ef76",
+    };
+
+    ///////////////////////////////////////////////////
+    //////////////// LARRY PLS FIX ///////////////////
+    ///////////////////////////////////////////////////
+
+    // get current day
+    var date = moment().format("MMMM Do YYYY");
+
+    if (this.state.watered) {
+      // last watering date and format
+      var date2 = this.state.watered.split(",");
+      var lastWatered = moment(date2[0], "MMMM Do YYYY");
+
+      lastWatered = lastWatered.format("MMMM Do YYYY");
+    }
+
+    if (this.state.fed) {
+      var date3 = this.state.fed.split(",");
+      var lastFed = moment(date3[0], "MMMM Do YYYY");
+      lastFed = lastFed.format("MMMM Do YYYY");
+    }
+
+    date = moment(date, "MMMM Do YYYY")
+      .subtract(this.state.wateringInterval, "days")
+      .format("MMMM Do YYYY");
+    
+    if (moment(lastWatered).isAfter(date) === false) {
+      waterStyle.backgroundColor = "#70ef76";
+    } else {
+      waterStyle.backgroundColor = "#ebf271";
+    }
+    if (moment(lastFed).isAfter(date) === false) {
+      feederStyle.backgroundColor = "#70ef76";
+    } else {
+      feederStyle.backgroundColor = "#ebf271";
+    }
+    // in here compare the last watering date with this.state.wateringInterval
+    // do the same with feeding date and interval
+    // if the plant doesn't need to be watered -> waterStyle.backgroundColor = "#70ef76"
+    // if the plant DOES need to be watered -> waterStyle.backgroundColor = a light yellow color or something
+
+    console.log(date, lastWatered);
+    ///////////////////////////////////////////////////
+    //////////////// LARRY PLS FIX ///////////////////
+    ///////////////////////////////////////////////////
+
     return (
       <>
         <div className="TOP">
@@ -108,13 +187,25 @@ class PlantInfo extends React.Component {
                       : "Never!"}
                   </span>
                 </h4>
-                <div className="waterBig">
-                  <img
-                    className="wateringCanBig"
-                    src={wateringCan}
-                    onClick={() => this.water(plantID)}
-                    alt="watering Can"
-                  />
+                <div className="careButtons">
+                  <div className="waterBig" style={waterStyle}>
+                    <img
+                      className="wateringCanBig"
+                      src={wateringCan}
+                      onClick={() => this.water(plantID)}
+                      alt="watering Can"
+                    />
+                  </div>
+                  <div className="feederBig" style={feederStyle}>
+                    <img
+                      className="feedBig"
+                      src={
+                        "https://cdn3.iconfinder.com/data/icons/ecology-caramel-vol-1/512/FERTILIZE_THE_PLANTS-512.png"
+                      }
+                      onClick={() => this.feed(plantID)}
+                      alt="feeding Can"
+                    />
+                  </div>
                 </div>
                 {/* <Button
                   variant="contained"
