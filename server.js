@@ -37,11 +37,11 @@ app.use("/api/wateringinterval", require("./routes/api/wateringinterval"));
 app.use("/api/feedinginterval", require("./routes/api/feedinginterval"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  });
-} 
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+    app.use("*", express.static("client/build")); // Added this
+  }
+}
 //Port
 const port = process.env.PORT || 3001;
 
