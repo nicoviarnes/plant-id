@@ -1,6 +1,7 @@
 .wateringInterval {
     width: 25px;
-    
+    height: 25px;
+    text-align: center; 
 }
 
 .care {

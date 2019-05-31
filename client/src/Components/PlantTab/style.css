@@ -25,7 +25,9 @@
 	position: relative;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 	text-align: center;
-	margin: 0.5em;
+	margin: 0 auto!important;
+	margin-bottom: 20px!important;
+	/* margin: 0.5em; */
 	margin-top: 0.5em;
 	padding-top: 20px;
 	border-radius: 20px;
@@ -123,4 +125,25 @@
 	color: #397547;
 	font-weight: bolder;
 	text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+	.card-wrapBig {
+		height: 500px;
+		max-width: 85%;
+		margin-top: -140px!important;
+		margin-bottom: -80px!important;
+	}
+	.userUploadBig{
+		height: 270px;
+    	width: 270px;
+    	border-radius: 50%;
+    	margin-left: auto;
+    	margin-right: auto;
+    	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    	object-fit: cover;
+    	overflow: hidden;
+    	text-align: center;
+    	background: #6caddc;
+	}
 }

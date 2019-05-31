@@ -54,9 +54,10 @@ function CenteredTabs(props) {
     <div>
       <AppBar position="static" className="tab">
         <Tabs
+          variant="scrollable"
+          fullWidth={true}
           value={value}
           onChange={handleChange}
-          centered
           TabIndicatorProps={{
             style: {
               backgroundColor: "#fff"
