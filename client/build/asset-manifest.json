@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.13e6e317.chunk.css",
+    "main.js": "/static/js/main.d097fba9.chunk.js",
+    "main.js.map": "/static/js/main.d097fba9.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.c49477c7.chunk.css": "/static/css/2.c49477c7.chunk.css",
+    "static/js/2.69e66fed.chunk.js": "/static/js/2.69e66fed.chunk.js",
+    "static/js/2.69e66fed.chunk.js.map": "/static/js/2.69e66fed.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.89ac44adc7b76da921a39b5ca5af18fa.js": "/precache-manifest.89ac44adc7b76da921a39b5ca5af18fa.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.c49477c7.chunk.css.map": "/static/css/2.c49477c7.chunk.css.map",
+    "static/css/main.13e6e317.chunk.css.map": "/static/css/main.13e6e317.chunk.css.map",
+    "static/media/calendar.css": "/static/media/ivy.5432c33b.jpg",
+    "static/media/badExample.jpg": "/static/media/badExample.b855410f.jpg",
+    "static/media/goodExample.jpg": "/static/media/goodExample.12bc5aae.jpg",
+    "static/media/hands.jpg": "/static/media/hands.5150ee43.jpg",
+    "static/media/style.css": "/static/media/side-suc2.5bc1c1eb.jpg",
+    "static/media/homePage.css": "/static/media/larryimg.2d28f493.jpg"
+  }
+}
