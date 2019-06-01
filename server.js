@@ -13,13 +13,13 @@ app.use(express.json());
 const db = config.get("mongoURI");
 
 mongoose
-	.connect(process.env.MONGODB_URI || db, {
-		useNewUrlParser: true,
-		useCreateIndex: true,
-		useFindAndModify: false
-	})
-	.then(() => console.log("Connected to Mongo"))
-	.catch(err => console.log(err));
+  .connect(process.env.MONGODB_URI || db, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .then(() => console.log("Connected to Mongo"))
+  .catch(err => console.log(err));
 
 //Routes
 app.use("/api/users", require("./routes/api/users"));
@@ -36,7 +36,12 @@ app.use("/api/feedplant", require("./routes/api/feedplant"));
 app.use("/api/wateringinterval", require("./routes/api/wateringinterval"));
 app.use("/api/feedinginterval", require("./routes/api/feedinginterval"));
 
-
+if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+    app.use("*", express.static("client/build")); // Added this
+  }
+}
 //Port
 const port = process.env.PORT || 3001;
 

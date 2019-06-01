@@ -17,8 +17,7 @@ class PlantInfo extends React.Component {
 		feedingInterval: "",
 		plantId: "",
 		notes: null,
-		prevNotes: null,
-		needed: null
+		prevNotes: null
 	};
 
 	water = id => {
@@ -52,13 +51,6 @@ class PlantInfo extends React.Component {
 			this.setState({ fed: this.state.info[0].fed });
 			this.setState({ feedingInterval: this.state.info[0].feedingInterval });
 			this.setState({ wateringInterval: this.state.info[0].wateringInterval });
-
-			var int = this.state.wateringInterval;
-			var ls = this.state.watered;
-
-			var needed = moment(ls).subtract(int, "days")._i;
-			var dateNoTime = needed.split(",");
-			this.setState({ needed: dateNoTime[0] });
 		});
 
 		API.getPlantNote(plantID).then(res => {

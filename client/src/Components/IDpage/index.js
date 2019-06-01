@@ -79,14 +79,12 @@ class IDpage extends Component {
 		self.setState({ waitingForData: true });
 		image2base64(self.state.uploadedFileLink)
 			.then(response => {
-				console.log(response);
 				b64Str = response;
 				body = {
 					key: KEY,
 					usage_info: true,
 					images: [b64Str]
 				};
-				console.log(body);
 				// initial request to plant.id
 				axios
 					.post(
@@ -99,7 +97,6 @@ class IDpage extends Component {
 							ids: [response.data.id]
 						};
 						console.log(response.data.usage_info);
-						console.log(body);
 						// call method to listen for identification
 						this.checkId(body);
 					});
@@ -145,8 +142,6 @@ class IDpage extends Component {
 							.endsWith(`${plantName}`)
 					) {
 						plantURL = $(this).attr("href");
-						console.log("hello?");
-						console.log(plantURL);
 
 						axios
 							.get(
@@ -201,7 +196,7 @@ class IDpage extends Component {
 				if (response.data[0].suggestions.length > 0) {
 					this.setState({ suggestions: response.data[0].suggestions });
 					this.setState({ isIdentified: true });
-					console.log(response.data[0]);
+					//console.log(response.data[0]);
 					this.setState({ waitingForData: false });
 					// this.scrape(this.state.suggestions[0].plant.name.toLowerCase())
 				} else {
@@ -231,8 +226,7 @@ class IDpage extends Component {
 		}
 	};
 
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 	uploadHandler = () => {
 		this.setState({ suggestions: "" });
 		this.setState({ waitingForData: true });
@@ -321,7 +315,7 @@ class IDpage extends Component {
 																					primary={suggestion.plant.name}
 																					secondary={
 																						"Probability: " +
-																						suggestion.probability * 100 +
+																						Math.round(suggestion.probability * 100) +
 																						"%"
 																					}
 																				/>
