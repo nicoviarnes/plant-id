@@ -137,7 +137,7 @@
 		height: 500px;
 		max-width: 85%;
 		margin-top: -140px!important;
-		margin-bottom: -80px!important;
+		/* margin-bottom: -80px!important; */
 	}
 	.userUploadBig{
 		height: 270px;

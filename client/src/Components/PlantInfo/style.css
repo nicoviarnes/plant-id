@@ -146,6 +146,10 @@ button[type="submit"]:hover {
 		height: auto;	
 	}
 
+	.card-wrapBig{
+		padding-bottom:30px;
+	}
+
 	.info-title {
 		/* margin-top: -40px; */
 	}
