@@ -96,7 +96,7 @@ class IDpage extends Component {
 							key: KEY,
 							ids: [response.data.id]
 						};
-						//console.log(response.data.usage_info);
+						console.log(response.data.usage_info);
 						// call method to listen for identification
 						this.checkId(body);
 					});
@@ -196,7 +196,7 @@ class IDpage extends Component {
 				if (response.data[0].suggestions.length > 0) {
 					this.setState({ suggestions: response.data[0].suggestions });
 					this.setState({ isIdentified: true });
-					console.log(response.data[0]);
+					//console.log(response.data[0]);
 					this.setState({ waitingForData: false });
 					// this.scrape(this.state.suggestions[0].plant.name.toLowerCase())
 				} else {
