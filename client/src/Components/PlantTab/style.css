@@ -55,7 +55,6 @@
 	background: #6caddc;
 }
 
-
 .img-container > img {
 	width: 60%;
 }
@@ -75,7 +74,7 @@
 	border-radius: 50%;
 	margin-left: 15px;
 	margin-right: 15px;
-	background-color: #70ef76;
+	/* background-color: #70ef76; */
 }
 .feeder {
 	display: inline-block;
@@ -91,7 +90,6 @@
 	height: 40px;
 	margin-top: 2px;
 }
-
 
 .wateringCan:hover {
 	transform: scale(1.2, 1.2);
