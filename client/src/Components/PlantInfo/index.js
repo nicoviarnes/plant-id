@@ -63,8 +63,6 @@ class PlantInfo extends React.Component {
 	componentDidMount() {
 		const plantID = this.props.match.params.plant;
 
-		console.log(this.state.watered);
-
 		API.getPlantNote(plantID).then(res => {
 			this.setState({
 				notes: res.data.filter(data => data.plant === plantID)
@@ -109,7 +107,7 @@ class PlantInfo extends React.Component {
 		var date = moment().format("MM-DD-YYYY");
 
 		if (this.state.watered) {
-			console.log(this.state.watered);
+			// console.log(this.state.watered);
 			// last watering date and format
 			var date2 = this.state.watered.split(",");
 			var lastWatered = moment(date2[0], "MMMM Do YYYY");
@@ -133,8 +131,8 @@ class PlantInfo extends React.Component {
 			var dying = moment(waterDate)
 				.add(3, "d")
 				.format("MM-DD-YYYY");
-			console.log("Dying", dying);
-			console.log(`Dying If "${date}" is after "${dying}"`);
+			// console.log("Dying", dying);
+			// console.log(`Dying If "${date}" is after "${dying}"`);
 
 			if (moment(date).isBetween(lastWatered, waterDate, null, [])) {
 				waterStyle.backgroundColor = "green";
@@ -159,8 +157,8 @@ class PlantInfo extends React.Component {
 			var starve = moment(fedDate)
 				.add(3, "d")
 				.format("MM-DD-YYYY");
-			console.log("Dying", starve);
-			console.log(`Starve If "${date}" is after "${starve}"`);
+			// console.log("Dying", starve);
+			// console.log(`Starve If "${date}" is after "${starve}"`);
 
 			if (moment(date).isBetween(lastFed, fedDate, null, [])) {
 				feederStyle.backgroundColor = "green";
