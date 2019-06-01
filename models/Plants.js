@@ -29,6 +29,10 @@ const PlantSchema = new Schema({
 	},
 	fed: {
 		type: String
+	},
+	added: {
+		type: Date,
+		default: Date.now()
 	}
 });
 
