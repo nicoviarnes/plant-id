@@ -99,10 +99,6 @@ class PlantInfo extends React.Component {
 			// backgroundColor: "#70ef76",
 		};
 
-		///////////////////////////////////////////////////
-		//////////////// LARRY PLS FIX ///////////////////
-		///////////////////////////////////////////////////
-
 		// get current day
 		var date = moment().format("MM-DD-YYYY");
 
@@ -118,7 +114,7 @@ class PlantInfo extends React.Component {
 			.add(this.state.wateringInterval, "days")
 			.format("MM-DD-YYYY");
 
-		if (this.state.watered) {
+		if (this.state.watered && this.state.wateringInterval !== null) {
 			// console.log("Needed: ", this.state.needed);
 			// console.log("Today: ", date);
 			// console.log("Next Water: ", waterDate);
@@ -135,12 +131,14 @@ class PlantInfo extends React.Component {
 			// console.log(`Dying If "${date}" is after "${dying}"`);
 
 			if (moment(date).isBetween(lastWatered, waterDate, null, [])) {
-				waterStyle.backgroundColor = "green";
+				waterStyle.backgroundColor = "#70ef76";
 			} else if (moment(date).isAfter(dying)) {
 				waterStyle.backgroundColor = "red";
 			} else if (moment(date).isAfter(waterDate)) {
 				waterStyle.backgroundColor = "yellow";
 			}
+		} else {
+			waterStyle.backgroundColor = "#70ef76";
 		}
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End of Watering~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		if (this.state.fed) {
@@ -153,7 +151,7 @@ class PlantInfo extends React.Component {
 			.add(this.state.feedingInterval, "days")
 			.format("MM-DD-YYYY");
 
-		if (this.state.fed) {
+		if (this.state.fed && this.state.feedingInterval !== null) {
 			var starve = moment(fedDate)
 				.add(3, "d")
 				.format("MM-DD-YYYY");
@@ -161,17 +159,16 @@ class PlantInfo extends React.Component {
 			// console.log(`Starve If "${date}" is after "${starve}"`);
 
 			if (moment(date).isBetween(lastFed, fedDate, null, [])) {
-				feederStyle.backgroundColor = "green";
+				feederStyle.backgroundColor = "#70ef76"; //green
 			} else if (moment(date).isAfter(starve)) {
 				feederStyle.backgroundColor = "red";
 			} else if (moment(date).isAfter(fedDate)) {
 				feederStyle.backgroundColor = "yellow";
 			}
+		} else {
+			feederStyle.backgroundColor = "#70ef76"; //green
 		}
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End of Feeding~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		///////////////////////////////////////////////////
-		//////////////// LARRY PLS FIX ///////////////////
-		///////////////////////////////////////////////////
 
 		return (
 			<>
