@@ -63,11 +63,10 @@ class CareSettings extends Component {
   componentDidMount() {
     this.setState({ wateringInterval: this.props.info[0].wateringInterval });
     this.setState({ feedingInterval: this.props.info[0].feedingInterval });
-    console.log(this.props.info[0].feedingInterval, this.props.info[0].wateringInterval)
   }
 
   render() {
-    console.log(this.props.info[0].wateringInterval);
+    console.log(this.props.info)
     return (
       <>
         <form className="note-form">

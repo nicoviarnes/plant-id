@@ -37,96 +37,95 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 //   },
 // });
 const handleFormSubmit = event => {
-	localStorage.removeItem("x-auth-token");
+  localStorage.removeItem("x-auth-token");
 };
 
 const checkAuth = () => {
-	const token = localStorage.getItem("x-auth-token");
-	if (!token) {
-		return false;
-	} else {
-		//Get expiration and id of user from token
-		const { exp } = decode(token);
-		if (exp < Date.now() / 1000) {
-			return false;
-		}
-	}
-	return true;
+  const token = localStorage.getItem("x-auth-token");
+  if (!token) {
+    return false;
+  } else {
+    //Get expiration and id of user from token
+    const { exp } = decode(token);
+    if (exp < Date.now() / 1000) {
+      return false;
+    }
+  }
+  return true;
 };
 
 function SwipeableTemporaryDrawer() {
-	//   const classes = useStyles();
-	const [state, setState] = React.useState({
-		left: false
-	});
+  //   const classes = useStyles();
+  const [state, setState] = React.useState({
+    left: false
+  });
 
-	const [open, setOpen] = React.useState(false);
-	const [open1, setOpen1] = React.useState(false);
-	function handleClick() {
-		setOpen(!open);
-	}
-	function handleClick1() {
-		setOpen1(!open1);
-	}
+  const [open, setOpen] = React.useState(false);
+  const [open1, setOpen1] = React.useState(false);
+  function handleClick() {
+    setOpen(!open);
+  }
+  function handleClick1() {
+    setOpen1(!open1);
+  }
 
-	const toggleDrawer = (side, open) => event => {
-		if (
-			event &&
-			event.type === "keydown" &&
-			(event.key === "Tab" || event.key === "Shift")
-		) {
-			return;
-		}
+  const toggleDrawer = (side, open) => event => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
 
-		setState({ ...state, [side]: open });
-	};
+    setState({ ...state, [side]: open });
+  };
 
-	const sideList = side => (
-		<div
-			className="sideBarWrapper"
-			//   className={classes.list}
-			role="presentation"
-			//   onClick={toggleDrawer(side, false)}
-			//   onKeyDown={toggleDrawer(side, false)}
-		>
-			<List>
-				{/* Home Btn */}
-				<a className="menuLink" href="/">
-					<MenuItem>
-						<ListItemIcon>
-							<img src={HomeIcon} alt="Login Icon" />
-						</ListItemIcon>
-						<ListItemText className="sideText">Home</ListItemText>
-					</MenuItem>
-				</a>
-				<Divider />
-				{checkAuth() ? (
-					<>
-						{/* Identify Btn */}
-						<a className="menuLink" href="/id">
-							<MenuItem>
-								<ListItemIcon>
-									<img src={IdentifyIcon} alt="Identify Icon" />
-								</ListItemIcon>
-								<ListItemText className="sideText" primary="Identify" />
-							</MenuItem>
-						</a>
+  const sideList = side => (
+    <div
+      className="sideBarWrapper"
+      //   className={classes.list}
+      role="presentation"
+      //   onClick={toggleDrawer(side, false)}
+      //   onKeyDown={toggleDrawer(side, false)}
+    >
+      <List>
+        {/* Home Btn */}
+        <a className="menuLink" href="/">
+          <MenuItem>
+            <ListItemIcon>
+              <img src={HomeIcon} alt="Login Icon" />
+            </ListItemIcon>
+            <ListItemText className="sideText">Home</ListItemText>
+          </MenuItem>
+        </a>
+        <Divider />
+        {checkAuth() ? (
+          <>
+            {/* Manage Btn */}
+            <a className="menuLink" href="/manage">
+              <MenuItem>
+                <ListItemIcon>
+                  <img src={ManageIcon} alt="Manage Icon" />
+                </ListItemIcon>
+                <ListItemText className="sideText" primary="Garden" />
+              </MenuItem>
+            </a>
+            <Divider />
+            {/* Identify Btn */}
+            <a className="menuLink" href="/id">
+              <MenuItem>
+                <ListItemIcon>
+                  <img src={IdentifyIcon} alt="Identify Icon" />
+                </ListItemIcon>
+                <ListItemText className="sideText" primary="Identify" />
+              </MenuItem>
+            </a>
 
-						<Divider />
+            <Divider />
 
-						{/* Manage Btn */}
-						<a className="menuLink" href="/manage">
-							<MenuItem>
-								<ListItemIcon>
-									<img src={ManageIcon} alt="Manage Icon" />
-								</ListItemIcon>
-								<ListItemText className="sideText" primary="Manage" />
-							</MenuItem>
-						</a>
-						<Divider />
-
-						{/* Calendar Btn */}
-						<a className="menuLink" href="/calendar">
+            {/* Calendar Btn */}
+            {/* <a className="menuLink" href="/calendar">
 							<MenuItem>
 								<ListItemIcon>
 									<img src={CalendarIcon} alt="Calendar Icon" />
@@ -134,80 +133,80 @@ function SwipeableTemporaryDrawer() {
 								<ListItemText className="sideText" primary="Calendar" />
 							</MenuItem>
 						</a>
-						<Divider />
+						<Divider /> */}
 
-						<a onClick={handleFormSubmit} className="menuLink" href="/">
-							<MenuItem>
-								<ListItemIcon>
-									<img src={LogoutIcon} alt="Calendar Icon" />
-								</ListItemIcon>
-								<ListItemText primary="Logout" />
-							</MenuItem>
-						</a>
-					</>
-				) : (
-					<div>
-						{/* Login Collapse */}
-						<ListItem button onClick={handleClick}>
-							<ListItemIcon>
-								<img src={LoginIcon} alt="Login Icon" />
-							</ListItemIcon>
-							<ListItemText className="sideText collapseItem" primary="Login" />
-							{open ? <ExpandLess /> : <ExpandMore />}
-						</ListItem>
-						<Collapse in={open} timeout="auto" unmountOnExit>
-							<List component="div" disablePadding>
-								<ListItem button>
-									<SideLogin />
-								</ListItem>
-							</List>
-						</Collapse>
+            <a onClick={handleFormSubmit} className="menuLink" href="/">
+              <MenuItem>
+                <ListItemIcon>
+                  <img src={LogoutIcon} alt="Calendar Icon" />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+              </MenuItem>
+            </a>
+          </>
+        ) : (
+          <div>
+            {/* Login Collapse */}
+            <ListItem button onClick={handleClick}>
+              <ListItemIcon>
+                <img src={LoginIcon} alt="Login Icon" />
+              </ListItemIcon>
+              <ListItemText className="sideText collapseItem" primary="Login" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem button>
+                  <SideLogin />
+                </ListItem>
+              </List>
+            </Collapse>
 
-						{/* Register Collapse */}
-						<Divider />
-						<ListItem button onClick={handleClick1}>
-							<ListItemIcon>
-								<img src={RegisterIcon} alt="Register Icon" />
-							</ListItemIcon>
-							<ListItemText className="sideText" primary="Register" />
-							{open1 ? <ExpandLess /> : <ExpandMore />}
-						</ListItem>
-						<Collapse in={open1} timeout="auto" unmountOnExit>
-							<List component="div" disablePadding>
-								<ListItem button>
-									<ListItemIcon>{/* <StarBorder /> */}</ListItemIcon>
-									{/* <ListItemText primary="Starred" /> */}
-									<SideRegister />
-								</ListItem>
-							</List>
-						</Collapse>
-					</div>
-				)}
-			</List>
-		</div>
-	);
+            {/* Register Collapse */}
+            <Divider />
+            <ListItem button onClick={handleClick1}>
+              <ListItemIcon>
+                <img src={RegisterIcon} alt="Register Icon" />
+              </ListItemIcon>
+              <ListItemText className="sideText" primary="Register" />
+              {open1 ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={open1} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem button>
+                  <ListItemIcon>{/* <StarBorder /> */}</ListItemIcon>
+                  {/* <ListItemText primary="Starred" /> */}
+                  <SideRegister />
+                </ListItem>
+              </List>
+            </Collapse>
+          </div>
+        )}
+      </List>
+    </div>
+  );
 
-	//   Mobile Button
-	return (
-		<div className="mobileMenu">
-			<IconButton
-				onClick={toggleDrawer("left", true)}
-				aria-label="More"
-				aria-haspopup="true"
-			>
-				<MoreVertIcon />
-			</IconButton>
+  //   Mobile Button
+  return (
+    <div className="mobileMenu">
+      <IconButton
+        onClick={toggleDrawer("left", true)}
+        aria-label="More"
+        aria-haspopup="true"
+      >
+        <MoreVertIcon />
+      </IconButton>
 
-			{/* <Button className="mobileMenu" onClick={toggleDrawer('left', true)}>Open Left</Button> */}
-			<SwipeableDrawer
-				open={state.left}
-				onClose={toggleDrawer("left", false)}
-				onOpen={toggleDrawer("left", true)}
-			>
-				{sideList("left")}
-			</SwipeableDrawer>
-		</div>
-	);
+      {/* <Button className="mobileMenu" onClick={toggleDrawer('left', true)}>Open Left</Button> */}
+      <SwipeableDrawer
+        open={state.left}
+        onClose={toggleDrawer("left", false)}
+        onOpen={toggleDrawer("left", true)}
+      >
+        {sideList("left")}
+      </SwipeableDrawer>
+    </div>
+  );
 }
 
 export default SwipeableTemporaryDrawer;

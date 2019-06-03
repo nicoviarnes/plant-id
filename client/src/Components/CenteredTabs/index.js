@@ -66,8 +66,8 @@ function CenteredTabs(props) {
         >
           <Tab label="Plant Info" />
           <Tab label="Care Settings" />
+          <Tab label="Notes" />
           <Tab label="Add Notes" />
-          <Tab label="My Notes" />
         </Tabs>
       </AppBar>
       {value === 0 && (
@@ -107,14 +107,14 @@ function CenteredTabs(props) {
           </>
         </TabContainer>
       )}
-      {value === 2 && (
+      {value === 3 && (
         <TabContainer>
           <Grid item xs={12} sm={12}>
             <NoteForm plantID={props.plantId} />
           </Grid>
         </TabContainer>
       )}
-      {value === 3 && (
+      {value === 2 && (
         <TabContainer>
           {
             <>
