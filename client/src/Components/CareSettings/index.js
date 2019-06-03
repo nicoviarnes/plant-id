@@ -40,37 +40,34 @@ class CareSettings extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.props.plantID);
-
+    if (this.state.wateringInterval !== "") {
+    }
     API.setWateringInterval({
       id: this.props.plantID,
       interval: this.state.wateringInterval
     })
       .then(res => {
-        API.setFeedingInterval({
-          id: this.props.plantID,
-          interval: this.state.feedingInterval
-        })
-          .then(res => {
-            console.log(res);
-          })
-          .catch(err => console.log(err));
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+    API.setFeedingInterval({
+      id: this.props.plantID,
+      interval: this.state.feedingInterval
+    })
+      .then(res => {
+        console.log(res);
       })
       .catch(err => console.log(err));
   };
 
-  componentWillMount() {
-    // API.getUserPlant(this.props.plantID).then(res => {
-    //     var plant = res.data.filter(dat => dat._id === this.props.plantID)
-    //     console.log(plant)
-    //     this.setState({plant})
-    //     this.setState({wateringInterval: plant.wateringInterval})
-    //     this.setState({feedingInterval: plant.feedingInterval})
-    //     console.log(this.state.wateringInterval, this.state.feedingInterval)
-    // });
+  componentDidMount() {
+    this.setState({ wateringInterval: this.props.info[0].wateringInterval });
+    this.setState({ feedingInterval: this.props.info[0].feedingInterval });
+    console.log(this.props.info[0].feedingInterval, this.props.info[0].wateringInterval)
   }
 
   render() {
-    console.log(this.props.info)
+    console.log(this.props.info[0].wateringInterval);
     return (
       <>
         <form className="note-form">
@@ -83,7 +80,7 @@ class CareSettings extends Component {
               minLength="1"
               maxLength="2"
               size="2"
-              defaultValue={this.props.info.wateringInterval}
+              value={this.state.wateringInterval}
               onChange={this.handleChange}
             />
             <br />
@@ -95,7 +92,7 @@ class CareSettings extends Component {
               minLength="1"
               maxLength="2"
               size="2"
-              defaultValue={this.props.info.feedingInterval}
+              value={this.state.feedingInterval}
               onChange={this.handleChange}
             />
             <div className="errorStyle">{this.state.noteError}</div>
