@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Logo from "../../assets/images/hands.jpg";
+import Logo from "../../assets/images/handPlant.jpeg";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
