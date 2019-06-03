@@ -15,7 +15,8 @@ class PlantInfo extends React.Component {
     feedingInterval: "",
     plantId: "",
     notes: null,
-    prevNotes: null
+	prevNotes: null,
+	sciName: ""
   };
 
   water = id => {
@@ -49,6 +50,7 @@ class PlantInfo extends React.Component {
       this.setState({ fed: this.state.info[0].fed });
       this.setState({ feedingInterval: this.state.info[0].feedingInterval });
       this.setState({ wateringInterval: this.state.info[0].wateringInterval });
+      this.setState({ sciName: this.state.info[0].name });
     });
 
     API.getPlantNote(plantID).then(res => {
@@ -222,7 +224,8 @@ class PlantInfo extends React.Component {
             <Grid item xs={12} sm={12} md={5}>
               <CenteredTabs
                 info={this.state.info}
-                plantId={this.state.plantId}
+				plantId={this.state.plantId}
+				sciName={this.state.sciName}
                 notes={this.state.notes}
               />
             </Grid>

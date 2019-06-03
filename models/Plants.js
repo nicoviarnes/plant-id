@@ -33,6 +33,9 @@ const PlantSchema = new Schema({
 	added: {
 		type: Date,
 		default: Date.now()
+	},
+	nickname: {
+		type: String
 	}
 });
 

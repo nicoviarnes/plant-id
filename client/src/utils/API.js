@@ -45,5 +45,7 @@ export default {
 	setFeedingInterval: function(data) {
 		return axios.post("/api/feedinginterval", data);
 	},
-
+	setNickname: function(data) {
+		return axios.post("/api/nickname", data);
+	},
 };
