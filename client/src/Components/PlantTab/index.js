@@ -8,10 +8,10 @@ import moment from "moment";
 class PlantTab extends React.Component {
   state = {
     info: null,
-    watered: "",
-    wateringInterval: "",
+    watered: null,
+    wateringInterval: null,
     fed: "",
-    feedingInterval: "",
+    feedingInterval: null,
     plantId: "",
     notes: null,
     prevNotes: null
@@ -147,7 +147,13 @@ class PlantTab extends React.Component {
               />
             </div>
             <div className="tile-content">
-              <p className="nickname">{this.props.nickname}</p>
+              <p className="nickname">
+                {this.props.displayName === undefined  && this.props.scientific}
+                {this.props.displayName === "scientific" &&
+                  this.props.scientific}
+                {this.props.displayName === "nickname" &&
+                  this.props.nickname}
+              </p>
             </div>
           </Link>
           <div className="careButtons">

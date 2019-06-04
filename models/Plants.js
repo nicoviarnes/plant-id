@@ -36,6 +36,9 @@ const PlantSchema = new Schema({
 	},
 	nickname: {
 		type: String
+	},
+	displayName: {
+		type: String
 	}
 });
 

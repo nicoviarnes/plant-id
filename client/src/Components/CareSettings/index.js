@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./style.css";
 import API from "../../utils/API";
 import Button from "@material-ui/core/Button";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 class CareSettings extends Component {
   state = {
@@ -10,7 +14,8 @@ class CareSettings extends Component {
     wateringInterval: "",
     feedingInterval: "",
     noteError: "",
-    nickname: ""
+    nickname: "",
+    display: ""
   };
 
   validate = () => {
@@ -36,6 +41,8 @@ class CareSettings extends Component {
     this.setState({
       [name]: value
     });
+
+    console.log(this.state);
   };
 
   handleSubmit = event => {
@@ -52,7 +59,7 @@ class CareSettings extends Component {
         .catch(err => console.log(err));
     }
 
-    if(this.state.feedingInterval !== "") {
+    if (this.state.feedingInterval !== "") {
       API.setFeedingInterval({
         id: this.props.plantID,
         interval: this.state.feedingInterval
@@ -63,7 +70,7 @@ class CareSettings extends Component {
         .catch(err => console.log(err));
     }
 
-    if(this.state.nickname !== "") {
+    if (this.state.nickname !== "") {
       API.setNickname({
         id: this.props.plantID,
         nickname: this.state.nickname
@@ -74,11 +81,29 @@ class CareSettings extends Component {
         .catch(err => console.log(err));
     }
 
+    if (this.state.display !== "") {
+      API.setDisplayName({
+        id: this.props.plantID,
+        displayName: this.state.display
+      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   componentDidMount() {
     this.setState({ wateringInterval: this.props.info[0].wateringInterval });
     this.setState({ feedingInterval: this.props.info[0].feedingInterval });
+    this.setState({ nickname: this.props.info[0].nickname });
+    if (this.props.info[0].displayName === "scientific") {
+      console.log("should be displaying sci name");
+      this.setState({ display: "scientific" });
+    } else if (this.props.info[0].displayName === "nickname") {
+      console.log("should be displaying nick name");
+      this.setState({ display: "nickname" });
+    }
     this.setState({ nickname: this.props.info[0].nickname });
   }
 
@@ -96,6 +121,27 @@ class CareSettings extends Component {
             onChange={this.handleChange}
           />
           <br />
+          <br />
+          <FormControl className={"formControl"}>
+            <InputLabel htmlFor="demo-controlled-open-select">
+              Display By
+            </InputLabel>
+            <Select
+              open={this.open}
+              onClose={this.handleClose}
+              onOpen={this.handleOpen}
+              value={this.state.display}
+              onChange={this.handleChange}
+              inputProps={{
+                name: "display",
+                id: "demo-controlled-open-select"
+              }}
+            >
+              <MenuItem value={"nickname"}>Nickname</MenuItem>
+              <MenuItem value={"scientific"}>Scientific Name</MenuItem>
+            </Select>
+          </FormControl>
+
           <p className="label care">Watering Interval (days): </p>
           <textarea
             className="wateringInterval"
@@ -107,7 +153,6 @@ class CareSettings extends Component {
             value={this.state.wateringInterval}
             onChange={this.handleChange}
           />
-          <br />
           <p className="label care">Feeding Interval (days): </p>
           <textarea
             className="wateringInterval"

@@ -15,8 +15,8 @@ class PlantInfo extends React.Component {
     feedingInterval: "",
     plantId: "",
     notes: null,
-	prevNotes: null,
-	sciName: ""
+    prevNotes: null,
+    sciName: ""
   };
 
   water = id => {
@@ -162,7 +162,11 @@ class PlantInfo extends React.Component {
           <Grid container>
             <Grid item xs={12} sm={12}>
               <h1 className="info-title">
-                {this.state.info && this.state.info[0].name}
+                {this.state.info[0].displayName === undefined && this.state.info[0].name}
+                {this.state.info[0].displayName === "scientific" &&
+                  this.state.info[0].name}
+                {this.state.info[0].displayName === "nickname" &&
+                  this.state.info[0].nickname}
               </h1>
             </Grid>
             <Grid item xs={12} sm={1} />
@@ -224,8 +228,8 @@ class PlantInfo extends React.Component {
             <Grid item xs={12} sm={12} md={5}>
               <CenteredTabs
                 info={this.state.info}
-				plantId={this.state.plantId}
-				sciName={this.state.sciName}
+                plantId={this.state.plantId}
+                sciName={this.state.sciName}
                 notes={this.state.notes}
               />
             </Grid>

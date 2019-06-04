@@ -12,3 +12,15 @@
 .care {
     text-align: center;
 }
+
+.setin {
+    display: inline;
+}
+.formButt {
+    display: block;
+}
+
+.formControl {
+    min-width: 120px;
+    width: 200px;
+}

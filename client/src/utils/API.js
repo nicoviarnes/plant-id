@@ -48,4 +48,7 @@ export default {
 	setNickname: function(data) {
 		return axios.post("/api/nickname", data);
 	},
+	setDisplayName: function(data) {
+		return axios.post("/api/displayname", data);
+	},
 };

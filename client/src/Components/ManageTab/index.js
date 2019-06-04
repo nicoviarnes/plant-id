@@ -28,7 +28,6 @@ class ManageTab extends Component {
           <Grid item sm={12}>
             <div className="content-wrap">
               <div className="bg" />
-              <h1 className="main-title">My Garden</h1>
               {this.state.garden !== null && this.state.garden !== undefined && this.state.garden.length !== 0 ? (
                 <PlantTileWrap>
                   {this.state.garden &&
@@ -38,7 +37,8 @@ class ManageTab extends Component {
                         id={plant._id}
                         image={plant.url}
                         scientific={plant.name}
-                        nickname={plant.name}
+                        nickname={plant.nickname}
+                        displayName={plant.displayName}
                         daysSince={plant.daysSince}
                         plantInfo={plant.plantInfo}
                       />
@@ -46,7 +46,7 @@ class ManageTab extends Component {
                 </PlantTileWrap>
               ) : (
                 <>
-                  <h1>No Plants Here! Identify a Plant to Get Started!</h1>
+                  <h1 className="push">No Plants Here! Identify a Plant to Get Started!</h1>
                 </>
               )}
             </div>
