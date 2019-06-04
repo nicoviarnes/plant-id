@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
@@ -28,13 +28,21 @@ function CenteredTabs(props) {
   const [value, setValue] = React.useState(0);
   const [notes, setNotes] = React.useState(0);
 
-  function handleChange(event, newValue) {
-    setValue(newValue);
+  useEffect(() => {
     const plant = props.plantId;
     API.getPlantNote(plant).then(res => {
       let newNotes = res.data.filter(data => data.plant === plant);
       setNotes(newNotes);
     });
+  });
+
+  function handleChange(event, newValue) {
+    setValue(newValue);
+    // const plant = props.plantId;
+    // API.getPlantNote(plant).then(res => {
+    //   let newNotes = res.data.filter(data => data.plant === plant);
+    //   setNotes(newNotes);
+    // });
   }
   function deleteNote(id) {
     API.delPlantNote({ id })
@@ -66,8 +74,8 @@ function CenteredTabs(props) {
         >
           <Tab label="Plant Info" />
           <Tab label="Care Settings" />
-          <Tab label="Add Notes" />
-          <Tab label="My Notes" />
+          {/* <Tab label="Notes" /> */}
+          <Tab label={notes.length ? `Notes (${notes.length})` : "Notes"} />
         </Tabs>
       </AppBar>
       {value === 0 && (
@@ -75,6 +83,9 @@ function CenteredTabs(props) {
           {
             <>
               <Grid item xs={12} sm={12}>
+                <li className="leaves">
+                  <strong>Scientific Name:</strong> {props.sciName}
+                </li>
                 {props.info[0].plantInfo &&
                   Object.entries(props.info[0].plantInfo[0]).map((plant, i) => {
                     return (
@@ -83,7 +94,7 @@ function CenteredTabs(props) {
                       </li>
                     );
                   })}
-                  <br/>
+                <br />
                 <Button
                   variant="contained"
                   color="secondary"
@@ -109,15 +120,11 @@ function CenteredTabs(props) {
       )}
       {value === 2 && (
         <TabContainer>
-          <Grid item xs={12} sm={12}>
-            <NoteForm plantID={props.plantId} />
-          </Grid>
-        </TabContainer>
-      )}
-      {value === 3 && (
-        <TabContainer>
           {
             <>
+              <Grid item xs={12} sm={12}>
+                <NoteForm plantID={props.plantId} />
+              </Grid>
               <Grid item xs={12} sm={12}>
                 <div>
                   <div>

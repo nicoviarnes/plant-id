@@ -35,6 +35,7 @@ app.use("/api/waterplant", require("./routes/api/waterplant"));
 app.use("/api/feedplant", require("./routes/api/feedplant"));
 app.use("/api/wateringinterval", require("./routes/api/wateringinterval"));
 app.use("/api/feedinginterval", require("./routes/api/feedinginterval"));
+app.use("/api/nickname", require("./routes/api/nickname"));
 
 if (process.env.NODE_ENV === "production") {
   if (process.env.NODE_ENV === "production") {

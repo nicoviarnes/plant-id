@@ -3,8 +3,6 @@ import "./style.css";
 import API from "../../utils/API";
 import Grid from "@material-ui/core/Grid";
 import CenteredTabs from "../CenteredTabs";
-import Button from "@material-ui/core/Button";
-import DeleteIcon from "@material-ui/icons/Delete";
 import wateringCan from "../../assets/images/wateringCan.png";
 import moment from "moment";
 
@@ -17,7 +15,8 @@ class PlantInfo extends React.Component {
     feedingInterval: "",
     plantId: "",
     notes: null,
-    prevNotes: null
+	prevNotes: null,
+	sciName: ""
   };
 
   water = id => {
@@ -51,6 +50,7 @@ class PlantInfo extends React.Component {
       this.setState({ fed: this.state.info[0].fed });
       this.setState({ feedingInterval: this.state.info[0].feedingInterval });
       this.setState({ wateringInterval: this.state.info[0].wateringInterval });
+      this.setState({ sciName: this.state.info[0].name });
     });
 
     API.getPlantNote(plantID).then(res => {
@@ -62,8 +62,6 @@ class PlantInfo extends React.Component {
 
   componentDidMount() {
     const plantID = this.props.match.params.plant;
-
-    console.log(this.state.watered);
 
     API.getPlantNote(plantID).then(res => {
       this.setState({
@@ -88,8 +86,8 @@ class PlantInfo extends React.Component {
       height: "60px",
       borderRadius: "50%",
       marginLeft: "15px",
-      marginRight: "15px",
-      backgroundColor: "#70ef76",
+      marginRight: "15px"
+      // backgroundColor: "red"
     };
     const feederStyle = {
       display: "inline-block",
@@ -97,9 +95,66 @@ class PlantInfo extends React.Component {
       height: "60px",
       borderRadius: "50%",
       marginLeft: "15px",
-      marginRight: "15px",
-      backgroundColor: "#70ef76",
+      marginRight: "15px"
+      // backgroundColor: "#70ef76",
     };
+
+    // get current day
+    var date = moment().format("MM-DD-YYYY");
+
+    if (this.state.watered) {
+      // last watering date and format
+      var date2 = this.state.watered.split(",");
+      var lastWatered = moment(date2[0], "MMMM Do YYYY");
+      lastWatered = lastWatered.format("MM-DD-YYYY");
+    }
+
+    var waterDate = moment(lastWatered, "MM-DD-YYYY")
+      .add(this.state.wateringInterval, "days")
+      .format("MM-DD-YYYY");
+
+    if (this.state.watered && this.state.wateringInterval !== null) {
+      var dying = moment(waterDate)
+        .add(3, "d")
+        .format("MM-DD-YYYY");
+
+      if (moment(date).isBetween(lastWatered, waterDate, null, [])) {
+        waterStyle.backgroundColor = "#70ef76";
+      } else if (moment(date).isAfter(dying)) {
+        waterStyle.backgroundColor = "red";
+      } else if (moment(date).isAfter(waterDate)) {
+        waterStyle.backgroundColor = "yellow";
+      }
+    } else {
+      waterStyle.backgroundColor = "#70ef76";
+    }
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End of Watering~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    if (this.state.fed) {
+      var dateSplitF = this.state.fed.split(",");
+      var lastFed = moment(dateSplitF[0], "MMMM Do YYYY");
+      lastFed = lastFed.format("MM-DD-YYYY");
+    }
+
+    var fedDate = moment(lastFed, "MM-DD-YYYY")
+      .add(this.state.feedingInterval, "days")
+      .format("MM-DD-YYYY");
+
+    if (this.state.fed && this.state.feedingInterval !== null) {
+      var starve = moment(fedDate)
+        .add(3, "d")
+        .format("MM-DD-YYYY");
+
+      if (moment(date).isBetween(lastFed, fedDate, null, [])) {
+        feederStyle.backgroundColor = "#70ef76"; //green
+      } else if (moment(date).isAfter(starve)) {
+        feederStyle.backgroundColor = "red";
+      } else if (moment(date).isAfter(fedDate)) {
+        feederStyle.backgroundColor = "yellow";
+      }
+    } else {
+      feederStyle.backgroundColor = "#70ef76"; //green
+    }
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End of Feeding~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     return (
       <>
@@ -122,7 +177,7 @@ class PlantInfo extends React.Component {
                 </div>
                 <h4>
                   Last Watering:{" "}
-                  <span class="waterSpan">
+                  <span className="waterSpan">
                     {this.state.watered !== undefined
                       ? moment(
                           this.state.watered,
@@ -133,7 +188,7 @@ class PlantInfo extends React.Component {
                 </h4>
                 <h4>
                   Last Feeding:{" "}
-                  <span class="feedSpan">
+                  <span className="feedSpan">
                     {this.state.fed !== undefined
                       ? moment(
                           this.state.fed,
@@ -162,28 +217,15 @@ class PlantInfo extends React.Component {
                     />
                   </div>
                 </div>
-                {/* <Button
-                  variant="contained"
-                  color="secondary"
-                  className="delete d"
-                  onClick={() => this.removePlant(this)}
-                >
-                  Remove From Garden
-                  <DeleteIcon />
-                </Button> */}
               </div>
-              {/* <img
-                className="userUpload"
-                src={this.state.info[0].url}
-                alt="user uploaded"
-              /> */}
             </Grid>
             <Grid item xs={12} sm={1} />
 
             <Grid item xs={12} sm={12} md={5}>
               <CenteredTabs
                 info={this.state.info}
-                plantId={this.state.plantId}
+				plantId={this.state.plantId}
+				sciName={this.state.sciName}
                 notes={this.state.notes}
               />
             </Grid>

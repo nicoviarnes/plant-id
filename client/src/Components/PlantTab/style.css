@@ -25,8 +25,8 @@
 	position: relative;
 	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
 	text-align: center;
-	margin: 0 auto!important;
-	margin-bottom: 20px!important;
+	margin: 0 auto !important;
+	margin-bottom: 20px !important;
 	/* margin: 0.5em; */
 	margin-top: 0.5em;
 	padding-top: 20px;
@@ -57,7 +57,6 @@
 	background: #6caddc;
 }
 
-
 .img-container > img {
 	width: 60%;
 }
@@ -70,15 +69,14 @@
 	height: auto;
 }
 
-.water {
+/* .water {
 	display: inline-block;
 	position: absolute;
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
 	margin-left: 22%;
-	/* margin-right: 15px; */
-	background-color: #70ef76;
+	
 	bottom: 0;
 	margin-bottom: 20px;
 }
@@ -89,17 +87,15 @@
 	height: 45px;
 	border-radius: 50%;
 	margin-left: 56%;
-	/* margin-right: 15px; */
-	background-color: #70ef76;
+	
 	bottom: 0;
 	margin-bottom: 20px;
-}
+} */
 .wateringCan {
 	width: 40px;
 	height: 40px;
 	margin-top: 2px;
 }
-
 
 .wateringCan:hover {
 	transform: scale(1.2, 1.2);
@@ -139,16 +135,16 @@
 		margin-top: -75px;
 		/* margin-bottom: -80px!important; */
 	}
-	.userUploadBig{
+	.userUploadBig {
 		height: 270px;
-    	width: 270px;
-    	border-radius: 50%;
-    	margin-left: auto;
-    	margin-right: auto;
-    	box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-    	object-fit: cover;
-    	overflow: hidden;
-    	text-align: center;
-    	background: #6caddc;
+		width: 270px;
+		border-radius: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+		object-fit: cover;
+		overflow: hidden;
+		text-align: center;
+		background: #6caddc;
 	}
 }

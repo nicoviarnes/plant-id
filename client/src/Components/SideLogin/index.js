@@ -11,35 +11,32 @@ class SideLogin extends Component {
 	state = {
 		email: "",
 		password: "",
-		emailError:"",
-		passwordError:"",
-		failedError:""
+		emailError: "",
+		passwordError: "",
+		failedError: ""
 	};
 
 	validate = () => {
 		let emailError = "";
 		let passwordError = "";
 
-		if(!this.state.email.includes("@")){
-			emailError = "Please choose a valid email address!"
+		if (!this.state.email.includes("@")) {
+			emailError = "Please choose a valid email address!";
 		}
-		if(!this.state.email.includes(".com")){
-			emailError = "Please choose a valid email address!"
+		if (!this.state.email.includes(".com")) {
+			emailError = "Please choose a valid email address!";
 		}
-		if(this.state.password.length<6){
-			passwordError = "Please choose a password at of least 6 characters"
+		if (this.state.password.length < 6) {
+			passwordError = "Please choose a password at of least 6 characters";
 		}
 
-		if(emailError || passwordError){
-			this.setState({emailError, passwordError});
+		if (emailError || passwordError) {
+			this.setState({ emailError, passwordError });
 			return false;
-
 		}
-		
 
 		return true;
-
-	}
+	};
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
@@ -52,21 +49,20 @@ class SideLogin extends Component {
 		event.preventDefault();
 		let isValid = this.validate();
 
-		if(isValid){
-		API.userLogin({
-			email: this.state.email,
-			password: this.state.password
-		})
-			.then(res => {
-				localStorage.setItem("x-auth-token", res.data.token);
-				window.location.href = "/";
+		if (isValid) {
+			API.userLogin({
+				email: this.state.email.toLowerCase(),
+				password: this.state.password
 			})
-			.catch(err => console.log(err));
-		} else{
+				.then(res => {
+					localStorage.setItem("x-auth-token", res.data.token);
+					window.location.href = "/";
+				})
+				.catch(err => console.log(err));
+		} else {
 			let failedError = "Login Failed";
-			this.setState({failedError});
-
-		}	
+			this.setState({ failedError });
+		}
 	};
 
 	render() {
@@ -78,7 +74,7 @@ class SideLogin extends Component {
 					<hr className="loginHr" />
 				</h1> */}
 				<form className="form">
-				<div className="login-failed">{this.state.failedError}</div>
+					<div className="login-failed">{this.state.failedError}</div>
 					<TextField
 						id="outlined-name-input"
 						label="Email"

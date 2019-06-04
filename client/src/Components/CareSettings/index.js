@@ -9,7 +9,8 @@ class CareSettings extends Component {
     // title: "",
     wateringInterval: "",
     feedingInterval: "",
-    noteError: ""
+    noteError: "",
+    nickname: ""
   };
 
   validate = () => {
@@ -40,66 +41,85 @@ class CareSettings extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.props.plantID);
-
-    API.setWateringInterval({
-      id: this.props.plantID,
-      interval: this.state.wateringInterval
-    })
-      .then(res => {
-        API.setFeedingInterval({
-          id: this.props.plantID,
-          interval: this.state.feedingInterval
-        })
-          .then(res => {
-            console.log(res);
-          })
-          .catch(err => console.log(err));
+    if (this.state.wateringInterval !== "") {
+      API.setWateringInterval({
+        id: this.props.plantID,
+        interval: this.state.wateringInterval
       })
-      .catch(err => console.log(err));
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
+
+    if(this.state.feedingInterval !== "") {
+      API.setFeedingInterval({
+        id: this.props.plantID,
+        interval: this.state.feedingInterval
+      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
+
+    if(this.state.nickname !== "") {
+      API.setNickname({
+        id: this.props.plantID,
+        nickname: this.state.nickname
+      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
+
   };
 
-  componentWillMount() {
-    // API.getUserPlant(this.props.plantID).then(res => {
-    //     var plant = res.data.filter(dat => dat._id === this.props.plantID)
-    //     console.log(plant)
-    //     this.setState({plant})
-    //     this.setState({wateringInterval: plant.wateringInterval})
-    //     this.setState({feedingInterval: plant.feedingInterval})
-    //     console.log(this.state.wateringInterval, this.state.feedingInterval)
-    // });
+  componentDidMount() {
+    this.setState({ wateringInterval: this.props.info[0].wateringInterval });
+    this.setState({ feedingInterval: this.props.info[0].feedingInterval });
+    this.setState({ nickname: this.props.info[0].nickname });
   }
 
   render() {
-    console.log(this.props.info)
+    console.log(this.props.info);
     return (
       <>
         <form className="note-form">
-          <label>
-            <p className="label care">Watering Interval (days): </p>
-            <textarea
-              className="wateringInterval"
-              type="text"
-              name="wateringInterval"
-              minLength="1"
-              maxLength="2"
-              size="2"
-              defaultValue={this.props.info.wateringInterval}
-              onChange={this.handleChange}
-            />
-            <br />
-            <p className="label care">Feeding Interval (days): </p>
-            <textarea
-              className="wateringInterval"
-              type="text"
-              name="feedingInterval"
-              minLength="1"
-              maxLength="2"
-              size="2"
-              defaultValue={this.props.info.feedingInterval}
-              onChange={this.handleChange}
-            />
-            <div className="errorStyle">{this.state.noteError}</div>
-          </label>
+          <p className="label care">Nickname: </p>
+          <textarea
+            className="nickname"
+            type="text"
+            name="nickname"
+            value={this.state.nickname}
+            onChange={this.handleChange}
+          />
+          <br />
+          <p className="label care">Watering Interval (days): </p>
+          <textarea
+            className="wateringInterval"
+            type="text"
+            name="wateringInterval"
+            minLength="1"
+            maxLength="2"
+            size="2"
+            value={this.state.wateringInterval}
+            onChange={this.handleChange}
+          />
+          <br />
+          <p className="label care">Feeding Interval (days): </p>
+          <textarea
+            className="wateringInterval"
+            type="text"
+            name="feedingInterval"
+            minLength="1"
+            maxLength="2"
+            size="2"
+            value={this.state.feedingInterval}
+            onChange={this.handleChange}
+          />
+          <div className="errorStyle">{this.state.noteError}</div>
 
           <Button
             className="note-sub-butt upload"
