@@ -34,16 +34,12 @@ function CenteredTabs(props) {
       let newNotes = res.data.filter(data => data.plant === plant);
       setNotes(newNotes);
     });
-  });
+  }, [props.plantId]);
 
   function handleChange(event, newValue) {
     setValue(newValue);
-    // const plant = props.plantId;
-    // API.getPlantNote(plant).then(res => {
-    //   let newNotes = res.data.filter(data => data.plant === plant);
-    //   setNotes(newNotes);
-    // });
   }
+
   function deleteNote(id) {
     API.delPlantNote({ id })
       .then(res => {
@@ -52,6 +48,7 @@ function CenteredTabs(props) {
       })
       .catch(err => console.log(err));
   }
+
   function removePlant(id) {
     API.removePlant({ id }).then(res => {
       window.location = "/manage";

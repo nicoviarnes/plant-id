@@ -5,17 +5,16 @@ import "./style.css";
 import wateringCan from "../../assets/images/wateringCan.png";
 import moment from "moment";
 
-
 class PlantTab extends React.Component {
   state = {
-		info: null,
-		watered: "",
-		wateringInterval: "",
-		fed: "",
-		feedingInterval: "",
-		plantId: "",
-		notes: null,
-		prevNotes: null
+    info: null,
+    watered: "",
+    wateringInterval: "",
+    fed: "",
+    feedingInterval: "",
+    plantId: "",
+    notes: null,
+    prevNotes: null
   };
 
   water = id => {
@@ -25,7 +24,7 @@ class PlantTab extends React.Component {
       return console.log(res);
     });
   };
-  
+
   feed = id => {
     var date = moment().format("MMMM Do YYYY, h:mm:ss a");
     API.feedPlant({ id, date }).then(res => {
@@ -33,18 +32,20 @@ class PlantTab extends React.Component {
       return console.log(res);
     });
   };
-  
-  
+
   componentWillMount() {
     const plantID = this.props.id;
     API.getUserPlant(plantID).then(res => {
-      
       this.setState({ plantId: plantID });
       this.setState({ info: res.data.filter(dat => dat._id === plantID) });
-      this.setState({ watered: (this.state.info && this.state.info[0].watered )});
-      this.setState({ fed: (this.state.info && this.state.info[0].fed) });
-      this.setState({ feedingInterval: (this.state.info && this.state.info[0].feedingInterval) });
-      this.setState({ wateringInterval: (this.state.info && this.state.info[0].wateringInterval) });
+      this.setState({ watered: this.state.info && this.state.info[0].watered });
+      this.setState({ fed: this.state.info && this.state.info[0].fed });
+      this.setState({
+        feedingInterval: this.state.info && this.state.info[0].feedingInterval
+      });
+      this.setState({
+        wateringInterval: this.state.info && this.state.info[0].wateringInterval
+      });
     });
   }
 
@@ -74,33 +75,17 @@ class PlantTab extends React.Component {
     // get current day
     var date = moment().format("MM-DD-YYYY");
 
-    if (this.state.watered) {
-      // console.log(this.state.watered);
-      // last watering date and format
+    if (this.state.watered && this.state.wateringInterval !== null) {
       var date2 = this.state.watered.split(",");
+
       var lastWatered = moment(date2[0], "MMMM Do YYYY");
       lastWatered = lastWatered.format("MM-DD-YYYY");
-    }
-
-    var waterDate = moment(lastWatered, "MM-DD-YYYY")
-      .add(this.state.wateringInterval, "days")
-      .format("MM-DD-YYYY");
-
-    if (this.state.watered && this.state.wateringInterval !== null) {
-      // console.log("Needed: ", this.state.needed);
-      // console.log("Today: ", date);
-      // console.log("Next Water: ", waterDate);
-      // console.log("Last Watered", lastWatered);
-      // console.log(
-      // 	`If "${lastWatered}" is between "${date}" and "${waterDate}"`
-      // );
-      // console.log(moment(date).isBetween(lastWatered, waterDate, null, []));
-
+      var waterDate = moment(lastWatered, "MM-DD-YYYY")
+        .add(this.state.wateringInterval, "days")
+        .format("MM-DD-YYYY");
       var dying = moment(waterDate)
         .add(3, "d")
         .format("MM-DD-YYYY");
-      // console.log("Dying", dying);
-      // console.log(`Dying If "${date}" is after "${dying}"`);
 
       if (moment(date).isBetween(lastWatered, waterDate, null, [])) {
         waterStyle.backgroundColor = "#70ef76";
