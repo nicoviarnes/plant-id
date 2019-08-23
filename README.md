@@ -7,7 +7,7 @@ Welcome to Plantify! Do you ever wonder what that plant was you received as a ho
 
 ## Contributors
 
-Blake Deeto [https://github.com/bmdito](https://github.com/bmdito)
+Blake Dito [https://github.com/bmdito](https://github.com/bmdito)
 Jacob Haas [https://github.com/adventuroussheep](https://github.com/adventuroussheep)
 Lap (Larry) Nguyen [https://github.com/Larrylapnguyen](https://github.com/Larrylapnguyen)
 Nico Viarnes [https://github.com/nicoviarnes](https://github.com/nicoviarnes)
